@@ -1,1 +1,3 @@
-"# DepartmentOfStatisticsPUE.github.io" 
+# DepartmentOfStatisticsPUE.github.io
+
+[Statystyka opisowa](statystyka-opisowa/)
