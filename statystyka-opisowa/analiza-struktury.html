@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Statystyka opisowa</title>
+  <meta name="description" content="Statystyka opisowa">
+  <meta name="generator" content="bookdown 0.5 and GitBook 2.6.7">
+
+  <meta property="og:title" content="Statystyka opisowa" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Statystyka opisowa" />
+  
+  
+  
+
+<meta name="author" content="Katedra Statystyki">
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="wizualizacja-danych.html">
+<link rel="next" href="korelacje.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+<script src="https://hypothes.is/embed.js" async></script>
+
+
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Wprowadzenie</a></li>
+<li class="chapter" data-level="1" data-path="zbiorowosc.html"><a href="zbiorowosc.html"><i class="fa fa-check"></i><b>1</b> Zbiorowość, jednostka, cecha</a><ul>
+<li class="chapter" data-level="1.1" data-path="zbiorowosc.html"><a href="zbiorowosc.html#zbiory-danych"><i class="fa fa-check"></i><b>1.1</b> Zbiory danych</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="wizualizacja-danych.html"><a href="wizualizacja-danych.html"><i class="fa fa-check"></i><b>2</b> Wizualizacja danych</a><ul>
+<li class="chapter" data-level="2.1" data-path="wizualizacja-danych.html"><a href="wizualizacja-danych.html#rodzaje-rozkadow"><i class="fa fa-check"></i><b>2.1</b> Rodzaje rozkładów</a></li>
+<li class="chapter" data-level="2.2" data-path="wizualizacja-danych.html"><a href="wizualizacja-danych.html#szeregi-statystyczne"><i class="fa fa-check"></i><b>2.2</b> Szeregi statystyczne</a></li>
+<li class="chapter" data-level="2.3" data-path="wizualizacja-danych.html"><a href="wizualizacja-danych.html#dystrybuanta"><i class="fa fa-check"></i><b>2.3</b> Dystrybuanta</a></li>
+<li class="chapter" data-level="2.4" data-path="wizualizacja-danych.html"><a href="wizualizacja-danych.html#histogramy"><i class="fa fa-check"></i><b>2.4</b> Histogramy</a><ul>
+<li class="chapter" data-level="2.4.1" data-path="wizualizacja-danych.html"><a href="wizualizacja-danych.html#metoda-arbitralnie-ustalanej-szerokosci-przedziaow"><i class="fa fa-check"></i><b>2.4.1</b> Metoda arbitralnie ustalanej szerokosci przedziałów</a></li>
+<li class="chapter" data-level="2.4.2" data-path="wizualizacja-danych.html"><a href="wizualizacja-danych.html#metoda-pierwiastkowa"><i class="fa fa-check"></i><b>2.4.2</b> Metoda pierwiastkowa</a></li>
+<li class="chapter" data-level="2.4.3" data-path="wizualizacja-danych.html"><a href="wizualizacja-danych.html#metoda-strugesa"><i class="fa fa-check"></i><b>2.4.3</b> Metoda Struges’a</a></li>
+<li class="chapter" data-level="2.4.4" data-path="wizualizacja-danych.html"><a href="wizualizacja-danych.html#metoda-uniwersytetu-rice"><i class="fa fa-check"></i><b>2.4.4</b> Metoda Uniwersytetu Rice</a></li>
+<li class="chapter" data-level="2.4.5" data-path="wizualizacja-danych.html"><a href="wizualizacja-danych.html#metoda-doanea"><i class="fa fa-check"></i><b>2.4.5</b> Metoda Doane’a</a></li>
+<li class="chapter" data-level="2.4.6" data-path="wizualizacja-danych.html"><a href="wizualizacja-danych.html#metoda-scotta"><i class="fa fa-check"></i><b>2.4.6</b> Metoda Scott’a</a></li>
+<li class="chapter" data-level="2.4.7" data-path="wizualizacja-danych.html"><a href="wizualizacja-danych.html#metoda-freedmanadiaconisa"><i class="fa fa-check"></i><b>2.4.7</b> Metoda Freedmana–Diaconis’a</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="analiza-struktury.html"><a href="analiza-struktury.html"><i class="fa fa-check"></i><b>3</b> Analiza struktury</a><ul>
+<li class="chapter" data-level="3.1" data-path="analiza-struktury.html"><a href="analiza-struktury.html#miary-klasyczne"><i class="fa fa-check"></i><b>3.1</b> Miary klasyczne</a></li>
+<li class="chapter" data-level="3.2" data-path="analiza-struktury.html"><a href="analiza-struktury.html#miary-pozycyjne"><i class="fa fa-check"></i><b>3.2</b> Miary pozycyjne</a></li>
+<li class="chapter" data-level="3.3" data-path="analiza-struktury.html"><a href="analiza-struktury.html#szereg-jednostkowy-i-przedziaowy"><i class="fa fa-check"></i><b>3.3</b> Szereg jednostkowy i przedziałowy</a><ul>
+<li class="chapter" data-level="3.3.1" data-path="analiza-struktury.html"><a href="analiza-struktury.html#szereg-jednostkowy"><i class="fa fa-check"></i><b>3.3.1</b> Szereg jednostkowy</a></li>
+<li class="chapter" data-level="3.3.2" data-path="analiza-struktury.html"><a href="analiza-struktury.html#szereg-przedziaowy"><i class="fa fa-check"></i><b>3.3.2</b> Szereg przedziałowy</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="analiza-struktury.html"><a href="analiza-struktury.html#podsumowanie-miar"><i class="fa fa-check"></i><b>3.4</b> Podsumowanie miar</a><ul>
+<li class="chapter" data-level="3.4.1" data-path="analiza-struktury.html"><a href="analiza-struktury.html#miary-klasyczne-1"><i class="fa fa-check"></i><b>3.4.1</b> Miary klasyczne</a></li>
+<li class="chapter" data-level="3.4.2" data-path="analiza-struktury.html"><a href="analiza-struktury.html#miary-pozycyjne-1"><i class="fa fa-check"></i><b>3.4.2</b> Miary pozycyjne</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="korelacje.html"><a href="korelacje.html"><i class="fa fa-check"></i><b>4</b> Korelacje</a><ul>
+<li class="chapter" data-level="4.1" data-path="korelacje.html"><a href="korelacje.html#cechy-jakosciowe"><i class="fa fa-check"></i><b>4.1</b> Cechy jakościowe</a></li>
+<li class="chapter" data-level="4.2" data-path="korelacje.html"><a href="korelacje.html#cechy-ciage"><i class="fa fa-check"></i><b>4.2</b> Cechy ciągłe</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="regresja.html"><a href="regresja.html"><i class="fa fa-check"></i><b>5</b> Regresja</a><ul>
+<li class="chapter" data-level="5.1" data-path="regresja.html"><a href="regresja.html#regresja-prosta"><i class="fa fa-check"></i><b>5.1</b> Regresja prosta</a></li>
+<li class="chapter" data-level="5.2" data-path="regresja.html"><a href="regresja.html#trend-liniowy"><i class="fa fa-check"></i><b>5.2</b> Trend liniowy</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="sezonowosc.html"><a href="sezonowosc.html"><i class="fa fa-check"></i><b>6</b> Sezonowość</a><ul>
+<li class="chapter" data-level="6.1" data-path="sezonowosc.html"><a href="sezonowosc.html#trend-liniowy-1"><i class="fa fa-check"></i><b>6.1</b> Trend liniowy</a></li>
+<li class="chapter" data-level="6.2" data-path="sezonowosc.html"><a href="sezonowosc.html#model-addytywny"><i class="fa fa-check"></i><b>6.2</b> Model addytywny</a></li>
+<li class="chapter" data-level="6.3" data-path="sezonowosc.html"><a href="sezonowosc.html#model-multiplikatywny"><i class="fa fa-check"></i><b>6.3</b> Model multiplikatywny</a></li>
+<li class="chapter" data-level="6.4" data-path="sezonowosc.html"><a href="sezonowosc.html#ocena-jakosci"><i class="fa fa-check"></i><b>6.4</b> Ocena jakości</a></li>
+<li class="chapter" data-level="6.5" data-path="sezonowosc.html"><a href="sezonowosc.html#bad-prognozy"><i class="fa fa-check"></i><b>6.5</b> Błąd prognozy</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="analiza-szeregu-dynamicznego.html"><a href="analiza-szeregu-dynamicznego.html"><i class="fa fa-check"></i><b>7</b> Analiza szeregu dynamicznego</a><ul>
+<li class="chapter" data-level="7.1" data-path="analiza-szeregu-dynamicznego.html"><a href="analiza-szeregu-dynamicznego.html#przyrosty-absolutne"><i class="fa fa-check"></i><b>7.1</b> Przyrosty absolutne</a></li>
+<li class="chapter" data-level="7.2" data-path="analiza-szeregu-dynamicznego.html"><a href="analiza-szeregu-dynamicznego.html#przyrosty-wzgledne"><i class="fa fa-check"></i><b>7.2</b> Przyrosty względne</a></li>
+<li class="chapter" data-level="7.3" data-path="analiza-szeregu-dynamicznego.html"><a href="analiza-szeregu-dynamicznego.html#indeksy"><i class="fa fa-check"></i><b>7.3</b> Indeksy</a></li>
+<li class="chapter" data-level="7.4" data-path="analiza-szeregu-dynamicznego.html"><a href="analiza-szeregu-dynamicznego.html#srednie-tempo-zmian"><i class="fa fa-check"></i><b>7.4</b> Średnie tempo zmian</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="indeksy-indywidualne-i-zespoowe.html"><a href="indeksy-indywidualne-i-zespoowe.html"><i class="fa fa-check"></i><b>8</b> Indeksy indywidualne i zespołowe</a><ul>
+<li class="chapter" data-level="8.1" data-path="indeksy-indywidualne-i-zespoowe.html"><a href="indeksy-indywidualne-i-zespoowe.html#indeksy-indywidualne"><i class="fa fa-check"></i><b>8.1</b> Indeksy indywidualne</a></li>
+<li class="chapter" data-level="8.2" data-path="indeksy-indywidualne-i-zespoowe.html"><a href="indeksy-indywidualne-i-zespoowe.html#indeksy-zespoowe-agregatowe"><i class="fa fa-check"></i><b>8.2</b> Indeksy zespołowe (agregatowe)</a></li>
+<li class="chapter" data-level="8.3" data-path="indeksy-indywidualne-i-zespoowe.html"><a href="indeksy-indywidualne-i-zespoowe.html#przykad"><i class="fa fa-check"></i><b>8.3</b> Przykład</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Statystyka opisowa</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="analiza-struktury" class="section level1">
+<h1><span class="header-section-number">3</span> Analiza struktury</h1>
+<p><strong>Kompleksowa analiza struktury</strong> oznacza wyczerpujący opis cech zbiorowości statystycznej. Do charakterystyk najczęściej wykorzystywanych przy opisie struktury zbiorowości należą:</p>
+<ul>
+<li>miary przeciętne - służące do określania tej wartości zmiennej opisanej przez rozkład, wokół której skupiają się pozostałe wartości zmiennej,</li>
+<li>miary rozproszenia (dyspersji) - służące do badania stopnia zróżnicowania wartości zmiennej,</li>
+<li>miary asymetrii - służące do badania asymetrii rozkładu,</li>
+<li>miary koncentracji - służące do analizy stopnia skupienia poszczególnych jednostek wokół średniej.</li>
+</ul>
+<p>Analiza struktury bazuje na dwóch typach miar:</p>
+<ul>
+<li>miary klasyczne - obliczane na podstawie wszystkich obserwacji,</li>
+<li>miary pozycyjne - wartość miary wskazuje dana jednostka.</li>
+</ul>
+<p>Celem analizy struktury jest dostarczenie kilku liczb, które w łatwy sposób pozwolą na opis i porównania badanych cech.</p>
+<p><strong>Dominanta</strong> czyli najczęściej występująca wartość. Inaczej moda, modalna, tryb (w Excelu - kalka językowa z angielskiego słowa <em>mode</em>. Wartość dominanty można ustalić jedynie dla rozkładów jednomodalnych.</p>
+<p>W Excelu jest funkcja:</p>
+<ul>
+<li>WYST.NAJCZĘSĆIEJ,</li>
+</ul>
+<p>jednak dla rozkładów wielomodalnych zwróci ona pierwszą modalną.</p>
+<div id="miary-klasyczne" class="section level2">
+<h2><span class="header-section-number">3.1</span> Miary klasyczne</h2>
+<p>Najpopularniejszym przedstawicielem miar klasycznych jest <strong>średnia arytmetyczna</strong>. Wyrażona jest wzorem:</p>
+<p><span class="math display">\[\bar{x}=\frac{\sum\limits_{i=1}^{N}{x_{i}}}{N},\]</span></p>
+<p>gdzie:</p>
+<ul>
+<li><span class="math inline">\(\bar{x}\)</span> - symbol średniej arytmetycznej,</li>
+<li><span class="math inline">\(x_{i}\)</span> — wariant cechy mierzalnej,</li>
+<li><span class="math inline">\(N\)</span> — liczebność badanej zbiorowości.</li>
+</ul>
+<p>Co sprawia, że średnia jest tak powszechną i uniwersalną miarą? Jest to liczba, która ma najwięcej wspólnego z każdą wartością cechy w zbiorowości. Innymi słowy, odległość wartości cechy od średniej jest najmniejsza z możliwych.</p>
+<p>Przykładowo, dane są oceny jednego ze studentów: 3, 4, 5, 3+, 2, 4, 3</p>
+<p><img src="KS-Statystyka_opisowa_files/figure-html/srednia-1.png" width="768" /></p>
+<p>Na powyższym wykresie punkty oznaczają kolejne oceny, natomiast średnia została zaznaczona kolorem czerwonym - wynosi ona 3,5.</p>
+<p>Jako miarę odległości poszczególnych ocen od średniej możemy przyjąć wartość bezwzględną różnicy danej oceny i średniej. W tej sytuacji pierwsza ocena różni się od średniej o 0,5, druga ocena także, natomiast trzecia o 1,5, itd. Po zsumowaniu tych wartości otrzymujemy sumę odchyleń równą 5. Jest to najmniejsza wartość jaką jesteśmy w stanie otrzymać. Jeżeli stwierdzimy, że w naszym mniemaniu wartość 3,55 jest lepszą miarą przeciętną to suma odchyleń będzie już większa i wyniesie 5.05.</p>
+<p>W Excelu istnieje funkcja:</p>
+<ul>
+<li>ŚREDNIA.</li>
+</ul>
+<p>Średnia stanowi także dobrą miarę jeśli chcemy porównać jakieś grupy. Co jednak zrobić w sytuacji, kiedy przykładowo dwaj studenci mają identyczne średnie ocen? Czy to oznacza, że ich oceny są także takie same? Taka sytuacja może się zdarzyć, ale występuje dosyć rzadko. Poniżej zostały przedstawione oceny dwóch studentów, którzy mają identyczną średnią.</p>
+<p><img src="KS-Statystyka_opisowa_files/figure-html/s2-1.png" width="768" /></p>
+<p>To co możemy zauważyć gołym okiem to fakt, że oceny studenta nr 2 są bliżej średniej. Miarą zróżnicowania cechy jest <strong>wariancja</strong> dana formułą:</p>
+<p><span class="math display">\[s^2=\frac{1}{N}\sum\limits_{i=1}^{N}{(x_{i}-\bar{x})^2}\]</span></p>
+<p>gdzie:</p>
+<ul>
+<li><span class="math inline">\(s^2\)</span> - symbol wariancji,</li>
+<li><span class="math inline">\(\bar{x}\)</span> - średnia arytmetyczna w zbiorowości,</li>
+<li><span class="math inline">\(x_{i}\)</span> - wariant cechy mierzalnej,</li>
+<li><span class="math inline">\(N\)</span> - liczebność badanej zbiorowości.</li>
+</ul>
+<p>Jeżeli przeanalizujemy wzór na wariancję jest on bardzo logiczny. W pierwszym kroku liczymy odchylenia wartości cechy od średniej. Następnie otrzymane wartości podnosimy do kwadratu w celu uniknięcia wartości ujemnych, a następnie wszystko uśredniamy. Możemy zatem powiedzieć, że wariancja jest średnią kwadratów odchyleń wartości od średniej.</p>
+<p>Wariancja ocen pierwszego studenta wynosi 0.79, natomiast drugiego 0.14. Na podstawie tej miary jesteśmy w stanie stwierdzić, że większe zróżnicowanie ocen występuje u pierwszego studenta. Nie możemy jednak powiedzieć jak bardzo się różnią ponieważ wariancji nie jesteśmy w stanie zinterpretować. Wynika to z faktu, że wynik wariancji jest podawany w jednostkach do kwadratu, co zwykle jest pozbawione sensu.</p>
+<p>W Excelu dysponujemy dwiema funkcjami do wyliczenia wariancji:</p>
+<ul>
+<li>WARIANCJA.POP (we wzorze znajduje się <span class="math inline">\(\frac{1}{N}\)</span>),</li>
+<li>WARIANCJA.PRÓBKI (we wzorze znajduje się <span class="math inline">\(\frac{1}{N-1}\)</span>).</li>
+</ul>
+<p>W zależności od tego czy mamy informację o populacji czy tylko próbie powinniśmy stosować odpowiednią formułę. Podczas zajęć przyjmujemy, że dysponujemy całą populacją i będziemy stosować odpowiednie funkcje.</p>
+<p>Pierwiastek z wariancji czyli <strong>odchylenie standardowe</strong> umożliwia liczbowe określenie zróżnicowania. Informuje o ile jednostki zbiorowości różnią się średnio od średniej. W interpretacji odchylenia standardowego musimy pamiętać o pojawiającym się dwa razy słowie <em>średnia</em>. Pierwsze dotyczy średniej zastosowanej we wzorze na wariancje, a drugie określa policzoną wcześniej średnią arytmetyczną.</p>
+<p>O pierwszym studencie powiemy, że jego oceny różnią się średnio od średniej o 0.89 oceny, natomiast oceny drugiego studenta odchylają się średnio od średniej o 0.37 oceny.</p>
+<p>Podobnie jak w przypadku wariancji w Excelu znajdują się dwie funkcje do wyznaczania odchylenia standardowego:</p>
+<ul>
+<li>ODCH.STAND.POPUL,</li>
+<li>ODCH.STANDARD.PRÓBKI.</li>
+</ul>
+<p>Jak jednak porównać cechy, które mają różne średnie i odchylenia standardowe?</p>
+<p>Przeprowadzono eksperyment, w którym 100 osobom zmierzono długość ręki i nogi.</p>
+<p><img src="KS-Statystyka_opisowa_files/figure-html/v_s-1.png" width="768" /></p>
+<p>Średnia długość nogi wynosiła 102.97 cm, a odchylenie standardowe 9.24 cm. Z kolei długość ręki charakteryzowała się wartością 74.78 cm z odchyleniem standardowym rzędu 9.33 cm. Ocena zróżnicowania cech o różnych średnich jest możliwe z wykorzystaniem <strong>klasycznego współczynnika zmienności</strong>:</p>
+<p><span class="math display">\[V_{s}=\frac{s}{\bar{x}}\cdot 100,\]</span></p>
+<p>gdzie:</p>
+<ul>
+<li><span class="math inline">\(s\)</span> - odchylenie standardowe,</li>
+<li><span class="math inline">\(\bar{x}\)</span> - średnia arytmetyczna.</li>
+</ul>
+<p>Współczynnik zmienności wyrażony jest w procentach i można przyjąć kilka umownych progów:</p>
+<ul>
+<li>0%-20% - cecha mało zróżnicowana,</li>
+<li>21%-40% - cecha umiarkowanie zróżnicowana,</li>
+<li>41%-60% - cecha silnie zróżnicowana,</li>
+<li>powyżej 60% - cecha bardzo silnie zróżnicowana.</li>
+</ul>
+<p>Oczywiście wszystko zależy od tego jaką cechę analizujemy i jakie jest jej typowe zróżnicowanie.</p>
+<p>Obliczając wartość współczynnika zmienności dla długości nogi otrzymamy 8.97%, natomiast dla długości ręki 12.48%. Na tej podstawie możemy stwierdzić, że długość ręki charakteryzuje się większym zróżnicowaniem.</p>
+<p>Klasyczny współczynnik zmienności nie ma oprogramowanej odpowiedniej funkcji w Excelu.</p>
+<p>Odchylenie standardowe oraz średnią zestawiamy ze sobą także podczas wyznaczania <strong>typowego obszaru zmienności</strong>:</p>
+<p><span class="math display">\[\bar{x} - s &lt; x_{typ} &lt; \bar{x} + s\]</span></p>
+<p>Zgodnie z definicją w tym przedziale mieści się około 2/3 wszystkich jednostek analizowanej cechy.</p>
+<p>Typowy obszar zmienności dla długości nogi to przedział od 93.73 cm do 112.21 cm i w rzeczywistości zawiera 74% obserwacji.</p>
+<p>Patrz też: <a href="http://www.naukowiec.org/wiedza/statystyka/regula-trzech-sigm_709.html">Reguła trzech sigm</a>.</p>
+<p>Do kompletnego opisu struktury brakuje tylko miar określających asymetrię oraz skupienie wokół średniej. <strong>Klasyczny współczynnik asymetrii</strong> nazywany także trzecim momentem centralnym albo skośnością jest wyrażony wzorem:</p>
+<p><span class="math display">\[\alpha_{3}=\frac{\frac{1}{N}\sum\limits_{i=1}^{N}{(x_{i}-\bar{x})^3}}{s^3},\]</span></p>
+<p>gdzie:</p>
+<ul>
+<li><span class="math inline">\(\alpha_{3}\)</span> - symbol klasycznego współczynnika asymetrii,<br />
+</li>
+<li><span class="math inline">\(s\)</span> - odchylenie standardowe w zbiorowości,</li>
+<li><span class="math inline">\(\bar{x}\)</span> - średnia arytmetyczna w zbiorowości,</li>
+<li><span class="math inline">\(x_{i}\)</span> - wariant cechy mierzalnej,</li>
+<li><span class="math inline">\(N\)</span> - liczebność badanej zbiorowości.</li>
+</ul>
+<p>Pozwala określić czy rozkład cechy jest:</p>
+<ul>
+<li>symetryczny - rozkład jest symetryczny, <span class="math inline">\(\alpha_{3}=0\)</span>,</li>
+<li>lewostronnie asymetryczny - wydłużone lewe ramię rozkładu, <span class="math inline">\(\alpha_{3}&lt;0\)</span>,</li>
+<li>prawostronnie asymetryczny - wydłużone prawe ramię rozkładu, <span class="math inline">\(\alpha_{3}&gt;0\)</span>.</li>
+</ul>
+<p>Skośność dla długości nogi wynosi 0.1134617, co oznacza, że rozkład długości nóg cechuje się lekką prawostronną asymetrią.</p>
+<p>W Excelu znajduje się funkcja o nazwie:</p>
+<ul>
+<li>SKOŚNOŚĆ.</li>
+</ul>
+<p>Skupienie wokół średniej definiuje <strong>klasyczny współczynnik koncentracji</strong>, inaczej czwarty moment centralny lub kurtoza:</p>
+<p><span class="math display">\[\alpha_{4}=\frac{\frac{1}{N}\sum\limits_{i=1}^{N}{(x_{i}-\bar{x})^4}}{s^4},\]</span></p>
+<p>gdzie:</p>
+<ul>
+<li><span class="math inline">\(\alpha_{4}\)</span> - symbol klasycznego współczynnika koncentracji,<br />
+</li>
+<li><span class="math inline">\(s\)</span> - odchylenie standardowe w zbiorowości,</li>
+<li><span class="math inline">\(\bar{x}\)</span> - średnia arytmetyczna w zbiorowości,</li>
+<li><span class="math inline">\(x_{i}\)</span> - wariant cechy mierzalnej,</li>
+<li><span class="math inline">\(N\)</span> - liczebność badanej zbiorowości.</li>
+</ul>
+<p>Pozwala określić czy rozkład cechy jest:</p>
+<ul>
+<li>normalny - <span class="math inline">\(\alpha_{4}=3\)</span>,</li>
+<li>spłaszczony - wartości nie są mocno skoncentrowane wokół średniej, <span class="math inline">\(\alpha_{4}&lt;3\)</span>,</li>
+<li>wysmukły - wartości są mocno skoncentrowane wokół średniej, <span class="math inline">\(\alpha_{4}&gt;3\)</span>.</li>
+</ul>
+<p>Niektóre programy zamiast kurtozy wyznaczają tzw. eksces:</p>
+<p><span class="math inline">\(Ex=\alpha_{4}-3\)</span></p>
+<p>Wówczas wartość tej miary interpretujemy przyjmując za punkt odniesienia wartość 0.</p>
+<p>Kurtoza dla długości nogi wynosi 6.4025412, co oznacza, że rozkład długości nóg jest wysmukły.</p>
+<p>W Excelu znajduje się funkcja o nazwie:</p>
+<ul>
+<li>KURTOZA.</li>
+</ul>
+<p>Do wyznaczenia powyższych miar można także wykorzystać dodatek programu Excel: Analiza danych znajdujący się po prawej stronie we wstążce DANE. Jeśli nie widzimy tego dodatku to klikamy <em>Przycisk pakietu Office</em> w lewym górnym rogu ekranu, następnie <em>Opcje</em>. W nowym oknie przechodzimy do <em>Dodatki</em> i na dole okna przycisk <em>Przejdź</em>. Zaznaczamy <em>Analysis ToolPak</em> i wybieramy <em>OK</em>.</p>
+<p><em>Przykład</em></p>
+<p>Wykorzystując zbiór danych na temat sklepów Rossmann przeprowadzimy kompleksową analizę porównawczą struktury sprzedaży w dwóch wybranych sklepach. Pierwszy ze sklepów (id=1) posiada asortyment podstawowy i jest typu <em>c</em>, natomiast drugi (id=7) posiada asortyment rozszerzony i jest typu <em>a</em>. W pierwszym kroku zobaczmy jak wygląda rozkład analizowanej cechy po wyeliminowaniu dni, w którym sklep był zamknięty.</p>
+<p><img src="KS-Statystyka_opisowa_files/figure-html/as-ross-hist-1.png" width="768" /></p>
+<p>Już na pierwszy rzut oka widać różnice w rozkładzie sprzedaży dla poszczególnych sklepów. Pierwszy z rozkładów jest bardziej wysmukły, natomiast w drugim przypadku obserwujemy wyższe wartości sprzedaży. Z wykorzystaniem miar klasycznych dokonamy analizy sprzedaży.</p>
+<table>
+<thead>
+<tr class="header">
+<th></th>
+<th align="right">Sklep_1</th>
+<th align="right">Sklep_7</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>n</td>
+<td align="right">303.00</td>
+<td align="right">305.00</td>
+</tr>
+<tr class="even">
+<td>x_sr</td>
+<td align="right">4730.72</td>
+<td align="right">8975.03</td>
+</tr>
+<tr class="odd">
+<td>s</td>
+<td align="right">1057.28</td>
+<td align="right">2487.50</td>
+</tr>
+<tr class="even">
+<td>v_s</td>
+<td align="right">22.35</td>
+<td align="right">27.72</td>
+</tr>
+<tr class="odd">
+<td>alpha_3</td>
+<td align="right">1.00</td>
+<td align="right">0.58</td>
+</tr>
+<tr class="even">
+<td>alpha_4</td>
+<td align="right">4.53</td>
+<td align="right">2.83</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="miary-pozycyjne" class="section level2">
+<h2><span class="header-section-number">3.2</span> Miary pozycyjne</h2>
+<p>Podstawą miar pozycyjnych jest podział cechy zbiorowości na cztery równe części. Punkty podziału wskazują nam kwartyle. Najpopularniejszą z miar pozycyjnych jest <strong>mediana</strong> (kwartyl 2, wartość środkowa, <span class="math inline">\(Q_2\)</span>), która wyznacza wartość dla której 50% jednostek zbiorowości ma wartości cechy niższe bądź równe medianie, a 50% równe bądź wyższe od mediany.</p>
+<p>Medianę wyznacza się poprzez posortowanie wartości cechy rosnąco i wybór wartości środkowej (jeśli <span class="math inline">\(N\)</span> jest nieparzyste) lub średniej z wartości środkowych (jeśli <span class="math inline">\(N\)</span> jest parzyste).</p>
+<p>Zaletą mediany jest mniejsza wrażliwość na obserwacje odstające. Rozważmy przypadek wynagrodzeń w pewnych przedsiębiorstwach:</p>
+<p><img src="KS-Statystyka_opisowa_files/figure-html/mediana-1.png" width="768" /></p>
+<p>W firmie A wynagrodzenia pracowników nie są zróżnicowane, ale nie występują pomiędzy nimi zbyt duże różnice. Średnia pensja (kolor czerwony) wynosi 3357 zł, natomiast mediana (kolor niebieski) odpowiada wynagrodzeniom 7 i 8 pracownika - 3500 zł. Można powiedzieć, że obie wartości dobrze odzwierciedlają realne zarobki pracowników. Z kolei w firmie B nierówności dochodowe są znacznie większe, możliwe że zestawiono wynagrodzenia pracowników szeregowych oraz kadry zarządzającej. Średnia wynosząca 3104 zł nie oddaje prawdziwych zarobków ani pierwszej ani drugiej grupy. Natomiast wartość mediany wynosząca 2525 zł jest bardziej odporna na wartości odstające. Mediana wynagrodzenia w firmie B oznacza, że 50% pracowników otrzymuje pensję w wysokości 2525 zł lub mniej, natomiast drugie 50% zatrudnionych uzyskuje wynagrodzenie w wysokości 2525 zł lub więcej.</p>
+<p>W Excelu możemy skorzystać z funkcji:</p>
+<ul>
+<li>MEDIANA(wartości cechy),</li>
+<li>KWARTYL.PRZEDZ.ZAMK(wartości cechy, 2).</li>
+</ul>
+<p>Mediana podzieliła nam jednostki zbiorowości na dwie połowy. Jeśli podzielimy pierwszą połową ponownie na pół otrzymamy wartość <strong>kwartyla pierwszego (dolnego)</strong>, który informuje, że 25% jednostek zbiorowości ma wartości cechy niższe bądź równe kwartylowi pierwszemu <span class="math inline">\(Q_{1}\)</span>, a 75% równe bądź wyższe od tego kwartyla. Z kolei po podzieleniu drugiej połowy obserwacji uzyskujemy wartość <strong>kwartyla trzeciego (górnego)</strong>, który informuje, że 75% jednostek zbiorowości ma wartości cechy niższe bądź równe kwartylowi trzeciemu <span class="math inline">\(Q_{3}\)</span>, a 25% równe bądź wyższe od tego kwartyla.</p>
+<p>Do wyznaczenia wartości kwartyli w Excelu korzystamy z funkcji:</p>
+<ul>
+<li>KWARTYL.PRZEDZ.ZAMK(wartości cechy, numer kwartyla),</li>
+</ul>
+<p>gdzie numer kwartyla to:</p>
+<ul>
+<li>0 - minimum,</li>
+<li>1 - kwartyl dolny,</li>
+<li>2 - mediana,</li>
+<li>3 - kwartyl górny,</li>
+<li>4 - maksimum.</li>
+</ul>
+<p>W firmie A kwartyl dolny wynagrodzeń wyniósł 2550 zł, co oznacza, że 25% pracowników uzyskuje pensją równą bądź niższą niż 2550 zł, a 75% równą bądź wyższą niż 2550. Z kolei 75% pracowników otrzymuje wynagrodzenie mniejsze lub równe 4038 zł, a 25% większe bądź równe 4038 zł. W firmie B kwartyl pierwszy jest równy 2238 zł, a trzeci 4350 zł.</p>
+<p>Wartości kwartyli można przedstawić na wykresie pudełkowym (ang. boxplot):</p>
+<p><img src="KS-Statystyka_opisowa_files/figure-html/boxplot-1.png" width="768" /></p>
+<p>W miarach pozycyjnych opartych na kwartylach zróżnicowanie wartości od mediany mierzy <strong>odchylenie ćwiartkowe</strong>:</p>
+<p><span class="math display">\[Q=\frac{Q_{3}-Q_{1}}{2}\]</span></p>
+<p>gdzie:</p>
+<ul>
+<li><span class="math inline">\(Q\)</span> - symbol odchylenia ćwiartkowego,</li>
+<li><span class="math inline">\(Q_{1}\)</span> - kwartyl pierwszy,</li>
+<li><span class="math inline">\(Q_{3}\)</span> - kwartyl trzeci.</li>
+</ul>
+<p>Mierzy ono przeciętne odchylenie wartości cechy zbiorowości od mediany u 50% środkowych jednostek - między kwartylem dolnym i górnym. Przykładowo w firmie A przeciętne odchylenie wynagrodzenia od mediany wynosi 744 zł.</p>
+<p>Zestawienie ochylenia ćwiartkowego oraz mediany pozwala na obliczenie <strong>pozycyjnego współczynnika zmienności</strong>:</p>
+<p><span class="math display">\[V_{Q}=\frac{Q}{Q_2} \cdot 100\]</span></p>
+<p>gdzie:</p>
+<ul>
+<li><span class="math inline">\(V_{Q}\)</span> - symbol pozycyjnego współczynnika zmienności,</li>
+<li><span class="math inline">\(Q\)</span> - odchylenie ćwiartkowe,</li>
+<li><span class="math inline">\(Q_2\)</span> - mediana.</li>
+</ul>
+<p>Podobnie jak w przypadku klasycznego współczynnika zmienności korzystamy z umownych progów dotyczących zróżnicowania. W firmie A pozycyjny współczynnik zmienności był równy 21% co oznacza, że wynagrodzenia w tej firmie cechowały się umiarkowanym zróżnicowaniem, natomiast w firmie B było to 42% czyli silne zróżnicowanie wynagrodzeń.</p>
+<p>Ostatnią miarą opartą na kwartylach jest <strong>pozycyjny współczynnik asymetrii</strong>, który określa kierunek i siłę asymetrii jednostek znajdujących się między pierwszym i trzecim kwartylem:</p>
+<p><span class="math display">\[A_{Q}=\frac{Q_{1}+Q_{3}-2 \cdot Q_2}{2 \cdot Q}\]</span></p>
+<p>gdzie:</p>
+<ul>
+<li><span class="math inline">\(A_{Q}\)</span> — symbol pozycyjnego współczynnika asymetrii,</li>
+<li><span class="math inline">\(Q_{1}\)</span> — kwartyl pierwszy,</li>
+<li><span class="math inline">\(Q_{3}\)</span> — kwartyl trzeci,</li>
+<li><span class="math inline">\(Q_{2}\)</span> — mediana,</li>
+<li><span class="math inline">\(Q\)</span> — odchylenie ćwiartkowe.</li>
+</ul>
+<p>Interpretacja pozycyjnego współczynnika asymetrii przebiega identycznie jak w przypadku klasycznego współczynnika asymetrii:</p>
+<ul>
+<li>symetryczny - mediana pomiędzy wartościami kwartyli dolnego i górnego, <span class="math inline">\(A_{Q}=0\)</span>,</li>
+<li>lewostronnie asymetryczny - mediana bliżej wartości kwartyla górnego, <span class="math inline">\(A_{Q}&lt;0\)</span>,</li>
+<li>prawostronnie asymetryczny - mediana bliżej wartości kwartyla dolnego, <span class="math inline">\(A_{Q}&gt;0\)</span>.</li>
+</ul>
+<p>Tę informację możemy także odczytać z wykresu pudełkowego, określając umiejscowienie mediany względem pozostałych kwartyli:</p>
+<p><img src="KS-Statystyka_opisowa_files/figure-html/asymetria-1.png" width="768" /></p>
+<p>W firmie A pozycyjny współczynnik asymetrii był równy -0.28, co pociąga za sobą informację o asymetrii lewostronnej, natomiast w firmie B występowała asymetria prawostronna (0.73).</p>
+<p><em>Przykład</em></p>
+<p>Wyznaczmy miary pozycyjne dla dwóch sklepów Rossmann analizowanych wcześciej:</p>
+<table>
+<thead>
+<tr class="header">
+<th></th>
+<th align="right">Sklep_1</th>
+<th align="right">Sklep_7</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>n</td>
+<td align="right">303.00</td>
+<td align="right">305.00</td>
+</tr>
+<tr class="even">
+<td>q1</td>
+<td align="right">3908.00</td>
+<td align="right">7129.00</td>
+</tr>
+<tr class="odd">
+<td>q2</td>
+<td align="right">4607.00</td>
+<td align="right">8592.00</td>
+</tr>
+<tr class="even">
+<td>q3</td>
+<td align="right">5286.00</td>
+<td align="right">10681.00</td>
+</tr>
+<tr class="odd">
+<td>q</td>
+<td align="right">689.00</td>
+<td align="right">1776.00</td>
+</tr>
+<tr class="even">
+<td>v_q</td>
+<td align="right">14.96</td>
+<td align="right">20.67</td>
+</tr>
+<tr class="odd">
+<td>aq</td>
+<td align="right">-0.01</td>
+<td align="right">0.18</td>
+</tr>
+</tbody>
+</table>
+<p><em>Zadania</em></p>
+<p>Przeprowadzić kompleksową analizę struktury sprzedaży/liczby klientów dla poszczególnych dni tygodnia.</p>
+</div>
+<div id="szereg-jednostkowy-i-przedziaowy" class="section level2">
+<h2><span class="header-section-number">3.3</span> Szereg jednostkowy i przedziałowy</h2>
+<p>Nie zawsze dysponujemy danymi zebranymi w szeregu prostym. W opracowaniach statystycznych dane publikowane są w postaci szeregów jednostkowych oraz przedziałowych. W tej części opracowania skupimy się na analizie struktury takich danych.</p>
+<div id="szereg-jednostkowy" class="section level3">
+<h3><span class="header-section-number">3.3.1</span> Szereg jednostkowy</h3>
+<p>W przypadku szeregu jednostkowego możliwe jest odtworzenie szeregu prostego bądź zastosowanie wzorów, w których odpowiednio przeważymy obserwacje. Odpowiednimi wagami będą liczebności.</p>
+<p><span class="math display">\[\bar{x}=\frac{1}{N}\sum\limits_{i=1}^{N}{x_{i}n_{i}}\]</span></p>
+<p><span class="math display">\[s^2=\frac{1}{N}\sum\limits_{i=1}^{N}{(x_{i}-\bar{x})^2 \cdot n_{i}}\]</span></p>
+<p><span class="math display">\[\alpha_{3}=\frac{\frac{1}{N}\sum\limits_{i=1}^{N}{(x_{i}-\bar{x})^3}\cdot n_{i}}{s^3}\]</span></p>
+<p><span class="math display">\[\alpha_{4}=\frac{\frac{1}{N}\sum\limits_{i=1}^{N}{(x_{i}-\bar{x})^4 \cdot n_{i}}}{s^4}\]</span></p>
+<p>gdzie:</p>
+<ul>
+<li><span class="math inline">\(\bar{x}\)</span> - średnia arytmetyczna w zbiorowości,</li>
+<li><span class="math inline">\(s\)</span> - odchylenie standardowe w zbiorowości,</li>
+<li><span class="math inline">\(\alpha_{3}\)</span> - symbol klasycznego współczynnika asymetrii,<br />
+</li>
+<li><span class="math inline">\(\alpha_{4}\)</span> - symbol klasycznego współczynnika koncentracji,<br />
+</li>
+<li><span class="math inline">\(x_{i}\)</span> - wariant cechy mierzalnej,</li>
+<li><span class="math inline">\(n_{i}\)</span> - liczba obserwacji dla wariantu,</li>
+<li><span class="math inline">\(N\)</span> - liczebność badanej zbiorowości.</li>
+</ul>
+</div>
+<div id="szereg-przedziaowy" class="section level3">
+<h3><span class="header-section-number">3.3.2</span> Szereg przedziałowy</h3>
+<p>W przypadku szeregu przedziałowego przeprowadzanie analizy struktury nie jest już takie oczywiste. Nie mamy jednoznacznie określonego wariantu cechy. W związku z tym wyznaczamy środek przedziału klasowego i tą wartość traktujemy jako wariant cechy. Z takiego podejścia do sprawy wynikają dwie istotne kwestie:</p>
+<ul>
+<li>poniższe wzory możemy zastosować wyłącznie do analizy szeregów rozdzielczych przedziałowych zamkniętych o równych przedziałach klasowych,</li>
+<li>sposób utworzenia szeregu rozdzielczego będzie miał wpływ na precyzję wyników.</li>
+</ul>
+<p><span class="math display">\[\bar{x}=\frac{1}{N}\sum\limits_{i=1}^{N}{x_{i}&#39;n_{i}}\]</span></p>
+<p><span class="math display">\[s^2=\frac{1}{N}\sum\limits_{i=1}^{N}{(x_{i}&#39;-\bar{x})^2 \cdot n_{i}}\]</span></p>
+<p><span class="math display">\[\alpha_{3}=\frac{\frac{1}{N}\sum\limits_{i=1}^{N}{(x_{i}&#39;-\bar{x})^3}\cdot n_{i}}{s^3}\]</span></p>
+<p><span class="math display">\[\alpha_{4}=\frac{\frac{1}{N}\sum\limits_{i=1}^{N}{(x_{i}&#39;-\bar{x})^4 \cdot n_{i}}}{s^4}\]</span></p>
+<p>gdzie:</p>
+<ul>
+<li><span class="math inline">\(\bar{x}\)</span> - średnia arytmetyczna w zbiorowości,</li>
+<li><span class="math inline">\(s\)</span> - odchylenie standardowe w zbiorowości,</li>
+<li><span class="math inline">\(\alpha_{3}\)</span> - symbol klasycznego współczynnika asymetrii,<br />
+</li>
+<li><span class="math inline">\(\alpha_{4}\)</span> - symbol klasycznego współczynnika koncentracji,<br />
+</li>
+<li><span class="math inline">\(x_{i}&#39;\)</span> - środek przedziału klasowego dla wariantu cechy,</li>
+<li><span class="math inline">\(n_{i}\)</span> - liczba obserwacji dla wariantu,</li>
+<li><span class="math inline">\(N\)</span> - liczebność badanej zbiorowości.</li>
+</ul>
+<p>Przy założeniu, że dominanta znajduje się w najliczniejszym przedziale możemy zastosować poniższy wzór:</p>
+<p><span class="math display">\[D=x_{D}+\frac{n_{D}-n_{D-1}}{2n_{D}-n_{D-1}-n_{D+1}}\cdot c_{D}\]</span></p>
+<p>gdzie:</p>
+<ul>
+<li><span class="math inline">\(D\)</span> - symbol dominanty,</li>
+<li><span class="math inline">\(x_{D}\)</span> - początek przedziału, w którym znajduje się dominanta,</li>
+<li><span class="math inline">\(n_{D}\)</span> - liczebność najliczniejszego przedziału,</li>
+<li><span class="math inline">\(n_{D-1}\)</span> - liczebność przedziału wcześniejszego niż najliczniejszy,</li>
+<li><span class="math inline">\(n_{D+1}\)</span> - liczebność przedziału późniejszego niż najliczniejszy,</li>
+<li><span class="math inline">\(c_{D}\)</span> - rozpiętość najliczniejszego przedziału.</li>
+</ul>
+<p>Dla szeregu rozdzielczego możemy także wyznaczyć wartości kwartyli stosując wzory interpolacyjne:</p>
+<p><span class="math display">\[Q_{1}=xQ_{1}+\frac{\frac{N}{4}-cumQ_{1}^{-1}}{nQ_{1}} \cdot cQ_{1}\]</span></p>
+<p>gdzie:</p>
+<ul>
+<li><span class="math inline">\(Q_{1}\)</span> - oznaczenie kwartyla pierwszego,</li>
+<li><span class="math inline">\(N\)</span> - liczebność badanej zbiorowości,</li>
+<li><span class="math inline">\(xQ_{1}\)</span> - początek przedziału, w którym znajduje się kwartyl pierwszy,</li>
+<li><span class="math inline">\(cumQ_{1}^{-1}\)</span> - skumulowana liczebność z przedziału wcześniejszego niż ten, który zawiera kwartyl pierwszy,</li>
+<li><span class="math inline">\(nQ_{1}\)</span> - liczebność przedziału zawierającego kwartyl pierwszy,</li>
+<li><span class="math inline">\(cQ_{1}\)</span> - rozpiętość przedziału zawierającego kwartyl pierwszy.</li>
+</ul>
+<p><span class="math display">\[Q_{2}=xQ_{2}+\frac{\frac{N}{2}-cumQ_{2}^{-1}}{nQ_{2}} \cdot cQ_{2}\]</span></p>
+<p>gdzie:</p>
+<ul>
+<li><span class="math inline">\(Q_{2}\)</span> - oznaczenie mediany,</li>
+<li><span class="math inline">\(N\)</span> - liczebność badanej zbiorowości,</li>
+<li><span class="math inline">\(xQ_{2}\)</span> - początek przedziału, w którym znajduje się mediana,</li>
+<li><span class="math inline">\(cumQ_{2}^{-1}\)</span> - skumulowana liczebność z przedziału wcześniejszego niż ten, który zawiera mediana,</li>
+<li><span class="math inline">\(nQ_{2}\)</span> - liczebność przedziału zawierającego medianę,</li>
+<li><span class="math inline">\(cQ_{2}\)</span> - rozpiętość przedziału zawierającego medianę.</li>
+</ul>
+<p><span class="math display">\[Q_{3}=xQ_{3}+\frac{\frac{3N}{4}-cumQ_{3}^{-1}}{nQ_{3}} \cdot cQ_{3}\]</span></p>
+<p>gdzie:</p>
+<ul>
+<li><span class="math inline">\(Q_{3}\)</span> - oznaczenie kwartyla trzeciego,</li>
+<li><span class="math inline">\(N\)</span> - liczebność badanej zbiorowości,</li>
+<li><span class="math inline">\(xQ_{3}\)</span> - początek przedziału, w którym znajduje się kwartyl trzeci,</li>
+<li><span class="math inline">\(cumQ_{3}^{-1}\)</span> - skumulowana liczebność z przedziału wcześniejszego niż ten, który zawiera kwartyl trzeci,</li>
+<li><span class="math inline">\(nQ_{3}\)</span> - liczebność przedziału zawierającego kwartyl trzeci,</li>
+<li><span class="math inline">\(cQ_{3}\)</span> - rozpiętość przedziału zawierającego kwartyl trzeci.</li>
+</ul>
+<p>Po wyznaczeniu wartości kwartyli pozostałe miary liczymy w tradycyjny sposób.</p>
+</div>
+</div>
+<div id="podsumowanie-miar" class="section level2">
+<h2><span class="header-section-number">3.4</span> Podsumowanie miar</h2>
+<div id="miary-klasyczne-1" class="section level3">
+<h3><span class="header-section-number">3.4.1</span> Miary klasyczne</h3>
+<table>
+<colgroup>
+<col width="20%" />
+<col width="10%" />
+<col width="30%" />
+<col width="19%" />
+<col width="19%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Miara</th>
+<th>Oznaczenie</th>
+<th>Wzór</th>
+<th>Interpretacja i wykorzystanie</th>
+<th>Funkcja w Excelu</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Średnia arytmetyczna</td>
+<td><span class="math inline">\(\bar{x}\)</span></td>
+<td><span class="math inline">\(\frac{\sum_{i=1}^N x_i}{N}\)</span></td>
+<td>Wartość przeciętna</td>
+<td><code>ŚREDNIA(x)</code></td>
+</tr>
+<tr class="even">
+<td>Średnia harmoniczna</td>
+<td><span class="math inline">\(\bar{x}_h\)</span></td>
+<td><span class="math inline">\(\frac{n}{\sum_{i=1}^N\frac{1}{x_i}}\)</span></td>
+<td>Wartość przeciętna</td>
+<td><code>ŚREDNIA.GEOMETRYCZNA(x)</code></td>
+</tr>
+<tr class="odd">
+<td>Średnia geometryczna</td>
+<td><span class="math inline">\(\bar{x}_g\)</span></td>
+<td><span class="math inline">\(\sqrt{x_1 x_2 ... x_N}\)</span></td>
+<td>Wartość przeciętna</td>
+<td><code>ŚREDNIA.HARMONICZNA(x)</code></td>
+</tr>
+<tr class="even">
+<td>Odchylenie przeciętne (średnie)</td>
+<td><span class="math inline">\(d\)</span></td>
+<td><span class="math inline">\(\frac{1}{N}\sum \mid x_i - \bar{x} \mid\)</span></td>
+<td>O ile wszystkie jednostki badanej zbiorowości różnią się średnio ze względu na wartość zmiennej od średniej arytmetycznej tej zmiennej</td>
+<td><code>ODCH.ŚREDNIE(x)</code></td>
+</tr>
+<tr class="odd">
+<td>Odchylenie kwadratowe</td>
+<td><span class="math inline">\(d^2\)</span></td>
+<td><span class="math inline">\(\sum_{i=1}^N (x_i - \bar{x})^2\)</span></td>
+<td>Kwadrat odchylenia przeciętnego</td>
+<td><code>ODCH.KWADRATOWE(x)</code></td>
+</tr>
+<tr class="even">
+<td>Odchylenie standardowe (dla populacji)</td>
+<td><span class="math inline">\(s\)</span></td>
+<td><span class="math inline">\(\sqrt{\frac{\sum_{i=1}^N (x_i - \bar{x})^2}{N}}\)</span></td>
+<td>O ile przeciętnie odchylają się wartości od średniej</td>
+<td><code>ODCH.STAND.POPUL(x)</code></td>
+</tr>
+<tr class="odd">
+<td>Odchylenie standardowe (dla próby)</td>
+<td><span class="math inline">\(s\)</span></td>
+<td><span class="math inline">\(\sqrt{\frac{\sum_{i=1}^N (x_i - \bar{x})^2}{N-1}}\)</span></td>
+<td>O ile przeciętnie odchylają się wartości od średniej</td>
+<td><code>ODCH.STANDARD.PRÓBKI(x)</code></td>
+</tr>
+<tr class="even">
+<td>Wariancja (dla populacji)</td>
+<td><span class="math inline">\(s^2\)</span></td>
+<td><span class="math inline">\(\frac{\sum_{i=1}^N (x_i - \bar{x})^2}{N}\)</span></td>
+<td>Informuje o zróżnicowaniu populacji</td>
+<td><code>WARIANCJA.POP(x)</code></td>
+</tr>
+<tr class="odd">
+<td>Wariancja (dla próby)</td>
+<td><span class="math inline">\(s^2\)</span></td>
+<td><span class="math inline">\(\frac{\sum_{i=1}^N (x_i - \bar{x})^2}{N-1}\)</span></td>
+<td>Informuje o zróżnicowaniu próby</td>
+<td><code>WARIANCJA.PRÓBKI(x)</code></td>
+</tr>
+<tr class="even">
+<td>Rozstęp</td>
+<td><span class="math inline">\(R\)</span></td>
+<td><span class="math inline">\(max(x) - min(x)\)</span></td>
+<td>Empiryczny obszar zmienności, wartość maksymalna cechy x minus wartość minimalna tej cechy</td>
+<td>–</td>
+</tr>
+<tr class="odd">
+<td>Typowy obszar zmiennośći</td>
+<td>–</td>
+<td><span class="math inline">\(\bar{x} - s &lt; x_{typ} &lt; \bar{x} + s\)</span></td>
+<td>Informuje o relatywnym zróżnicowaniu populacji (próby). Zwykle wykorzystujemy do porównań dwóch lub więcej grup.</td>
+<td>–</td>
+</tr>
+<tr class="even">
+<td>Współczynnik zmienności</td>
+<td><span class="math inline">\(V_x\)</span></td>
+<td><span class="math inline">\(\frac{s}{\bar{x}}\)</span></td>
+<td>Informuje o relatywnym zróżnicowaniu populacji (próby). Zwykle wykorzystujemy do porównań dwóch lub więcej grup. Wyrażamy w procentach.</td>
+<td>–</td>
+</tr>
+<tr class="odd">
+<td>Współczynnik asymetrii</td>
+<td><span class="math inline">\(\alpha_3\)</span></td>
+<td><span class="math inline">\(\frac{\frac{1}{N}\sum_{i=1}^{N}{(x_{i}-\bar{x})^3}}{s^3}\)</span></td>
+<td>Pozwala zidentyfikować czy rozkład jest symetryczny lub asymetryczny</td>
+<td><code>SKOŚNOŚĆ(x)</code></td>
+</tr>
+<tr class="even">
+<td>Współczynnik koncentracji</td>
+<td><span class="math inline">\(\alpha_4\)</span></td>
+<td><span class="math inline">\(\frac{\frac{1}{N}\sum_{i=1}^{N}{(x_{i}-\bar{x})^4}}{s^4}\)</span></td>
+<td>Pozwala zidentyfikować czy rozkład jest wysmukły czy spłaszczony</td>
+<td><code>KURTOZA(x)</code></td>
+</tr>
+<tr class="odd">
+<td>Eksces</td>
+<td><span class="math inline">\(Ex\)</span></td>
+<td><span class="math inline">\(\alpha_4-3\)</span></td>
+<td>Pozwala zidentyfikować czy rozkład jest wysmukły czy spłaszczony (porównujemy do 0)</td>
+<td>–</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="miary-pozycyjne-1" class="section level3">
+<h3><span class="header-section-number">3.4.2</span> Miary pozycyjne</h3>
+<table>
+<colgroup>
+<col width="20%" />
+<col width="10%" />
+<col width="30%" />
+<col width="19%" />
+<col width="19%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Miara</th>
+<th>Oznaczenie</th>
+<th>Wzór</th>
+<th>Interpretacja i wykorzystanie</th>
+<th>Funkcja w Excelu</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Kwartyl 1</td>
+<td><span class="math inline">\(Q_1\)</span></td>
+<td>$$</td>
+<td>Dzieli populację na dwie części w stosunku 25 / 75</td>
+<td><code>KWARTYL.PRZEDZ.ZAMK(x,1)</code></td>
+</tr>
+<tr class="even">
+<td>Kwartyl 2, Mediana</td>
+<td><span class="math inline">\(Q_2, Me\)</span></td>
+<td>$$</td>
+<td>Dzieli populację na dwie części w stosunku 50 / 50</td>
+<td><code>KWARTYL.PRZEDZ.ZAMK(,2)</code> lub <code>MEDIANA(x)</code></td>
+</tr>
+<tr class="odd">
+<td>Kwartyl 3</td>
+<td><span class="math inline">\(Q_3\)</span></td>
+<td>$$</td>
+<td>Dzieli populację na dwie części w stosunku 75 / 25</td>
+<td><code>KWARTYL.PRZEDZ.ZAMK(x,3)</code></td>
+</tr>
+<tr class="even">
+<td>Odchylenie ćwiartkowe</td>
+<td><span class="math inline">\(Q\)</span></td>
+<td><span class="math inline">\(Q=\frac{Q3-Q1}{2}\)</span></td>
+<td>Mierzy ono przeciętne odchylenie wartości cechy zbiorowości od mediany</td>
+<td>–</td>
+</tr>
+<tr class="odd">
+<td>Pozycyjny współczynnik zmienności</td>
+<td><span class="math inline">\(V_Q\)</span></td>
+<td><span class="math inline">\(\frac{Q}{Me}\)</span></td>
+<td>Mierzy przeciętne zróżnicowanie cechy</td>
+<td>–</td>
+</tr>
+<tr class="even">
+<td>Pozycyjny współczynnik asymetrii</td>
+<td><span class="math inline">\(A_Q\)</span></td>
+<td><span class="math inline">\(\frac{Q_1+Q3-2Me}{2Q}\)</span></td>
+<td>Mierzy (a)symetrię rozkładu</td>
+<td>–</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="wizualizacja-danych.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="korelacje.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(script.src))
+      script.src  = script.src.replace(/^https?:/, '');
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

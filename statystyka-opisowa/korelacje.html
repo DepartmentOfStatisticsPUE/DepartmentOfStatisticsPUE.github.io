@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Statystyka opisowa</title>
+  <meta name="description" content="Statystyka opisowa">
+  <meta name="generator" content="bookdown 0.5 and GitBook 2.6.7">
+
+  <meta property="og:title" content="Statystyka opisowa" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Statystyka opisowa" />
+  
+  
+  
+
+<meta name="author" content="Katedra Statystyki">
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="analiza-struktury.html">
+<link rel="next" href="regresja.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+<script src="https://hypothes.is/embed.js" async></script>
+
+
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Wprowadzenie</a></li>
+<li class="chapter" data-level="1" data-path="zbiorowosc.html"><a href="zbiorowosc.html"><i class="fa fa-check"></i><b>1</b> Zbiorowość, jednostka, cecha</a><ul>
+<li class="chapter" data-level="1.1" data-path="zbiorowosc.html"><a href="zbiorowosc.html#zbiory-danych"><i class="fa fa-check"></i><b>1.1</b> Zbiory danych</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="wizualizacja-danych.html"><a href="wizualizacja-danych.html"><i class="fa fa-check"></i><b>2</b> Wizualizacja danych</a><ul>
+<li class="chapter" data-level="2.1" data-path="wizualizacja-danych.html"><a href="wizualizacja-danych.html#rodzaje-rozkadow"><i class="fa fa-check"></i><b>2.1</b> Rodzaje rozkładów</a></li>
+<li class="chapter" data-level="2.2" data-path="wizualizacja-danych.html"><a href="wizualizacja-danych.html#szeregi-statystyczne"><i class="fa fa-check"></i><b>2.2</b> Szeregi statystyczne</a></li>
+<li class="chapter" data-level="2.3" data-path="wizualizacja-danych.html"><a href="wizualizacja-danych.html#dystrybuanta"><i class="fa fa-check"></i><b>2.3</b> Dystrybuanta</a></li>
+<li class="chapter" data-level="2.4" data-path="wizualizacja-danych.html"><a href="wizualizacja-danych.html#histogramy"><i class="fa fa-check"></i><b>2.4</b> Histogramy</a><ul>
+<li class="chapter" data-level="2.4.1" data-path="wizualizacja-danych.html"><a href="wizualizacja-danych.html#metoda-arbitralnie-ustalanej-szerokosci-przedziaow"><i class="fa fa-check"></i><b>2.4.1</b> Metoda arbitralnie ustalanej szerokosci przedziałów</a></li>
+<li class="chapter" data-level="2.4.2" data-path="wizualizacja-danych.html"><a href="wizualizacja-danych.html#metoda-pierwiastkowa"><i class="fa fa-check"></i><b>2.4.2</b> Metoda pierwiastkowa</a></li>
+<li class="chapter" data-level="2.4.3" data-path="wizualizacja-danych.html"><a href="wizualizacja-danych.html#metoda-strugesa"><i class="fa fa-check"></i><b>2.4.3</b> Metoda Struges’a</a></li>
+<li class="chapter" data-level="2.4.4" data-path="wizualizacja-danych.html"><a href="wizualizacja-danych.html#metoda-uniwersytetu-rice"><i class="fa fa-check"></i><b>2.4.4</b> Metoda Uniwersytetu Rice</a></li>
+<li class="chapter" data-level="2.4.5" data-path="wizualizacja-danych.html"><a href="wizualizacja-danych.html#metoda-doanea"><i class="fa fa-check"></i><b>2.4.5</b> Metoda Doane’a</a></li>
+<li class="chapter" data-level="2.4.6" data-path="wizualizacja-danych.html"><a href="wizualizacja-danych.html#metoda-scotta"><i class="fa fa-check"></i><b>2.4.6</b> Metoda Scott’a</a></li>
+<li class="chapter" data-level="2.4.7" data-path="wizualizacja-danych.html"><a href="wizualizacja-danych.html#metoda-freedmanadiaconisa"><i class="fa fa-check"></i><b>2.4.7</b> Metoda Freedmana–Diaconis’a</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="analiza-struktury.html"><a href="analiza-struktury.html"><i class="fa fa-check"></i><b>3</b> Analiza struktury</a><ul>
+<li class="chapter" data-level="3.1" data-path="analiza-struktury.html"><a href="analiza-struktury.html#miary-klasyczne"><i class="fa fa-check"></i><b>3.1</b> Miary klasyczne</a></li>
+<li class="chapter" data-level="3.2" data-path="analiza-struktury.html"><a href="analiza-struktury.html#miary-pozycyjne"><i class="fa fa-check"></i><b>3.2</b> Miary pozycyjne</a></li>
+<li class="chapter" data-level="3.3" data-path="analiza-struktury.html"><a href="analiza-struktury.html#szereg-jednostkowy-i-przedziaowy"><i class="fa fa-check"></i><b>3.3</b> Szereg jednostkowy i przedziałowy</a><ul>
+<li class="chapter" data-level="3.3.1" data-path="analiza-struktury.html"><a href="analiza-struktury.html#szereg-jednostkowy"><i class="fa fa-check"></i><b>3.3.1</b> Szereg jednostkowy</a></li>
+<li class="chapter" data-level="3.3.2" data-path="analiza-struktury.html"><a href="analiza-struktury.html#szereg-przedziaowy"><i class="fa fa-check"></i><b>3.3.2</b> Szereg przedziałowy</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="analiza-struktury.html"><a href="analiza-struktury.html#podsumowanie-miar"><i class="fa fa-check"></i><b>3.4</b> Podsumowanie miar</a><ul>
+<li class="chapter" data-level="3.4.1" data-path="analiza-struktury.html"><a href="analiza-struktury.html#miary-klasyczne-1"><i class="fa fa-check"></i><b>3.4.1</b> Miary klasyczne</a></li>
+<li class="chapter" data-level="3.4.2" data-path="analiza-struktury.html"><a href="analiza-struktury.html#miary-pozycyjne-1"><i class="fa fa-check"></i><b>3.4.2</b> Miary pozycyjne</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="korelacje.html"><a href="korelacje.html"><i class="fa fa-check"></i><b>4</b> Korelacje</a><ul>
+<li class="chapter" data-level="4.1" data-path="korelacje.html"><a href="korelacje.html#cechy-jakosciowe"><i class="fa fa-check"></i><b>4.1</b> Cechy jakościowe</a></li>
+<li class="chapter" data-level="4.2" data-path="korelacje.html"><a href="korelacje.html#cechy-ciage"><i class="fa fa-check"></i><b>4.2</b> Cechy ciągłe</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="regresja.html"><a href="regresja.html"><i class="fa fa-check"></i><b>5</b> Regresja</a><ul>
+<li class="chapter" data-level="5.1" data-path="regresja.html"><a href="regresja.html#regresja-prosta"><i class="fa fa-check"></i><b>5.1</b> Regresja prosta</a></li>
+<li class="chapter" data-level="5.2" data-path="regresja.html"><a href="regresja.html#trend-liniowy"><i class="fa fa-check"></i><b>5.2</b> Trend liniowy</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="sezonowosc.html"><a href="sezonowosc.html"><i class="fa fa-check"></i><b>6</b> Sezonowość</a><ul>
+<li class="chapter" data-level="6.1" data-path="sezonowosc.html"><a href="sezonowosc.html#trend-liniowy-1"><i class="fa fa-check"></i><b>6.1</b> Trend liniowy</a></li>
+<li class="chapter" data-level="6.2" data-path="sezonowosc.html"><a href="sezonowosc.html#model-addytywny"><i class="fa fa-check"></i><b>6.2</b> Model addytywny</a></li>
+<li class="chapter" data-level="6.3" data-path="sezonowosc.html"><a href="sezonowosc.html#model-multiplikatywny"><i class="fa fa-check"></i><b>6.3</b> Model multiplikatywny</a></li>
+<li class="chapter" data-level="6.4" data-path="sezonowosc.html"><a href="sezonowosc.html#ocena-jakosci"><i class="fa fa-check"></i><b>6.4</b> Ocena jakości</a></li>
+<li class="chapter" data-level="6.5" data-path="sezonowosc.html"><a href="sezonowosc.html#bad-prognozy"><i class="fa fa-check"></i><b>6.5</b> Błąd prognozy</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="analiza-szeregu-dynamicznego.html"><a href="analiza-szeregu-dynamicznego.html"><i class="fa fa-check"></i><b>7</b> Analiza szeregu dynamicznego</a><ul>
+<li class="chapter" data-level="7.1" data-path="analiza-szeregu-dynamicznego.html"><a href="analiza-szeregu-dynamicznego.html#przyrosty-absolutne"><i class="fa fa-check"></i><b>7.1</b> Przyrosty absolutne</a></li>
+<li class="chapter" data-level="7.2" data-path="analiza-szeregu-dynamicznego.html"><a href="analiza-szeregu-dynamicznego.html#przyrosty-wzgledne"><i class="fa fa-check"></i><b>7.2</b> Przyrosty względne</a></li>
+<li class="chapter" data-level="7.3" data-path="analiza-szeregu-dynamicznego.html"><a href="analiza-szeregu-dynamicznego.html#indeksy"><i class="fa fa-check"></i><b>7.3</b> Indeksy</a></li>
+<li class="chapter" data-level="7.4" data-path="analiza-szeregu-dynamicznego.html"><a href="analiza-szeregu-dynamicznego.html#srednie-tempo-zmian"><i class="fa fa-check"></i><b>7.4</b> Średnie tempo zmian</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="indeksy-indywidualne-i-zespoowe.html"><a href="indeksy-indywidualne-i-zespoowe.html"><i class="fa fa-check"></i><b>8</b> Indeksy indywidualne i zespołowe</a><ul>
+<li class="chapter" data-level="8.1" data-path="indeksy-indywidualne-i-zespoowe.html"><a href="indeksy-indywidualne-i-zespoowe.html#indeksy-indywidualne"><i class="fa fa-check"></i><b>8.1</b> Indeksy indywidualne</a></li>
+<li class="chapter" data-level="8.2" data-path="indeksy-indywidualne-i-zespoowe.html"><a href="indeksy-indywidualne-i-zespoowe.html#indeksy-zespoowe-agregatowe"><i class="fa fa-check"></i><b>8.2</b> Indeksy zespołowe (agregatowe)</a></li>
+<li class="chapter" data-level="8.3" data-path="indeksy-indywidualne-i-zespoowe.html"><a href="indeksy-indywidualne-i-zespoowe.html#przykad"><i class="fa fa-check"></i><b>8.3</b> Przykład</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Statystyka opisowa</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="korelacje" class="section level1">
+<h1><span class="header-section-number">4</span> Korelacje</h1>
+<p>Korelacja [łac.], mat. wzajemne powiązanie, współzależność zjawisk lub obiektów; w teorii prawdopodobieństwa i statystyce — współzależność liniowa zmiennych losowych (jej liczbową miara jest współczynnik korelacji) [źródło: słownik PWN].</p>
+<div id="cechy-jakosciowe" class="section level2">
+<h2><span class="header-section-number">4.1</span> Cechy jakościowe</h2>
+<p>Celem analizy współzależności jest określenie siły związku pomiędzy dwiema cechami jakościowymi. Sprawdźmy czy istnieje zależność pomiędzy wynikiem z egzaminu a płcią?</p>
+<p>Podstawą takiej analizy jest tablica kontyngencji albo tablica krzyżowa. W przypadku obserwacji statystycznej dotyczącej dużej ilości zmiennych, operowanie wartościami szczegółowymi jest uciążliwe. W celu stwierdzenia istnienia lub braku związku korelacyjnego konstruuje się tablicę korelacyjną. Na skrzyżowaniu kolumn z wierszami wpisuje się liczebności jednostek zbiorowości statystycznej, u których zaobserwowano jednoczesne występowanie określonej wartości <span class="math inline">\(x_{i}\)</span> i <span class="math inline">\(y_{i}\)</span>. Ogólna postać tablicy krzyżowej jest następująca:</p>
+<table>
+<thead>
+<tr class="header">
+<th>cecha X / cecha Y</th>
+<th><span class="math inline">\(y_{1}\)</span></th>
+<th><span class="math inline">\(y_{2}\)</span></th>
+<th><span class="math inline">\(\cdots\)</span></th>
+<th><span class="math inline">\(y_{j}\)</span></th>
+<th><span class="math inline">\(\cdots\)</span></th>
+<th><span class="math inline">\(y_{r}\)</span></th>
+<th><span class="math inline">\(\sum\limits_{j}\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(x_{1}\)</span></td>
+<td><span class="math inline">\(n_{11}\)</span></td>
+<td><span class="math inline">\(n_{12}\)</span></td>
+<td><span class="math inline">\(\cdots\)</span></td>
+<td><span class="math inline">\(n_{1j}\)</span></td>
+<td><span class="math inline">\(\cdots\)</span></td>
+<td><span class="math inline">\(n_{1r}\)</span></td>
+<td><span class="math inline">\(n_{1.}\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(x_{2}\)</span></td>
+<td><span class="math inline">\(n_{21}\)</span></td>
+<td><span class="math inline">\(n_{22}\)</span></td>
+<td><span class="math inline">\(\cdots\)</span></td>
+<td><span class="math inline">\(n_{2j}\)</span></td>
+<td><span class="math inline">\(\cdots\)</span></td>
+<td><span class="math inline">\(n_{2r}\)</span></td>
+<td><span class="math inline">\(n_{2.}\)</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\cdots\)</span></td>
+<td><span class="math inline">\(\cdots\)</span></td>
+<td><span class="math inline">\(\cdots\)</span></td>
+<td><span class="math inline">\(\cdots\)</span></td>
+<td><span class="math inline">\(\cdots\)</span></td>
+<td><span class="math inline">\(\cdots\)</span></td>
+<td><span class="math inline">\(\cdots\)</span></td>
+<td><span class="math inline">\(\cdots\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(x_{i}\)</span></td>
+<td><span class="math inline">\(n_{i1}\)</span></td>
+<td><span class="math inline">\(n_{i2}\)</span></td>
+<td><span class="math inline">\(\cdots\)</span></td>
+<td><span class="math inline">\(n_{ij}\)</span></td>
+<td><span class="math inline">\(\cdots\)</span></td>
+<td><span class="math inline">\(n_{ir}\)</span></td>
+<td><span class="math inline">\(n_{i.}\)</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\cdots\)</span></td>
+<td><span class="math inline">\(\cdots\)</span></td>
+<td><span class="math inline">\(\cdots\)</span></td>
+<td><span class="math inline">\(\cdots\)</span></td>
+<td><span class="math inline">\(\cdots\)</span></td>
+<td><span class="math inline">\(\cdots\)</span></td>
+<td><span class="math inline">\(\cdots\)</span></td>
+<td><span class="math inline">\(\cdots\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(x_{k}\)</span></td>
+<td><span class="math inline">\(n_{k1}\)</span></td>
+<td><span class="math inline">\(n_{k2}\)</span></td>
+<td><span class="math inline">\(\cdots\)</span></td>
+<td><span class="math inline">\(n_{kj}\)</span></td>
+<td><span class="math inline">\(\cdots\)</span></td>
+<td><span class="math inline">\(n_{kr}\)</span></td>
+<td><span class="math inline">\(n_{k.}\)</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\sum\limits_{i}\)</span></td>
+<td><span class="math inline">\(n_{.1}\)</span></td>
+<td><span class="math inline">\(n_{.2}\)</span></td>
+<td><span class="math inline">\(\cdots\)</span></td>
+<td><span class="math inline">\(n_{.j}\)</span></td>
+<td><span class="math inline">\(\cdots\)</span></td>
+<td><span class="math inline">\(n_{.r}\)</span></td>
+<td><span class="math inline">\(n\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>Jak wynika z tablicy zmienna losowa <span class="math inline">\(X\)</span> przyjmuje <span class="math inline">\(k\)</span> wariantów (i=1,2,…,k), zaś zmienna losowa <span class="math inline">\(Y\)</span> przyjmuje <span class="math inline">\(r\)</span> wariantów (j=1,2,…,r).</p>
+<p>Symbol <span class="math inline">\(n_{.j}\)</span> oznacza liczbę jednostek, które mają wariant <span class="math inline">\(y_{j}\)</span> zmiennej Y, natomiast symbol <span class="math inline">\(n_{i.}\)</span> - liczbę jednostek, które mają wariant <span class="math inline">\(x_{i}\)</span> zmiennej X. Symbole <span class="math inline">\(n_{ij}\)</span> oznaczają liczbę jednostek, które posiadają jednocześnie wariant <span class="math inline">\(x_{i}\)</span> cechy X i warianty <span class="math inline">\(y_{j}\)</span> cechy Y. Symbol <span class="math inline">\(n\)</span> oznacza liczebność próby, przy czym:</p>
+<p><span class="math display">\[n=\sum\limits_{i=1}^{k}{n_{i.}}=\sum\limits_{j=1}^{r}{n_{.j}}=\sum\limits_{i=1}^{k}\sum\limits_{j=1}^{r}{n_{ij}}\]</span></p>
+<p>W analizowanym przykładzie pozyskaliśmy informację od 500 osób na temat wyniku egzaminu oraz płci. Tablica krzyżowa tych danych wygląda następująco:</p>
+<table>
+<thead>
+<tr class="header">
+<th>Płeć / Wynik</th>
+<th align="right">Nie zdany</th>
+<th align="right">Zdany</th>
+<th align="right">Suma</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Mężczyzna</td>
+<td align="right">100</td>
+<td align="right">70</td>
+<td align="right">170</td>
+</tr>
+<tr class="even">
+<td>Kobieta</td>
+<td align="right">130</td>
+<td align="right">200</td>
+<td align="right">330</td>
+</tr>
+<tr class="odd">
+<td>Suma</td>
+<td align="right">230</td>
+<td align="right">270</td>
+<td align="right">500</td>
+</tr>
+</tbody>
+</table>
+<p>Do odpowiedzi na pytanie czy istnieje zależność pomiędzy tymi cechami wykorzystamy statystykę chi-kwadrat (<span class="math inline">\(\chi^2\)</span>). Nazwę tej statystyki czytamy tak samo jak piszemy.</p>
+<p>W pierwszym kroku musimy obliczyć <strong>oczekiwane (teoretyczne) częstości</strong> dla każdej komórki czyli wartości jakie musiałyby występować, żeby zależności nie było. Wzór na liczebności teoretyczne jest następujący:</p>
+<p><span class="math display">\[\hat{n}_{ij}=\frac{n_{i.} \cdot n_{.j}}{n}\]</span></p>
+<p>Przykładowo, liczebność teoretyczna dla mężczyzn, którzy nie zdali egzaminu to iloczyn liczby wszystkich mężczyzn i liczby wszystkich, którzy nie zdali egzaminu podzielony przez wszystkie obserwacje:</p>
+<p><span class="math display">\[\hat{n}_{11}=\frac{170 \cdot 230}{500}=78,2\]</span></p>
+<p>Liczebności oczekiwane po wstawieniu do tabeli:</p>
+<table>
+<thead>
+<tr class="header">
+<th>Płeć / Wynik</th>
+<th align="right">Nie zdany</th>
+<th align="right">Zdany</th>
+<th align="right">Suma</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Mężczyzna</td>
+<td align="right">78,2</td>
+<td align="right">91,8</td>
+<td align="right">170</td>
+</tr>
+<tr class="even">
+<td>Kobieta</td>
+<td align="right">151,8</td>
+<td align="right">178,2</td>
+<td align="right">330</td>
+</tr>
+<tr class="odd">
+<td>Suma</td>
+<td align="right">230</td>
+<td align="right">270</td>
+<td align="right">500</td>
+</tr>
+</tbody>
+</table>
+<p>Częstości teoretyczne nie muszą być wartościami całkowitymi, ale suma w wierszu, kolumnie i dla całej tablicy krzyżowej musi pozostać taka sama.</p>
+<p>W kolejnym kroku wyznaczamy <strong>standardowe współczynniki różnicy</strong> pomiędzy częstościami oczekiwanymi a zaobserwowanymi. Suma tych współczynników da nam wartość <strong>statystyki <span class="math inline">\(\chi^2\)</span></strong>.</p>
+<p><span class="math display">\[\chi^{2}=\sum\limits_{i=1}^{k}\sum\limits_{j=1}^{r}{\frac{(n_{ij}-\hat{n}_{ij})^2}{\hat{n}_{ij}}}\]</span></p>
+<p>gdzie:</p>
+<ul>
+<li><span class="math inline">\(r\)</span> - liczba wariantów cechy Y,</li>
+<li><span class="math inline">\(k\)</span> - liczba wariantów cechy X,</li>
+<li><span class="math inline">\(n_{ij}\)</span> - liczebności empiryczne dla i-tego wariantu cechy X i j-tego wariantu cechy Y,</li>
+<li><span class="math inline">\(\hat{n}_{ij}\)</span> - liczebności teoretyczne dla i-tego wariantu cechy X i j-tego wariantu cechy Y.</li>
+</ul>
+<p><span class="math display">\[\chi^{2}=\frac{(100-78,2)^2}{78,2}+\frac{(70-91,8)^2}{91,8}+\frac{(130-151,8)^2}{151,8}+\frac{(200-178,2)^2}{178,2}=17\]</span></p>
+<p>W przypadku, gdy dysponujemy tablicą o wymiarach 2x2 możemy skorzystać z prostszego sposobu wyznaczenia statystyki <span class="math inline">\(\chi^2\)</span> korzystając ze wzoru. Jeśli tablica kontyngencji jest w postaci:</p>
+<table>
+<thead>
+<tr class="header">
+<th>cecha X / cecha Y</th>
+<th><span class="math inline">\(y_{1}\)</span></th>
+<th><span class="math inline">\(y_{2}\)</span></th>
+<th><span class="math inline">\(n_{i.}\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(x_{1}\)</span></td>
+<td>a</td>
+<td>b</td>
+<td>a+b</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(x_{2}\)</span></td>
+<td>c</td>
+<td>d</td>
+<td>c+d</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(n_{.j}\)</span></td>
+<td>a+c</td>
+<td>b+d</td>
+<td>n</td>
+</tr>
+</tbody>
+</table>
+<p>a liczebności w komórkach większe niż 5 to wzór na chi-kwadrat jest następujący:</p>
+<p><span class="math display">\[\chi^{2}=\frac{n \cdot (a \cdot d - b \cdot c)^2}{(a+b) \cdot (c+d) \cdot (a+c) \cdot (b+d)}\]</span></p>
+<p>W przypadku występowania częstości mniejszych od 5 musimy zastosować wzór uwzględniający poprawkę Yatesa:</p>
+<p><span class="math display">\[\chi^{2}=\frac{n \cdot (|a \cdot d - b \cdot c| - 0,5 \cdot n)^2}{(a+b) \cdot (c+d) \cdot (a+c) \cdot (b+d)}\]</span></p>
+<p>W analizowanym przypadku zależności płci i wyniku z egzaminu wartości w komórkach a, b, c i d są większe od 5, więc można wykorzystać pierwszą formułę:</p>
+<p><span class="math display">\[\chi^2=\frac{500\cdot(100\cdot200-70\cdot130)^2}{170\cdot330\cdot230\cdot270}=\frac{59405000000}{3483810000}=17\]</span></p>
+<p>Sama wartość statystyki chi-kwadrat nie informuje sile zależności pomiędzy analizowanymi zmiennymi. W celu określenia siły zależności musimy wyznaczyć jedną z dostępnych miar korelacji: <strong>współczynnik V-Cramera</strong> lub <strong>współczynnik zbieżności T-Czuprowa</strong>:</p>
+<p><span class="math display">\[V=\sqrt{\frac{\chi^2}{n \cdot min(k-1,r-1)}}\]</span></p>
+<p><span class="math display">\[T=\sqrt{\frac{\chi^2}{n \cdot \sqrt{(k-1)(r-1)}}}\]</span></p>
+<p>gdzie:</p>
+<ul>
+<li><span class="math inline">\(\chi^2\)</span> - wyznaczona wartość statystyki <span class="math inline">\(\chi^2\)</span>,</li>
+<li><span class="math inline">\(n\)</span> - liczba wszystkich obserwacji,</li>
+<li><span class="math inline">\(k\)</span> - liczba kolumn tabeli kontyngencji bez sumy (liczba wariantów pierwszej cechy),</li>
+<li><span class="math inline">\(r\)</span> - liczba wierszy tabeli kontyngencji bez sumy (liczba wariantów drugiej cechy).</li>
+</ul>
+<p>Możemy przyjąć pewne umowne progi dotyczące interpretacji tych miar:</p>
+<ul>
+<li>od 0,00 do 0,29 - słaby związek pomiędzy zmiennymi,</li>
+<li>od 0,30 do 0,49 - umiarkowany związek pomiędzy zmiennymi,</li>
+<li>od 0,50 do 1,00 - silny związek pomiędzy zmiennymi.</li>
+</ul>
+<p>W naszym przykładzie współczynnik V-Cramera jest równy współczynnikowi T-Czuprowa i wynosi <span class="math inline">\(V=T=0,18\)</span>, co oznacza, że pomiędzy płcią a wynikiem z egzaminu występuje słaba zależność.</p>
+<p><strong>Miary korelacji cech jakościowych w Excelu</strong></p>
+<p>Niestety, aktualnie w MS Excel nie ma funkcji, które umożliwiają obliczenie statystyki <span class="math inline">\(\chi^2\)</span>. Istnieje natomiast funkcja <code>CHI.TEST</code>, która liczy statystykę <span class="math inline">\(\chi^2\)</span> ale jej nie zwraca. Informuje jedynie o istotności statystycznej, która wykracza poza zakres materiału realizowanego w ramach tych zajęć.</p>
+<p><em>Zadania</em></p>
+<p>Oceń siłę zależności pomiędzy faktem wejścia promocji, a liczbą klientów (poniżej/powyżej średniej) w sklepie numer 7.</p>
+</div>
+<div id="cechy-ciage" class="section level2">
+<h2><span class="header-section-number">4.2</span> Cechy ciągłe</h2>
+<p>W przypadku cech ciągłych chcemy określić siłę oraz kierunek zależności pomiędzy dwoma zmiennymi. Silnie skorelowane ze sobą zmienne zachowują się “jak gdyby równocześnie się poruszały”.</p>
+<p>Sprawdźmy czy liczba klientów jest skorelowana ze sprzedażą w sklepie nr 1. Pierwszym krokiem w analizie korelacji jest stworzenie wykresu rozrzutu:</p>
+<p><img src="KS-Statystyka_opisowa_files/figure-html/ross-scatter-1.png" width="768" /></p>
+<p>Na tej podstawie możemy już stwierdzić, że zależność jest liniowa oraz dodatnia - wzrost wartości jednej cechy pociąga za sobą wzrost wartości drugiej cechy. Z korelacją ujemną mielibyśmy do czynienia, gdy wartości jednej cechy by rosły, a drugiej malały.</p>
+<p>Wartością liczbową, która określa kierunek korelacji jest <strong>kowariancja</strong>. Wyznaczenie kowariancji polega na policzeniu różnic wartości obu cech od średniej, a następnie ich przemnożeniu i uśrednieniu, zgodnie ze wzorem:</p>
+<p><span class="math display">\[cov(x,y)=cov(y,x)=\frac{1}{n}\sum\limits_{i=1}^{n}{(x_{i}-\bar{x})\cdot(y_{i}-\bar{y})}\]</span></p>
+<p>Jeśli kowariancja będzie:</p>
+<ul>
+<li><span class="math inline">\(cov(x,y)=0\)</span> — brak zależności,</li>
+<li><span class="math inline">\(cov(x,y)&lt;0\)</span> — ujemna zależność,</li>
+<li><span class="math inline">\(cov(x,y)&gt;0\)</span> — dodatnia zależność.</li>
+</ul>
+<p>W przypadku sklepu nr 1 kowariancja wynosi 94843, co oczywiście pociąga za sobą dodatnią zależność. Na podstawie kowariancji nie możemy natomiast wyznaczyć siły zależności ponieważ jest wyznaczona w dziwnych jednostkach - osobo-euro. Standaryzując kowariancję z wykorzystaniem odchylenia standardowego każdej cechy otrzymamy <strong>współczynnik korelacji liniowej Pearsona</strong>:</p>
+<p><span class="math display">\[r_{xy}=r_{yx}=\frac{cov(X,Y)}{S_{x}\cdot S_{y}}\]</span></p>
+<p>lub</p>
+<p><span class="math display">\[r_{xy}=\frac{\sum\limits_{i=1}^{n}{(x_{i}-\bar{x})\cdot(y_{i}-\bar{y})}}{\sqrt{\sum\limits_{i=1}^{n}{(x_{i}-\bar{x})^2\cdot(y_{i}-\bar{y})^2}}}\]</span></p>
+<p>Współczynnik ten jest wielkością unormowaną, przyjmuje wartości z przedziału <span class="math inline">\(r\in&lt;-1;1&gt;\)</span>.</p>
+<p>Jeśli:</p>
+<ul>
+<li><span class="math inline">\(r_{xy}=1\)</span> — korelacja dodatnia doskonała,</li>
+<li><span class="math inline">\(0&lt;r_{xy}&lt;1\)</span> — korelacja dodatnia niedoskonała (słaba/umiarkowana/silna)</li>
+<li><span class="math inline">\(r_{xy}=0\)</span> — brak zależności,</li>
+<li><span class="math inline">\(-1&lt;r_{xy}&lt;0\)</span> — korelacja ujemna niedoskonała (słaba/umiarkowana/silna)</li>
+<li><span class="math inline">\(r_{xy}=-1\)</span> — korelacja ujemna doskonała.</li>
+</ul>
+<p>W sklepie nr 1 współczynnik korelacji liniowej Pearona wynosi 0.94, co oznacza, że pomiędzy wartością sprzedaży a liczbą klientów występuje silna dodatnia korelacja liniowa.</p>
+<p>W przypadku, gdy w zbiorze analizowanych cech znajdą się wartości odstające, które zaburzają liniowość relacji, współczynnik korelacji liniowej może nie spełniać swojej funkcji. Wówczas należy skorzystać ze <strong>współczynnika korelacji rang Spearmana</strong>, który jest współczynnikiem korelacji liniowej Pearsona, ale obliczanym na <strong>rangach</strong>.</p>
+<p>Rangowanie polega na posortowaniu wartości jednej cechy rosnąco - przypisanie kolejnych wartości od <span class="math inline">\(1\)</span> do <span class="math inline">\(n\)</span> (jak w sporcie), na następnie powtórzenie operacji dla drugiej cechy. Jeśli jakaś wartość będzie się powtarzać (<em>ex aequo</em>), wówczas wyznaczamy wartość tzn. rangi wiązanej - średniej arytmetycznej z rang tej wartości.</p>
+<p>W Excelu można wyznaczyć wyłącznie współczynnik korelacji liniowej Pearsona korzystając z funkcji:</p>
+<ul>
+<li>PEARSON(tablica1, tablica2).</li>
+</ul>
+<p>Korelacja nie oznacza przyczynowości - mogą występować inne czynniki będące przyczyną silnej zależności cech.</p>
+<p><em>Zadania</em></p>
+<p>Przeanalizuj sprzedaż oraz liczbę klientów w sklepie nr 7 w maju. Utwórz wykres rozrzutu oraz oblicz i zinterpretuj współczynnik korelacji liniowej Pearsona korzystając z funkcji Excela.</p>
+<p>Patrz też: <a href="https://www.mathsisfun.com/data/correlation.html">Korelacja</a></p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="analiza-struktury.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="regresja.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(script.src))
+      script.src  = script.src.replace(/^https?:/, '');
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Statystyka opisowa</title>
+  <meta name="description" content="Statystyka opisowa">
+  <meta name="generator" content="bookdown 0.5 and GitBook 2.6.7">
+
+  <meta property="og:title" content="Statystyka opisowa" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Statystyka opisowa" />
+  
+  
+  
+
+<meta name="author" content="Katedra Statystyki">
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="analiza-szeregu-dynamicznego.html">
+
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+<script src="https://hypothes.is/embed.js" async></script>
+
+
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Wprowadzenie</a></li>
+<li class="chapter" data-level="1" data-path="zbiorowosc.html"><a href="zbiorowosc.html"><i class="fa fa-check"></i><b>1</b> Zbiorowość, jednostka, cecha</a><ul>
+<li class="chapter" data-level="1.1" data-path="zbiorowosc.html"><a href="zbiorowosc.html#zbiory-danych"><i class="fa fa-check"></i><b>1.1</b> Zbiory danych</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="wizualizacja-danych.html"><a href="wizualizacja-danych.html"><i class="fa fa-check"></i><b>2</b> Wizualizacja danych</a><ul>
+<li class="chapter" data-level="2.1" data-path="wizualizacja-danych.html"><a href="wizualizacja-danych.html#rodzaje-rozkadow"><i class="fa fa-check"></i><b>2.1</b> Rodzaje rozkładów</a></li>
+<li class="chapter" data-level="2.2" data-path="wizualizacja-danych.html"><a href="wizualizacja-danych.html#szeregi-statystyczne"><i class="fa fa-check"></i><b>2.2</b> Szeregi statystyczne</a></li>
+<li class="chapter" data-level="2.3" data-path="wizualizacja-danych.html"><a href="wizualizacja-danych.html#dystrybuanta"><i class="fa fa-check"></i><b>2.3</b> Dystrybuanta</a></li>
+<li class="chapter" data-level="2.4" data-path="wizualizacja-danych.html"><a href="wizualizacja-danych.html#histogramy"><i class="fa fa-check"></i><b>2.4</b> Histogramy</a><ul>
+<li class="chapter" data-level="2.4.1" data-path="wizualizacja-danych.html"><a href="wizualizacja-danych.html#metoda-arbitralnie-ustalanej-szerokosci-przedziaow"><i class="fa fa-check"></i><b>2.4.1</b> Metoda arbitralnie ustalanej szerokosci przedziałów</a></li>
+<li class="chapter" data-level="2.4.2" data-path="wizualizacja-danych.html"><a href="wizualizacja-danych.html#metoda-pierwiastkowa"><i class="fa fa-check"></i><b>2.4.2</b> Metoda pierwiastkowa</a></li>
+<li class="chapter" data-level="2.4.3" data-path="wizualizacja-danych.html"><a href="wizualizacja-danych.html#metoda-strugesa"><i class="fa fa-check"></i><b>2.4.3</b> Metoda Struges’a</a></li>
+<li class="chapter" data-level="2.4.4" data-path="wizualizacja-danych.html"><a href="wizualizacja-danych.html#metoda-uniwersytetu-rice"><i class="fa fa-check"></i><b>2.4.4</b> Metoda Uniwersytetu Rice</a></li>
+<li class="chapter" data-level="2.4.5" data-path="wizualizacja-danych.html"><a href="wizualizacja-danych.html#metoda-doanea"><i class="fa fa-check"></i><b>2.4.5</b> Metoda Doane’a</a></li>
+<li class="chapter" data-level="2.4.6" data-path="wizualizacja-danych.html"><a href="wizualizacja-danych.html#metoda-scotta"><i class="fa fa-check"></i><b>2.4.6</b> Metoda Scott’a</a></li>
+<li class="chapter" data-level="2.4.7" data-path="wizualizacja-danych.html"><a href="wizualizacja-danych.html#metoda-freedmanadiaconisa"><i class="fa fa-check"></i><b>2.4.7</b> Metoda Freedmana–Diaconis’a</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="analiza-struktury.html"><a href="analiza-struktury.html"><i class="fa fa-check"></i><b>3</b> Analiza struktury</a><ul>
+<li class="chapter" data-level="3.1" data-path="analiza-struktury.html"><a href="analiza-struktury.html#miary-klasyczne"><i class="fa fa-check"></i><b>3.1</b> Miary klasyczne</a></li>
+<li class="chapter" data-level="3.2" data-path="analiza-struktury.html"><a href="analiza-struktury.html#miary-pozycyjne"><i class="fa fa-check"></i><b>3.2</b> Miary pozycyjne</a></li>
+<li class="chapter" data-level="3.3" data-path="analiza-struktury.html"><a href="analiza-struktury.html#szereg-jednostkowy-i-przedziaowy"><i class="fa fa-check"></i><b>3.3</b> Szereg jednostkowy i przedziałowy</a><ul>
+<li class="chapter" data-level="3.3.1" data-path="analiza-struktury.html"><a href="analiza-struktury.html#szereg-jednostkowy"><i class="fa fa-check"></i><b>3.3.1</b> Szereg jednostkowy</a></li>
+<li class="chapter" data-level="3.3.2" data-path="analiza-struktury.html"><a href="analiza-struktury.html#szereg-przedziaowy"><i class="fa fa-check"></i><b>3.3.2</b> Szereg przedziałowy</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="analiza-struktury.html"><a href="analiza-struktury.html#podsumowanie-miar"><i class="fa fa-check"></i><b>3.4</b> Podsumowanie miar</a><ul>
+<li class="chapter" data-level="3.4.1" data-path="analiza-struktury.html"><a href="analiza-struktury.html#miary-klasyczne-1"><i class="fa fa-check"></i><b>3.4.1</b> Miary klasyczne</a></li>
+<li class="chapter" data-level="3.4.2" data-path="analiza-struktury.html"><a href="analiza-struktury.html#miary-pozycyjne-1"><i class="fa fa-check"></i><b>3.4.2</b> Miary pozycyjne</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="korelacje.html"><a href="korelacje.html"><i class="fa fa-check"></i><b>4</b> Korelacje</a><ul>
+<li class="chapter" data-level="4.1" data-path="korelacje.html"><a href="korelacje.html#cechy-jakosciowe"><i class="fa fa-check"></i><b>4.1</b> Cechy jakościowe</a></li>
+<li class="chapter" data-level="4.2" data-path="korelacje.html"><a href="korelacje.html#cechy-ciage"><i class="fa fa-check"></i><b>4.2</b> Cechy ciągłe</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="regresja.html"><a href="regresja.html"><i class="fa fa-check"></i><b>5</b> Regresja</a><ul>
+<li class="chapter" data-level="5.1" data-path="regresja.html"><a href="regresja.html#regresja-prosta"><i class="fa fa-check"></i><b>5.1</b> Regresja prosta</a></li>
+<li class="chapter" data-level="5.2" data-path="regresja.html"><a href="regresja.html#trend-liniowy"><i class="fa fa-check"></i><b>5.2</b> Trend liniowy</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="sezonowosc.html"><a href="sezonowosc.html"><i class="fa fa-check"></i><b>6</b> Sezonowość</a><ul>
+<li class="chapter" data-level="6.1" data-path="sezonowosc.html"><a href="sezonowosc.html#trend-liniowy-1"><i class="fa fa-check"></i><b>6.1</b> Trend liniowy</a></li>
+<li class="chapter" data-level="6.2" data-path="sezonowosc.html"><a href="sezonowosc.html#model-addytywny"><i class="fa fa-check"></i><b>6.2</b> Model addytywny</a></li>
+<li class="chapter" data-level="6.3" data-path="sezonowosc.html"><a href="sezonowosc.html#model-multiplikatywny"><i class="fa fa-check"></i><b>6.3</b> Model multiplikatywny</a></li>
+<li class="chapter" data-level="6.4" data-path="sezonowosc.html"><a href="sezonowosc.html#ocena-jakosci"><i class="fa fa-check"></i><b>6.4</b> Ocena jakości</a></li>
+<li class="chapter" data-level="6.5" data-path="sezonowosc.html"><a href="sezonowosc.html#bad-prognozy"><i class="fa fa-check"></i><b>6.5</b> Błąd prognozy</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="analiza-szeregu-dynamicznego.html"><a href="analiza-szeregu-dynamicznego.html"><i class="fa fa-check"></i><b>7</b> Analiza szeregu dynamicznego</a><ul>
+<li class="chapter" data-level="7.1" data-path="analiza-szeregu-dynamicznego.html"><a href="analiza-szeregu-dynamicznego.html#przyrosty-absolutne"><i class="fa fa-check"></i><b>7.1</b> Przyrosty absolutne</a></li>
+<li class="chapter" data-level="7.2" data-path="analiza-szeregu-dynamicznego.html"><a href="analiza-szeregu-dynamicznego.html#przyrosty-wzgledne"><i class="fa fa-check"></i><b>7.2</b> Przyrosty względne</a></li>
+<li class="chapter" data-level="7.3" data-path="analiza-szeregu-dynamicznego.html"><a href="analiza-szeregu-dynamicznego.html#indeksy"><i class="fa fa-check"></i><b>7.3</b> Indeksy</a></li>
+<li class="chapter" data-level="7.4" data-path="analiza-szeregu-dynamicznego.html"><a href="analiza-szeregu-dynamicznego.html#srednie-tempo-zmian"><i class="fa fa-check"></i><b>7.4</b> Średnie tempo zmian</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="indeksy-indywidualne-i-zespoowe.html"><a href="indeksy-indywidualne-i-zespoowe.html"><i class="fa fa-check"></i><b>8</b> Indeksy indywidualne i zespołowe</a><ul>
+<li class="chapter" data-level="8.1" data-path="indeksy-indywidualne-i-zespoowe.html"><a href="indeksy-indywidualne-i-zespoowe.html#indeksy-indywidualne"><i class="fa fa-check"></i><b>8.1</b> Indeksy indywidualne</a></li>
+<li class="chapter" data-level="8.2" data-path="indeksy-indywidualne-i-zespoowe.html"><a href="indeksy-indywidualne-i-zespoowe.html#indeksy-zespoowe-agregatowe"><i class="fa fa-check"></i><b>8.2</b> Indeksy zespołowe (agregatowe)</a></li>
+<li class="chapter" data-level="8.3" data-path="indeksy-indywidualne-i-zespoowe.html"><a href="indeksy-indywidualne-i-zespoowe.html#przykad"><i class="fa fa-check"></i><b>8.3</b> Przykład</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Statystyka opisowa</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="indeksy-indywidualne-i-zespoowe" class="section level1">
+<h1><span class="header-section-number">8</span> Indeksy indywidualne i zespołowe</h1>
+<p>Indeksy indywidualne i zespołowe umożliwiają ocenę zmian w dwóch różnych okresach uwzględniając stałą ilość bądź wartość dla danego koszyka produktów. Najbardziej znanym przykładem indeksu zespołowego jest wskaźnik cen towarów i usług konsumpcyjnych czyli miara inflacji/deflacji.</p>
+<div id="indeksy-indywidualne" class="section level2">
+<h2><span class="header-section-number">8.1</span> Indeksy indywidualne</h2>
+<p><strong>Indeksem indywidualnym</strong> nazywamy stosunek poziomów tego samego pojedynczego zjawiska z dwóch różnych okresów (momentów). W statystyce społeczno-ekonomicznej rozpatruje się zwykle trzy rodzaje indywidualnych wskaźników dynamiki, a mianowicie: indeksy cen, ilości i wartości.</p>
+<p><strong>Indeks indywidualny cen</strong> wyraża relację poziomu cen określonego dobra w okresie badanym i w okresie podstawowym, co można zapisać następująco:</p>
+<p><span class="math display">\[i_p=\frac{p_1}{p_0}\]</span></p>
+<p>gdzie:</p>
+<ul>
+<li><span class="math inline">\(i_p\)</span> — indywidualny indeks cen,</li>
+<li><span class="math inline">\(p_1\)</span> — cena jednostki wyrobu w okresie badanym,</li>
+<li><span class="math inline">\(p_0\)</span> — cena jednostki wyrobu w okresie podstawowym.</li>
+</ul>
+<p><strong>Indeks indywidualny ilości</strong> oblicza się jako stosunek ilości określonego wyrobu wytworzonego w okresie badanym i w okresie podstawowym:</p>
+<p><span class="math display">\[i_q=\frac{q_1}{q_0}\]</span></p>
+<p>gdzie:</p>
+<ul>
+<li><span class="math inline">\(i_q\)</span> — indywidualny indeks ilości,</li>
+<li><span class="math inline">\(q_1\)</span> — ilość wyrobu wyprodukowanego w okresie badanym,</li>
+<li><span class="math inline">\(q_0\)</span> — ilość wyrobu wyprodukowanego w okresie podstawowym.</li>
+</ul>
+<p>Iloczyn ilości wyrobu wytworzonego w okresie badanym i ceny tego wyrobu z okresu badanego daje w wyniku wartość wyrobu w okresie badanym. Podobnie wylicza się wartość wyrobu w okresie podstawowym. W związku z tym <strong>indywidualny indeks wartości</strong> to iloraz wartości wyrobu wytworzonego w okresie badanym i w okresie podstawowym:</p>
+<p><span class="math display">\[i_w=\frac{q_1p_1}{q_0p_0}=\frac{w_1}{w_0}\]</span></p>
+<p>gdzie:</p>
+<ul>
+<li><span class="math inline">\(i_w\)</span> — indywidualny indeks wartości,</li>
+<li><span class="math inline">\(w_1\)</span> — wartość wyrobu w okresie badanym,</li>
+<li><span class="math inline">\(w_0\)</span> — wartość wyrobu w okresie podstawowym.</li>
+</ul>
+<p>Indywidualne indeksy cen, ilości i wartości informują o zmianie (wzroście lub spadku) tych wielkości w okresie badanym w porównaniu z okresem przyjętym za podstawę porównań. Między indywidualnymi indeksami cen, ilości i wartości obliczonymi dla tego samego produktu zachodzi następujący związek:</p>
+<p><span class="math display">\[i_w=i_pi_q\]</span></p>
+<p>Relacja określona powyższym wzorem nosi nazwę <strong>równości indeksowej dla indeksów indywidualnych</strong>. W przypadku gdy nie dysponujemy informacjami wyjściowymi, równość indeksowa umożliwia — przy znajomości dowolnej pary spośród trzech indeksów — obliczenie trzeciego indeksu.</p>
+</div>
+<div id="indeksy-zespoowe-agregatowe" class="section level2">
+<h2><span class="header-section-number">8.2</span> Indeksy zespołowe (agregatowe)</h2>
+<p>W praktyce badań statystycznych niejednokrotnie zachodzi potrzeba obliczenia indeksów dotyczących nie indywidualnych jednostek, ale całego zespołu (agregatu, zbioru) jednostek. Do badania dynamiki całego zespołu zjawisk — zwykle niejednorodnych i bezpośrednio niesumowalnych — stosowane są indeksy zespołowe (agregatowe). Konstrukcja indeksów zespołowych opiera się na wykorzystaniu określonych współczynników przeliczeniowych, odgrywających rolę wag. Rolę wag najczęściej spełniają ceny lub ilości.</p>
+<p><strong>Agregatowy indeks wartości</strong> określonego zespołu artykułów jest ilorazem sum wartości badanych dóbr w okresie badanym i w okresie podstawowym:</p>
+<p><span class="math display">\[I_w=\frac{\sum q_1p_1}{\sum q_0p_0}\]</span></p>
+<p>gdzie:</p>
+<ul>
+<li><span class="math inline">\(I_w\)</span> — agregatowy indeks wartości badanego zespołu artykułów,</li>
+<li><span class="math inline">\(\sum q_1p_1\)</span> — suma wartości badanego zespołu w okresie badanym,</li>
+<li><span class="math inline">\(\sum q_0p_0\)</span> — suma wartości badanego zespołu w okresie podstawowym.</li>
+</ul>
+<p>Agregatowy indeks wartości wyraża zmiany, jakie nastąpiły w okresie badanym w porównaniu z okresem podstawowym zarówno w ilościach określonego zespołu artykułów, jak i w ich cenach. W celu obliczenia siły i kierunku zmian wyłącznie ilości lub wyłącznie cen wyrobów wschodzących w skład agregatu buduje się agregatowe indeksy ilości i agregatowe indeksy cen. Do uzyskania agregatowego indeksu ilości unieruchamiane (ustalane na stałym poziomie) są ceny, natomiast do uzyskania agregatowego indeksu cen unieruchamiane są ilości. Każdy z tych indeksów może być wyliczony w oparciu o dwie formuły — Laspeyresa i Paaschego. W indeksie Laspeyresa unieruchamia się ilość lub cenę na poziomie okresu podstawowego, natomiast we wzorze Paaschego stała jest ilość bądź cena na poziomie okresu badanego.</p>
+<p><strong>Agregatowy indeks ilości Laspeyresa</strong> ma postać:</p>
+<p><span class="math display">\[I_q^L=\frac{\sum q_1p_0}{\sum q_0p_0}\]</span></p>
+<p><strong>Agregatowy indeks ilości Paaschego</strong> oblicza się następująco:</p>
+<p><span class="math display">\[I_q^P=\frac{\sum q_1p_1}{\sum q_0p_1}\]</span></p>
+<p>Agregatowe indeksy ilości informują o tym, o ile — przeciętnie biorąc — wzrosła lub zmalała ilość określonego zbioru artykułów w okresie badanym w porównaniu z odpowiednim okresem podstawowym.</p>
+<p><strong>Agregatowy indeks cen Laspeyresa</strong> ma postać:</p>
+<p><span class="math display">\[I_p^L=\frac{\sum q_0p_1}{\sum q_0p_0}\]</span></p>
+<p><strong>Agregatowy indeks cen Paaschego</strong> oblicza się następująco:</p>
+<p><span class="math display">\[I_p^P=\frac{\sum q_1p_1}{\sum q_1p_0}\]</span></p>
+<p>Agregatowe indeksy cen odpowiadają na pytanie, jak zmieniły się — przeciętnie biorąc — ceny danego zbioru artykułów w okresie badanym w porównaniu z okresem podstawowym, przy unieruchomieniu ilości w obu okresach, zgodnie z przyjętą formułą.</p>
+<p>W przypadku niezbyt odległych okresów porównawczych (tzn. okresu podstawowego i badanego) obliczane są też agregatowe indeksy cen i ilości według formuły Fishera.</p>
+<p><strong>Agregatowy indeks ilości Fishera</strong> wyrażony jest formułą:</p>
+<p><span class="math display">\[I_q^F=\sqrt{I_q^L \cdot I_q^P}\]</span></p>
+<p><strong>Agregatowy indeks cen Fishera</strong> oblicza się następująco:</p>
+<p><span class="math display">\[I_p^F=\sqrt{I_p^L \cdot I_p^P}\]</span></p>
+<p>Agregatowe indeksy cen i ilości Fishera informują o tym, o ile — przeciętnie biorąc — wzrosła lub zmalała ilość lub cena określonego zbioru artykułów w badanym okresie.</p>
+<p>Pomiędzy agregatowymi indeksami wartości, cen i ilości zachodzą następujące związki:</p>
+<p><span class="math display">\[I_w = I_p^L \cdot I_q^P = I_p^P \cdot I_q^L = I_p^F \cdot I_q^F\]</span></p>
+<p>Związek określony powyższą relacją nosi nazwę <strong>równości indeksowej dla indeksów agregatowych (zespołowych)</strong>. Jeśli dysponujemy informacjami o poziomach dwóch spośród trzech omawianych indeksów agregatowych, to możemy obliczyć wielkość trzeciego indeksu.</p>
+</div>
+<div id="przykad" class="section level2">
+<h2><span class="header-section-number">8.3</span> Przykład</h2>
+<p>W tabeli zebrano informacje na temat sprzedaży piwa (w sztukach) oraz średniej ceny (w zł) z trzech browarów w dwóch kolejnych miesiącach.</p>
+<table>
+<thead>
+<tr class="header">
+<th></th>
+<th>styczeń</th>
+<th></th>
+<th>luty</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Browar</td>
+<td>p0</td>
+<td>q0</td>
+<td>p1</td>
+<td>q1</td>
+</tr>
+<tr class="even">
+<td>Carlsberg</td>
+<td>2,30</td>
+<td>5009</td>
+<td>2,28</td>
+<td>4437</td>
+</tr>
+<tr class="odd">
+<td>Kompania Piwowarska</td>
+<td>2,69</td>
+<td>5806</td>
+<td>2,63</td>
+<td>5882</td>
+</tr>
+<tr class="even">
+<td>Zywiec</td>
+<td>2,51</td>
+<td>7934</td>
+<td>2,45</td>
+<td>7613</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Jak zmieniła się wartość sprzedanych piw w porównywanych okresach?</li>
+<li>Jaki wpływ na zmianę wartości miała dynamika cen, a jaki dynamika ilości sprzedawanych piw?</li>
+</ul>
+<p>W kolejnej tablicy przedstawione są wyniki obliczeń pomocniczych:</p>
+<table>
+<thead>
+<tr class="header">
+<th>Piwo</th>
+<th>q0p0</th>
+<th>q1p1</th>
+<th>q0p1</th>
+<th>q1p0</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Carlsberg</td>
+<td>11526,95</td>
+<td>10133,76</td>
+<td>11440,17</td>
+<td>10210,64</td>
+</tr>
+<tr class="even">
+<td>Kompania Piwowarska</td>
+<td>15590,44</td>
+<td>15456,79</td>
+<td>15257,08</td>
+<td>15794,52</td>
+</tr>
+<tr class="odd">
+<td>Zywiec</td>
+<td>19909,22</td>
+<td>18671,07</td>
+<td>19458,33</td>
+<td>19103,72</td>
+</tr>
+<tr class="even">
+<td>Razem</td>
+<td>47026,62</td>
+<td>44261,62</td>
+<td>46155,57</td>
+<td>45108,88</td>
+</tr>
+</tbody>
+</table>
+<p>Podstawiając odpowiednie wartości do wzoru na agregatowy indeks wartości, otrzymujemy:</p>
+<p><span class="math display">\[I_w=\frac{44261,62}{47026,62} \cdot 100\%=94,12\%\]</span></p>
+<p>Otrzymany wynik oznacza, że łączna wartość piw ze wszystkich trzech browarów w lutym jest o 5,88% niższa od wartości ze stycznia. Spadek wartości o 5,88% spowodowany jest zmianami cen i ilości produkowanych wyrobów.</p>
+<p>Agregatowe indeksy ilości Laspeyresa i Paaschego są równe:</p>
+<p><span class="math display">\[I_q^L=\frac{45108,88}{47026,62} \cdot 100\% = 95,92\%\]</span></p>
+<p><span class="math display">\[I_q^P=\frac{44261,62}{46155,57} \cdot 100\% = 95,90\%\]</span></p>
+<p>Agregatowy indeks ilości Laspeyresa informuje o tym, że sprzedaż piw z trzech browarów łącznie w lutym w porównaniu ze styczniem spadła o 4,08%, przy założeniu, że ceny w lutym były takie same jak w styczniu.</p>
+<p>Agregatowy indeks ilości obliczony według formuły Paaschego wskazuje, że sprzedaż piw z trzech browarów łącznie w lutym spadła — w porównaniu ze styczniem — o 4,10% przy stałych cenach z lutego.</p>
+<p>Agregatowe indeksy cen Laspeyresa i Paaschego wynoszą:</p>
+<p><span class="math display">\[I_p^L=\frac{46155,57}{47026,62} \cdot 100\% = 98,15\%\]</span></p>
+<p><span class="math display">\[I_p^P=\frac{44261,62}{45108,88} \cdot 100\% = 98,12\%\]</span></p>
+<p>Agregatowy indeks cen Laspeyresa oznacza, że — przeciętnie biorąc — cena piwa składających się na badany agregat spadły w lutym w porównaniu do stycznia o 1,85%, przy zachowaniu umownego założenia, że w lutym sprzedano te same ilości każdego piwa co w styczniu.</p>
+<p>Agregatowy indeks cen Paaschego informuje o tym, że ceny badanych piw w lutym spadły — średnio biorąc — w porównaniu ze stycznie o 1,88%, przy założeniu, że w styczniu roku sprzedano te same ilości piwa co w lutym.</p>
+<p>Agregatowe indeksy cen i ilości przy zastosowaniu formuły Fishera są równe:</p>
+<p><span class="math display">\[I_q^F=\sqrt{0,9592 \cdot 0,9590} = 0,9591 \cdot 100\% = 95,91\%\]</span></p>
+<p><span class="math display">\[I_p^F=\sqrt{0,9815 \cdot 0,9812} = 0,9813  \cdot 100\% = 98,13\%\]</span></p>
+<p>Agregatowy indeks ilości Fishera oznacza, że ilość sprzedanych piw spadła w lutym w porównaniu do stycznia średnio o 4,09%.</p>
+<p>Agregatowy indeks cen Fishera informuje o tym, że ceny sprzedanych piw spadły w lutym w porównaniu do stycznia średnio o 1,87%.</p>
+<p><em>Zadania</em></p>
+<ol style="list-style-type: decimal">
+<li><p>Przeprowadź wszechstronną analizę dynamiki cen i ilości w sklepach typu dyskont, hypermarket, sieci detalicznej, spożywczych oraz supermarketach w miesiącach maj i lipiec.</p></li>
+<li><p>Wartość produkcji dwóch wyrobów trwałego użytku w Polsce w latach 2004-2005 przedstawia następująca tabela. Wiedząc, że łączna wartość sprzedaży tych dóbr w 2004 wynosiła 262479 mln zł, scharakteryzuj jej dynamikę, uwzględniając zmiany cen oraz ilości.</p></li>
+</ol>
+<table>
+<thead>
+<tr class="header">
+<th>Nazwa wyrobu</th>
+<th>Wartość sprzedaży w 2005 (mln zł.)</th>
+<th>Zmiany ilości</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Radio</td>
+<td>38410</td>
+<td>Spadek o 35%</td>
+</tr>
+<tr class="even">
+<td>Telewizor</td>
+<td>423800</td>
+<td>Wzrost o 49%</td>
+</tr>
+<tr class="odd">
+<td>Suma</td>
+<td>462210</td>
+<td>x</td>
+</tr>
+</tbody>
+</table>
+<p>Opracowano na podstawie: Sobczyk Mieczysław, 2002, <em>Statystyka</em>, Wydawnictwo Naukowe PWN.</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="analiza-szeregu-dynamicznego.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(script.src))
+      script.src  = script.src.replace(/^https?:/, '');
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
