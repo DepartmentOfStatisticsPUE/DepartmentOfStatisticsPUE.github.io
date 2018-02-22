@@ -1,3 +1,3 @@
-# Katedra Statystyki - Materia≥y dydaktyczne
+# Katedra Statystyki - Materia≈Çy dydaktyczne
 
 [Statystyka opisowa](https://departmentofstatisticspue.github.io/statystyka-opisowa/)
