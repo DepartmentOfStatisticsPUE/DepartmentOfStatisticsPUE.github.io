@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Wprowadzenie do R. Próba losowa</title>
+    <meta charset="utf-8">
+    <meta name="author" content="Łukasz Wawrowski" />
+    <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <link href="libs/remark-css-0.0.1/default-fonts.css" rel="stylesheet" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Wprowadzenie do R. Próba losowa
+### Łukasz Wawrowski
+
+---
+
+
+class: inverse, center, middle
+
+# Why R?
+
+---
+
+# R to możliwości
+
+Środowisko do obliczeń statystycznych i wizualizacji wyników.
+
+- darmowy
+
+--
+
+- ponad 13 000 rozszerzeń (pakietów) - stan na 15.10.2018
+
+--
+
+- wsparcie społeczności
+
+--
+
+- wszechstronny
+
+--
+
+   - obliczenia i wizualizacje
+   - raporty
+   - interaktywne dashboardy
+   - strony internetowe
+   - prezentacje
+   - mapy
+   - ...
+
+---
+
+# R to język do analizy danych
+
+IEEE Language Rankings 2018
+
+&lt;center&gt;&lt;img src = "ranking.png" height = "300px" /&gt;&lt;/center&gt;
+
+11 - Matlab, 24 - SQL, 32 - Julia, 40 - SAS
+
+[http://blog.revolutionanalytics.com/2018/08/ieee-language-rankings-2018.html](http://blog.revolutionanalytics.com/2018/08/ieee-language-rankings-2018.html)
+
+---
+
+# R to program
+
+Do pobrania ze strony: [R-project](https://www.r-project.org/)
+
+&lt;center&gt;&lt;img src = "r.png" height = "400px" /&gt;&lt;/center&gt;
+
+---
+
+# RStudio to wygoda
+
+Do pobrania ze strony: [RStudio](https://www.rstudio.com/)
+
+&lt;center&gt;&lt;img src = "rstudio.png" height = "400px" /&gt;&lt;/center&gt;
+
+---
+
+# R jako kalkulator
+
+Oblicz wartość wyrażeń:
+
+1. `\(\frac{2^3\cdot6^2}{(\frac{1}{2})^2\cdot(\frac{4}{5})^3}\)`
+2. `\(\sqrt[3]{6-3.5+2^{11}}\)`
+3. `\(\pi+\sqrt{e^4}\)`
+4. `\(5! - log_{10}100\)`
+5. `\(|1-e|\)`
+
+---
+
+# Próba losowa
+
+Próba jest losowa jeśli spełnione są następujące warunki:
+
+1. Każda jednostka w populacji generalnej posiada niezerowe prawdopodobieństwo znalezienia się w próbie - `\(\pi_i\)`.
+2. Prawdopodobieństwo `\(\pi_i\)` jest znane dla każdej jednostki w próbie.
+3. Każda para jednostek w populacji generalnej posiada niezerowe prawdopodobieństwo znalezienia się w próbie - `\(\pi_{ij}\)`.
+4. Prawdopodobieństwo `\(\pi_{ij}\)` jest znane dla każdej pary jednostek w próbie.
+
+---
+
+# Waga z próby
+
+Losujemy próbę o wielkości 38 000 osób z Polski (populacja 38 milionów). Prawdopodobieństwo wylosowania pojedyńczej jednostki wynosi:
+
+`$$\pi_i=38000/38000000=1/1000$$`
+
+Każda osoba w próbie reprezentuje 1000 mieszkańców Polski.
+
+W związku z tym waga z próby jest równa:
+
+`$$w_i=1/\pi_i=1000$$`
+
+---
+
+# Zadanie
+
+Wylosuj próbę losową stanowiącą 2% populacji uwzględniając w losowaniu warstwowym miejsce zamieszkania (_mw_) i wiek (_wiek_).
+
+---
+
+class: center, middle, inverse
+
+# Pytania?
+    </textarea>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function() {
+  var d = document, s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})();</script>
+
+<script>
+(function() {
+  var i, text, code, codes = document.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+})();
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Projektowanie badania statystycznego</title>
+    <meta charset="utf-8">
+    <meta name="author" content="Łukasz Wawrowski" />
+    <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <link href="libs/remark-css-0.0.1/default-fonts.css" rel="stylesheet" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Projektowanie badania statystycznego
+### Łukasz Wawrowski
+
+---
+
+
+# Przeciętne wynagrodzenie
+
+Jak często publikowane są takie dane?
+
+--
+
+- sierpień 2018 roku, liczba pracujących powyżej 9 osób
+
+--
+
+__4798,27 zł brutto__
+
+--
+
+- 2017 rok, liczba pracujących do 9 osób
+
+--
+
+__2800,50 zł brutto__
+
+---
+
+# Cykl życia badania statystycznego
+
+- perspektywa projektowa - od ogółu do szczegółu
+- perspektywa jakościowa - identyfikacja źródeł błędów
+
+---
+
+# Perspektywa projektowa
+
+![](cykl_zycia_2.2.png)
+
+---
+
+# Koncepcja
+
+Jakie informacje są poszukiwane przez badacza.
+
+--
+
+- Badanie PISA - ocena umiejętności uczniów
+- National Crime Victimization Survey - ofiary przestępstw
+- Badanie Budżetów Gospodarstw Domowych - konsumpcja alkoholu
+- Badanie nastrojów konsumentów
+- ...
+
+--
+
+_Papier przyjmie wszystko. Papier jest cierpliwy._
+
+--
+
+- Kto jest ofiarą przestępstwa?
+- Czym jest nastrój konsumenta?
+
+---
+
+# Pomiar
+
+Sposób zbierania informacji przestawionej w koncepcji.
+
+--
+
+- Pytanie w ankiecie - _Ile wynosiła ostatnia miesięczna rata (bez odsetek) kredytu hipotecznego zaciągniętego na zakup użytkowanego mieszkania?_
+- Badanie elektroniczne lub fizyczne - skanowanie cen produktów w sklepach
+- Obserwacja respondenta - reakcja na wyświetloną reklamę
+
+---
+
+# Odpowiedzi
+
+Informacje przekazane przez respondenta.
+
+--
+
+- z pamięci
+- z dokumentów
+- z pomocą innej osoby
+
+--
+
+![EU-SILC](ocena_silc.png)
+
+---
+
+# Skorygowane odpowiedzi
+
+Odpowiedź respondenta jest sprzeczna z innymi odpowiedziami.
+
+--
+
+- Rok urodzenia mniejszy od 1890
+- 14-letnia matka 5 dzieci
+
+--
+
+Analiza odpowiedzi odstających.
+
+---
+
+# Perspektywa projektowa
+
+![](cykl_zycia_2.2.png)
+
+---
+
+# Badana populacja
+
+Zbiór badanych jednostek.
+
+--
+
+![EU-SILC](jednostka_definicja.png)
+
+---
+
+# Operat losowania
+
+Zbiór jednostek z badanej populacji, które mają szansę na wylosowanie do próby.
+
+--
+
+- książka telefoniczna
+- rejestry administracyjne
+
+---
+
+# Próba
+
+Zbiór jednostek wylosowanych z operatu losowania.
+
+--
+
+W większości przypadków próba będzie stanowiła bardzo małą część operatu losowania.
+
+---
+
+# Respondenci
+
+Rzadko kiedy udaje się zebrać informacje od wszystkich jednostek w próbie.
+
+--
+
+![](nonresponse.png)
+
+Źródło: Groves, R.M, 2009, _Survey Methodology_, Wiley.
+
+---
+
+# Korekta post hoc
+
+Próba poprawy jakości danych zebranych w badaniu.
+
+--
+
+Głównym problemem braki danych. Receptą:
+
+- kalibracja (przeważanie)
+- imputacja
+
+---
+
+# Projektowanie badania
+
+![](proces_2.4.png)
+
+---
+
+# Perspektywa jakościowa
+
+![](cykl_zycia_2.5.png)
+
+---
+
+# Oznaczenia
+
+- `\(\mu_i\)` - wartość wynikająca z koncepcji dla `\(i\)`-tej jednostki w populacji, `\(i=1,2,..,N\)`
+- `\(Y_i\)` - wartość mierzona dla `\(i\)`-tej jednostki w populacji, `\(i=1,2,..,N\)`
+- `\(y_i\)` - wartość zadeklarowana przez respondenta
+- `\(y_{ip}\)` - wartość po korekcie
+
+---
+
+# Zauważalna różnica pomiędzy koncepcją a pomiarem
+
+Przykład: zdolności matematyczne.
+
+--
+
+`$$Y_i = \mu_i + \varepsilon_i$$`
+
+gdzie `\(\varepsilon\)` oznacza odchylenie od wartości prawdziwej.
+
+---
+
+# Zauważalna różnica pomiędzy pomiarem a odpowiedzią
+
+_Czy kiedykolwiek paliłeś marihuanę?_
+
+--
+
+Błąd pomiaru
+
+`$$(y_i-Y_i) \neq 0$$`
+--
+
+Efekt respondenta (response bias)
+
+`$$E(y_i) \neq Y_i$$`
+
+---
+
+# Zauważalna różnica pomiędzy odpowiedzią a skorygowaną odpowiedzią
+
+_Ile razy dziennie doświadczasz agresji ze strony innych ludzi?_
+
+--
+
+_Czy w ciągu ostatnich miesięcy słyszałeś o jakichkolwiek zmianach w nastrojach rynkowych?_
+
+--
+
+Błąd przetwarzania
+
+`$$(y_{ip}-y_i)$$`
+---
+
+# Perspektywa jakościowa
+
+![](cykl_zycia_2.5.png)
+
+
+---
+
+# Niezauważalna różnica pomiędzy populacją a operatem
+
+![](operat_2.6.png)
+
+---
+
+# Niezauważalna różnica pomiędzy populacją a operatem
+
+Błąd pokrycia
+
+`$$\bar{Y}_C-\bar{Y}=\frac{U}{N}(\bar{Y}_C-\bar{Y}_U)$$`
+
+- `\(\bar{Y}\)` - średnia dla badanej populacji
+- `\(\bar{Y}_C\)` - średnia dla populacji w operacie losowania
+- `\(\bar{Y}_U\)` - średnia dla populacji poza operatem losowania
+- `\(N\)` - liczebność badanej populacji
+- `\(C\)` - liczebność populacji objętej badaniem
+- `\(U\)` - liczebność poopulacji nie objętej badaniem
+
+---
+
+# Niezauważalna różnica pomiędzy operatem a próbą
+
+Obciążenie losowania - niektóre jednostki w operacie losowania nie mają szansy na wylosowanie.
+
+Wariancja próbki - każda wylosowana próba będzie cechowała się nieco innym wynikiem dla danej cechy.
+
+`$$\frac{1}{S}\sum\limits_{s=1}^{S}{(\bar{y}_s-\bar{Y}_C)}^2$$`
+
+---
+
+# Niezauważalna różnica pomiędzy próbą a respondentami
+
+Błąd braków odpowiedzi - 100% wskaźnik kompletności wywiadów nie zdarza się wśród ludzi.
+
+`$$\bar{y}_r-\bar{y}_s=\frac{m_s}{n_s}(\bar{y}_r-\bar{y}_m)$$`
+
+- `\(\bar{y}_s\)` - średnia w całej próbie
+- `\(\bar{y}_r\)` - średnia dla jednostek, które udzieliły odpowiedzi w próbie
+- `\(\bar{y}_m\)` - średnia dla jednostek, które nie udzieliły odpowiedzi w próbie
+- `\(n_s\)` - liczebność próby
+- `\(r_s\)` - liczebność jednostek, które udzieliły odpowiedzi w próbie
+- `\(m_s\)` - liczebność jednostek, które nie udzieliły odpowiedzi w próbie
+
+---
+
+# Błąd korekty
+
+Wykorzystanie danych na temat populacji, wskaźnika kompletności w poprawie jakości próby może spowodować przeszacowanie lub niedoszacowanie wyników dla określonych grup.
+
+---
+
+# Perspektywa jakościowa
+
+![](cykl_zycia_2.5.png)
+
+
+---
+
+# Zadania
+
+1. Jaki był rozmiar zbadanej próby w Badaniu Aktywności Ekonomicznej Ludności w I kwartale 2018 r.?  
+
+--
+
+2. Ile wynosi wskaźnik kompletności w Europejskim Badaniu Dochodów i Warunków Życia w 2016 r.?  
+
+--
+
+3. Jakie są przyczyny niepodjęcia badania w Badaniu Budżetów Gospodarstw Domowych w 2017 r.?  
+
+--
+
+4. Jakie zjawiska mogą być badane przez następujące pytania:  
+   - Czy uważasz się za szczęśliwą osobę?
+   - Czy w ostatnim tygodniu przygotowałeś dla siebie jakikolwiek posiłek?
+   - Czy jesteś właścicielem samochodu?
+   
+--
+
+5. Celem badania telefonicznego było określenie średniej długości edukacji w USA. Jako operat losowania wykorzystano książkę telefoniczną, która nie uwzględnia około 5% populacji. Średnia długość edukacji wśród respondentów wynosiła 14,3 lat, natomiast wśród osób nie objętych badaniem 11,2 lat. Oblicz błąd pokrycia.
+
+---
+
+class: center, middle, inverse
+
+# Pytania?
+    </textarea>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function() {
+  var d = document, s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})();</script>
+
+<script>
+(function() {
+  var i, text, code, codes = document.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+})();
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Wprowadzenie do metody reprezentacyjnej</title>
+    <meta charset="utf-8">
+    <meta name="author" content="Łukasz Wawrowski" />
+    <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <link href="libs/remark-css-0.0.1/default-fonts.css" rel="stylesheet" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Wprowadzenie do metody reprezentacyjnej
+### Łukasz Wawrowski
+
+---
+
+
+# Pytania wprowadzające
+
+- Co to jest _metoda reprezentacyjna_?
+
+--
+
+- Kto może być objęty badaniem statystycznym?
+
+--
+
+- Jakie badania prowadzone są w Polsce?
+
+--
+
+- Jaki jest cel prowadzenia badań ankietowych?
+
+---
+
+# Metoda reprezentacyjna - definicja
+
+__Metoda reprezentacyjna__ ma na celu określenie zasad dotyczących projektowania, zbierania, przetwarzania oraz analizy danych, które wpływają na koszt i jakość badania.
+
+---
+
+# Podstawowe charakterystyki badania
+
+1. Cel badania
+2. __Populacja generalna__ którą badanie ma opisywać
+3. Źródła z których może zostać wylosowana próba - __operat losowania__
+4. Sposób w jaki próba zostanie wylosowana - __schemat losowania__
+5. Sposób zbierania danych
+
+---
+
+# Program Badań Statystyki Publicznej
+
+- Europejskie badanie warunków życia ludności (EU-SILC)
+- Czas pracy
+- Operaty statystyczne
+
+---
+
+# Próba losowa - uproszczona definicja
+
+Wyniki badania przeprowadzonego na próbie losowej można uogólniać na populację generalną.
+
+---
+
+# Zadanie 
+
+Badanie studentów dotyczące wrażeń z ostatniej sesji.
+
+--
+
+- W jaki sposób stworzyć operat losowania?
+
+--
+
+- W jaki sposób wylosować próbę?
+
+--
+
+- W jaki sposób skontaktować się z wylosowanymi jednostkami i przeprowadzić wywiad?
+
+--
+
+- W jaki sposób zebrać odpowiedzi respondenta?
+
+---
+
+# Podsumowanie
+
+![](phdcomics.gif)
+
+---
+
+class: center, middle, inverse
+
+# Pytania?
+    </textarea>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function() {
+  var d = document, s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})();</script>
+
+<script>
+(function() {
+  var i, text, code, codes = document.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+})();
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
