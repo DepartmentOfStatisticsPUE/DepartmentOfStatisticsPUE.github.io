@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Estymacja wartości globalnej i średniej</title>
+    <meta charset="utf-8">
+    <meta name="author" content="Łukasz Wawrowski" />
+    <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <link href="libs/remark-css-0.0.1/default-fonts.css" rel="stylesheet" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Estymacja wartości globalnej i średniej
+### Łukasz Wawrowski
+
+---
+
+
+# Estymator Horvitza-Thompsona
+
+Estymator wartości globalnej 
+
+`$$\hat{y}^{HT}=\sum\limits_{i=1}^{n}{x_iw_i}$$`
+
+Estymator wartości średniej
+
+`$$\hat{\bar{y}}^{HT}=\frac{1}{n}\sum\limits_{i=1}^{n}{x_iw_i}$$`
+
+gdzie:
+
+- `\(n\)` - liczebność próby,
+- `\(x_i\)` - wartość cechy dla `\(i\)`-tej jednostki,
+- `\(w_i\)` - wartość wagi dla `\(i\)`-tej jednostki.
+
+---
+
+# Wariancja estymatora Horvitza-Thompsona
+
+Estymator wartości globalnej 
+
+`$$V(\hat{y}^{HT})=\frac{N-n}{N}\cdot N^2 \cdot \frac{s_x}{n}$$`
+
+Estymator wartości średniej
+
+`$$V(\hat{\bar{y}}^{HT})=\frac{N-n}{N} \cdot \frac{s_x}{n}$$`
+
+gdzie: 
+
+- `\(N\)` - liczebność populacji,
+- `\(n\)` - liczebność próby,
+- `\(s_x\)` - wariancja cechy `\(x\)`.
+
+---
+
+# Finite Population Correction
+
+Różnica pomiędzy losowaniem ze zwracaniem, a losowaniem bez zwracania
+
+`$$\text{FPC}=\frac{N-n}{N}$$`
+
+???
+
+https://www.statisticshowto.datasciencecentral.com/finite-population-correction-factor/
+
+---
+
+# Błąd standardowy oszacowania
+
+Interpretowalną miarą błędu jest błąd standardowy:
+
+`$$\text{SE}=\sqrt{V(\hat{y^{HT}})}$$`
+
+--
+
+Względny błąd oszacowania:
+
+`$$\text{CV}=\frac{\text{SE}}{\hat{y^{HT}}}$$`
+
+Podawany w procentach i wg standardów GUS nie powinien przekraczać 10%.
+
+---
+
+# Zależności
+
+- większa próba = większe koszty
+- większa próba = mniejszy błąd oszacowania
+
+---
+
+# Zbiór danych
+
+National Health and Nutrition Examination Survey (NHANES)
+
+https://www.cdc.gov/nchs/nhanes/index.htm
+
+- Ocena zdrowia dzieci i dorosłych w USA
+- operat jest warstwowany cechami geograficznymi i ludnością
+- 4-stopniowy schemat losowania:
+  - 1 stopień: losowanie hrabstw w ramach warstw
+  - 2 stopień: losowanie miast w ramach hrabstw
+  - 3 stopień: losowanie gospodarstw w ramach miast
+  - 4 stopień: losowanie osób w ramach gospodarstw
+
+---
+
+# Pakiet survey
+
+- deklaracja schematu losowania
+- estymacja wartości
+- nazwy zmiennych należy poprzedzić tyldą `\(\sim\)`
+
+---
+
+# Wyniki nieprzeważone i przeważone
+
+.pull-left[
+
+&lt;img src="nonweighted.png" width=400px&gt;
+
+]
+
+--
+
+.pull-right[
+
+&lt;img src="weighted.png" width=400px&gt;
+]
+
+---
+
+class: center, middle, inverse
+
+# Pytania?
+    </textarea>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function() {
+  var d = document, s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})();</script>
+
+<script>
+(function() {
+  var i, text, code, codes = document.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+})();
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
