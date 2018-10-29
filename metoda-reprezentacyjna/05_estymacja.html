@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Estymacja wskaźnika i przedziały ufności</title>
+    <meta charset="utf-8">
+    <meta name="author" content="Łukasz Wawrowski" />
+    <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <link href="libs/remark-css-0.0.1/default-fonts.css" rel="stylesheet" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Estymacja wskaźnika i przedziały ufności
+### Łukasz Wawrowski
+
+---
+
+
+# Rozgrzewka
+
+
+```r
+library(survey)
+
+data(api)
+```
+
+Na podstawie zbioru `apistrat` oszacuj średnią wartość Academic Performance Index (`api00`). Jednostki losowania pierwszego stopnia to `cds`, warstwa - `stype`, waga  - `pw`.
+
+--
+
+
+```r
+dstrat &lt;- svydesign(id=~cds,strata=~stype, weights=~pw, 
+                    data=apistrat)
+
+svymean(~api00, dstrat)
+```
+
+```
+##         mean     SE
+## api00 662.29 9.5361
+```
+
+---
+
+# Estymacja wskaźnika
+
+Ogółem:
+
+
+```r
+svyratio(numerator = ~licznik, denominator = ~mianownik, 
+         design = schemat)
+```
+
+
+- licznik i mianownik musi być zdefiniowany jako zmienna binarna.
+
+--
+
+W przekrojach:
+
+
+```r
+svyby(formula = ~licznik, denominator = ~mianownik, 
+      by = ~przekroj, design = schemat, FUN = svyratio)
+```
+
+
+---
+
+# Przedział ufności
+
+W jakim przedziale i z jakim prawdopodobieństwem znajduje się wartość prawdziwa:
+
+`$$\left(\hat{y}^{HT}- z_{1-\alpha/2}\cdot\sqrt{V(\hat{y}^{HT})} \leq \hat{y}^{HT} \leq \hat{y}^{HT}+ z_{1-\alpha/2}\cdot\sqrt{V(\hat{y}^{HT})}\right)$$`
+
+- 90% przedział ufności - `\(z_\alpha = 1,64\)`, dla `\(\alpha=0,10\)`
+- 95% przedział ufności - `\(z_\alpha = 1,96\)`, dla `\(\alpha=0,05\)`
+- 99% przedział ufności - `\(z_\alpha = 2,58\)`, dla `\(\alpha=0,01\)`
+
+Obliczanie kwantyla rozkładu w R:
+
+
+```r
+qnorm(1-0.05/2)
+```
+
+```
+## [1] 1.959964
+```
+
+---
+
+class: center, middle, inverse
+
+# Pytania?
+    </textarea>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function() {
+  var d = document, s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})();</script>
+
+<script>
+(function() {
+  var i, text, code, codes = document.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+})();
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

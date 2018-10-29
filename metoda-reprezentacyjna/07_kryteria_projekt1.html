@@ -130,8 +130,58 @@ $(document).ready(function () {
 <div id="zadanie" class="section level1">
 <h1>Zadanie</h1>
 <p>Na podstawie danych o gospodarstwach w populacji generalnej, zaproponuj dwa sposoby losowania, które pozwolą uzyskać oszacowania zmiennych …. w przekroju …. ze względnym błędem oszacowania nie przekraczającym …. %.</p>
-<p>Dane na temat populacji gospodarstw znajdują się pliku <code>populacja.zip</code>.</p>
-<p>Zmienne do oszacowania zostaną dołączone do próby z wykorzystaniem dedykowanego pakietu i funkcji.</p>
+<p>Dane na temat populacji gospodarstw znajdują się pod adresem: <a href="https://github.com/lwawrowski/metoda-reprezentacyjna/raw/master/07_projekt/dane.RData">dane</a></p>
+<pre class="r"><code>load(&quot;dane.RData&quot;)</code></pre>
+<p><code>populacja</code>:</p>
+<ul>
+<li>teryt - kod teryt</li>
+<li>region - kod regionu NUTS 1</li>
+<li>woj - kod województwa NUTS 2</li>
+<li>degurba - kod DEGURBA określający stopień urbanizacji</li>
+<li><p>klm - klasa miejscowości zamieszkania</p></li>
+<li>1 - wieś</li>
+<li>2 - miasto do 20 tys. mieszkańców</li>
+<li>3 - miasto od 20 do 99 tys. mieszkańców</li>
+<li>4 - miasto od 100 do 199 tys. mieszkańców</li>
+<li>5 - miasto od 200 do 499 tys. mieszkańców</li>
+<li><p>6 - miasto powyżej 500 tys. mieszkańców</p></li>
+<li><p>id_gospodarstwa - unikalny identyfikator gospodarstwa</p></li>
+</ul>
+<p><code>badanie</code>:</p>
+<ul>
+<li>id_gospodarstwa - unikalny identyfikator gospodarstwa</li>
+<li><p>niepelnosprawnosc - czy w gospodarstwie znajduje się osoba niepełnosprawna</p></li>
+<li>0 - tak</li>
+<li><p>1 - nie</p></li>
+<li><p>wyksztalcenie - poziom wykształcenia głowy gospodarstwa domowego</p></li>
+<li>1 - podstawowe</li>
+<li>2 - średnie</li>
+<li><p>3 - wyższe</p></li>
+<li><p>aktywnosc_ekon - status na rynku pracy głowy gospodarstwa domowego</p></li>
+<li>1 - pracujący</li>
+<li>2 - bezrobotny</li>
+<li><p>3 - bierny zawodowo</p></li>
+<li>wiek - wiek głowy gospodarstwa domowego</li>
+<li>liczba_osob - liczba osób w gospodarstwie domowym</li>
+<li><p>dochód - ekwiwalentny dochód gospodarstwa domowego</p></li>
+</ul>
+<pre class="r"><code>library(tidyverse)
+library(survey)
+
+# losowanie próby
+proba &lt;- populacja %&gt;%
+  # warstwy
+  sample_frac(0.001)
+
+# dołączanie informacji o odpowiedziach
+proba_badanie1 &lt;- merge(proba, badanie, by = &quot;id_gospodarstwa&quot;, all.x = T)
+
+proba_badanie2 &lt;- merge(proba, badanie, by = &quot;id_gospodarstwa&quot;, all.x = T)
+
+# obliczenie wag
+# kalibracja
+
+save(proba_badanie1, proba_badanie2, file=&quot;proba.RData&quot;)</code></pre>
 </div>
 <div id="prezentacja" class="section level1">
 <h1>Prezentacja</h1>
@@ -141,7 +191,7 @@ $(document).ready(function () {
 <li>zastosowane schematy losowania</li>
 <li>Rozmiar próby i uzyskane wyniki</li>
 </ol>
-<p>Prezentacja oraz projekt R muszą być wgrane na moodle do dnia 11.11.2018 r.</p>
+<p>Prezentacja w formacie .pdf oraz projekt R (skrypt i plik proba.RData) muszą być wgrane na moodle do dnia 11.11.2018 r.</p>
 </div>
 <div id="kryteria-oceny" class="section level1">
 <h1>Kryteria oceny</h1>
