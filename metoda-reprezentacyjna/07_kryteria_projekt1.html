@@ -165,33 +165,64 @@ $(document).ready(function () {
 <li>liczba_osob - liczba osób w gospodarstwie domowym</li>
 <li><p>dochód - ekwiwalentny dochód gospodarstwa domowego</p></li>
 </ul>
+<p>Przykład estymacji liczby osób pełnosprawnych w przekroju województw na podstawie próby prostej.</p>
 <pre class="r"><code>library(tidyverse)
 library(survey)
 
-# losowanie próby
-proba &lt;- populacja %&gt;%
+# losowanie próby 1
+proba1 &lt;- populacja %&gt;%
   # warstwy
   sample_frac(0.001)
 
 # dołączanie informacji o odpowiedziach
-proba_badanie1 &lt;- merge(proba, badanie, by = &quot;id_gospodarstwa&quot;, all.x = T)
+proba1_badanie &lt;- merge(proba1, badanie, by = &quot;id_gospodarstwa&quot;, all.x = T)
 
-proba_badanie2 &lt;- merge(proba, badanie, by = &quot;id_gospodarstwa&quot;, all.x = T)
+proba1_badanie &lt;- proba1_badanie %&gt;%
+  mutate(fpc=nrow(populacja))
 
 # obliczenie wag
+
+proba1_schemat &lt;- svydesign(ids = ~id_gospodarstwa, fpc = ~fpc, data = proba1_badanie)
+
+wagi &lt;- weights(proba1_schemat)
+
+proba1_badanie_bez_brakow &lt;- proba1_badanie %&gt;%
+  mutate(waga=wagi) %&gt;%
+  filter(!is.na(wiek))
+
+proba1_bez_brakow_schemat &lt;- svydesign(ids = ~id_gospodarstwa, weights = ~waga, 
+                                       fpc = ~fpc, data = proba1_badanie_bez_brakow)
+
 # kalibracja
+
+pop_total &lt;- colSums(model.matrix(~woj,model.frame(~woj,populacja)))
+
+proba1_kalibracja &lt;- calibrate(design = proba1_bez_brakow_schemat, formula = ~woj, population = pop_total)
+
+# estymacja
+
+niepelnosprawnosc_woj &lt;- svyby(formula = ~niepelnosprawnosc, by = ~woj, 
+                               design = proba1_kalibracja, FUN = svytotal)
+
+# inny sposob losowania
+
+# ... 
+
+proba_badanie2 &lt;- merge(proba2, badanie, by = &quot;id_gospodarstwa&quot;, all.x = T)
+
+# ....
 
 save(proba_badanie1, proba_badanie2, file=&quot;proba.RData&quot;)</code></pre>
 </div>
 <div id="prezentacja" class="section level1">
 <h1>Prezentacja</h1>
-<p>Podczas zajęć w dniu 12.11.2018 r. zadania projektowe mają być przedstawione w krótkiej prezentacji (max. 5 slajdów) zawierającej:</p>
+<p>Podczas zajęć w dniu 19.11.2018 r. zadania projektowe mają być przedstawione w krótkiej prezentacji (max. 5 slajdów) zawierającej:</p>
 <ol style="list-style-type: decimal">
 <li>Treść zadania projektowego</li>
 <li>zastosowane schematy losowania</li>
 <li>Rozmiar próby i uzyskane wyniki</li>
 </ol>
-<p>Prezentacja w formacie .pdf oraz projekt R (skrypt i plik proba.RData) muszą być wgrane na moodle do dnia 11.11.2018 r.</p>
+<p>Prezentacja w formacie .pdf oraz projekt R (skrypt i plik proba.RData) muszą być wgrane na moodle do dnia 18.11.2018 r., godz. 23:00.</p>
 </div>
 <div id="kryteria-oceny" class="section level1">
 <h1>Kryteria oceny</h1>
@@ -201,9 +232,10 @@ save(proba_badanie1, proba_badanie2, file=&quot;proba.RData&quot;)</code></pre>
 <li><p>sposób prezentacji wyników - 1 punkt</p></li>
 <li>utworzenie warstwy wykorzystując dane spoza zbioru danych - 1 punkt</li>
 <li>dodatkowy schemat losowania - 1 punkt</li>
-<li><p>3 najlepsze wyniki na roku - 1 punkt</p></li>
+<li>najlepsza praca w grupie wybrana przez prowadzącego - 1 punkt</li>
+<li><p>najlepsza praca w grupie wybrana przez studentów - 1 punkt</p></li>
+<li><p>oddanie pracy po terminie - -3 punkty</p></li>
 </ul>
-<p>Najlepszy wynik jest mierzony jako relacja wielkości próby i maksymalnego błędu oszacowania uzyskanego dla wskaźnika.</p>
 </div>
 
 
