@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Kalibracja</title>
+    <meta charset="utf-8">
+    <meta name="author" content="Łukasz Wawrowski" />
+    <link rel="stylesheet" href="default.css" type="text/css" />
+    <link rel="stylesheet" href="default-fonts.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Kalibracja
+### Łukasz Wawrowski
+
+---
+
+
+# Projektowanie badania
+
+1. Losowanie próby na podstawie operatu (populacji)
+2. Wyznaczenie wag z frakcji dla wylosowanych jednostek
+3. Zebranie danych od respondentów - występowanie braków odpowiedzi
+4. Korekta post-hoc - __kalibracja__
+5. Szacowanie parametrów
+
+---
+
+# Wprowadzenie do kalibracji
+
+- metoda wykorzystywana w estymacji różnych parametrów w badaniach statystycznych z brakami odpowiedzi
+- twórcy metody: Carl-Erik Sarndal i Jean Claude Deville
+- polski ekspert: dr Marcin Szymkowiak
+
+---
+
+# Kalibracja
+
+Metoda polegająca na skorygowaniu wyjściowych wag celem redukcji obciążenia wynikającego z istnienia braków odpowiedzi. 
+
+Obliczenie skorygowanych wag odbywa się w oparciu o wykorzystanie informacji dodatkowych.
+
+W rezultacie uzyskuje się równowagę rozumianą w ten sposób, że po zastosowaniu kalibracji próba jest _wyglądem_ zbliżona do całej populacji.
+
+---
+
+# Algorytm kalibracji
+
+1. Sprawdź czy wagi w próbie sumują się liczebności populacji, w przekrojach w których jest przeprowadzana estymacja
+2. Jeśli nie to wyznacz wartości globalne w tych przekrojach - zmienne pomocnicze w kalibracji
+3. Dokonaj korekty wag, w taki sposób, aby suma wag w przekrojach odpowiadała liczebności populacji
+
+---
+
+# Kalibracja w pakiecie survey
+
+
+
+
+Wyznaczanie wartości globalnych dla zmiennych pomocniczych:
+
+
+```r
+pop_plec &lt;- colSums(model.matrix(~plec,model.frame(~plec,populacja)))
+pop_plec
+```
+
+```
+##   (Intercept) plecmężczyźni 
+##        766686        358306
+```
+
+`(Intercept)` - liczebność populacji. Liczba kategorii `\(k-1\)`.
+
+Funkcja `calibrate`:
+
+
+```r
+kalibracja_plec &lt;- calibrate(design = schemat, formula = ~plec, 
+                             population = pop_plec)
+```
+
+---
+
+# Kalibracja w pakiecie survey
+
+Wyznaczanie wartości globalnych dla zmiennych pomocniczych:
+
+
+```r
+pop &lt;- colSums(model.matrix(~plec*mw,model.frame(~plec*mw,populacja)))
+pop
+```
+
+```
+##          (Intercept)        plecmężczyźni               mwwieś 
+##               766686               358306               189701 
+## plecmężczyźni:mwwieś 
+##                91907
+```
+
+Użycie w formule `*` wyznacza wartości globalne dla kilku zmiennych pomocniczych.
+
+Funkcja `calibrate`:
+
+
+```r
+kalibracja_plec_mw &lt;- calibrate(design = schemat, formula = ~plec*mw, 
+                                population = pop)
+```
+
+
+---
+
+# Zadanie
+
+
+```r
+load("dane.RData")
+```
+
+
+- `proba` - 0,131% próba wylosowana ze zbioru `populacja` z warstwą utworzoną na podstawie zmiennej _wiek_
+- `proba_braki` - zbiór `proba` zakładający 20% braków odpowiedzi
+
+1. Przeprowadź kalibrację w grupach wieku
+2. Przeprowadź kalibrację w grupach wieku i płci
+
+---
+
+# Kalibracja
+
+- Zakładamy, że populacja `\(U=\left\{1,2,\ldots,N\right\}\)`  składa się z `\(N\)` elementów.
+- Z populacji tej losujemy zgodnie z określonym schematem losowania próbę `\(s\subseteq U\)`, składającą się z `\(n\)` elementów.
+- Niech `\(\pi_{i}\)` oznacza prawdopodobieństwo inkluzji pierwszego rzędu tj. `\(\pi_{i}=P\left(i\in s\right)\)` a `\(w_{i}=1/\pi_{i}\)` wagę przypisaną `\(i\)`-tej jednostce w procesie losowania.
+- Zakładamy, że głównym celem jest oszacowanie wartości globalnej zmiennej `\(y\)`: 
+`$$Y=\sum_{i=1}^{N}y_{i},$$`
+gdzie `\(y_{i}\)` oznacza wartość zmiennej `\(y\)` dla `\(i\)`-tej jednostki, `\(i=1,\ldots,N\)`.
+
+---
+
+# Kalibracja
+
+- Niech ponadto `\(x_{1},\ldots,x_{k}\)` oznaczają zmienne pomocnicze, a `\(\mathbf{X}_{j}\)` oznacza wartość globalną zmiennej `\(x_{j}\)`, `\(j=1,\ldots,k\)`, tj.
+`$$\mathbf{X}_{j}=\sum_{i=1}^{N}x_{ij},$$`
+gdzie `\(x_{ij}\)` oznacza wartość `\(j\)` - tej zmiennej pomocniczej dla `\(i\)` - tej jednostki badania.
+- Do oszacowania wartości globalnej zmiennej `\(y\)` wykorzystujemy estymator Horvitza-Thompsona:
+
+`$$\hat{Y}_{HT}=\sum_{i=1}^{n}w_{i}y_{i}$$`
+
+---
+
+# Kalibracja
+
+- W praktyce bardzo często zdarza się, że:
+
+`$$\sum_{s}w_{i}x_{ij} \neq \mathbf{X}_{j}$$`
+co oznacza konieczność rozważenia zastosowania kalibracji.
+
+---
+
+# Kalibracja
+
+- Zatem niech `\(\mathbf{w}=\left(w_{1},\ldots,w_{n}\right)^{T}\)` będzie wektorem wag wynikających ze schematu losowania próby, a `\(\mathbf{d}=\left(d_{1},\ldots,d_{n}\right)^{T}\)` poszukiwanym wektorem wag kalibracyjnych, gdzie `\(n\)` oznacza liczebność próby.
+- Niech `\(G\)` będzie dowolną funkcją spełniającą następujące warunki:
+  - `\(G\left(\cdot\right)\)` jest dwukrotnie różniczkowalna,
+  - `\(G\left(\cdot\right)\geq 0\)`,
+  - `\(G\left(1\right)=0\)`,
+  - `\(G'\left(1\right)=0\)`,
+  - `\(G''\left(1\right)=1\)`.
+- Nowo wyznaczone wagi powinny nieznacznie się różnić od wag `\(d_{i}\)` oraz powinny spełniać warunek:
+`$$\sum_{s}d_{i}x_{ij} = \mathbf{X}_{j}$$`
+
+---
+
+# Wyznaczanie wag kalibracyjnych
+
+- Minimalizacja funkcji odległości: 
+`$$D\left(\mathbf{d},\mathbf{w}\right)=\sum_{i=1}^{n}w_{i}G\left(\frac{d_{i}}{w_{i}}\right)\longrightarrow \textrm{min}$$`
+- Równania kalibracyjne: 
+`$$\sum_{i=1}^{n}d_{i}x_{ij}=\mathbf{X}_{j},\quad j=1,\ldots,k,$$`
+- Warunki ograniczające:
+`$$L\leq \frac{d_{i}}{w_{i}}\leq U, \quad \text{gdzie: } L&lt;1\  \text{i}\  U&gt;1,\  i=1,\ldots,n.$$`
+
+---
+
+# Funkcja G
+
+W praktycznych zastosowaniach najczęściej wykorzystuje się funkcję `\(G\)` wpostaci `\(G_{1}\left(x\right)=\frac{1}{2}\left(x-1\right)^{2}\)`. w tym przypadku mamy bowiem:
+
+`$$D\left(\mathbf{w},\mathbf{d}\right)=\sum_{i=1}^{n}d_{i}G\left(\frac{w_{i}}{d_{i}}\right)=\sum_{i=1}^{n}d_{i}\frac{1}{2}\left(\frac{w_{i}}{d_{i}}-1\right)^{2}=\frac{1}{2}\sum_{i=1}^{n}\frac{\left(w_{i}-d_{i}\right)^{2}}{d_{i}}.$$`
+
+W literaturze wskazuje się wiele różnych postaci tej funkcji.
+
+---
+
+# Wagi kalibracyjne
+
+Wektor wag kalibracyjnych `\(\mathbf{d}=\left(d_{1},d_{2},\ldots,d_{n}\right)^{T}\)` jest rozwiązaniem zadania minimalizacji:
+`$$\mathbf{d}=\textrm{argmin}_{v}D\left(\textbf{v},\textbf{w}\right),$$`
+`$$\mathbf{X}=\tilde{\textbf{X}},$$`
+przy czym
+`$$D\left(\mathbf{v},\textbf{w}\right)=\frac{1}{2}\sum_{i=1}^n\frac{\left(v_{i}-w_{i}\right)^{2}}{w_{i}}$$`
+`$$\tilde{\mathbf{X}}=\left(\sum_{i=1}^n{d_{i}x_{i1}},\sum_{i=1}^n{d_{i}x_{i2}},\ldots,\sum_{i=1}^n{d_{i}x_{ik}}\right)^{T},\quad \mathbf{X}=\left(\sum_{i=1}^N{x_{i1}},\sum_{i=1}^N{x_{i2}},\ldots,\sum_{i=1}^N{x_{ik}}\right)^{T}.$$`
+
+---
+
+# Wagi kalibracyjne
+
+Rozwiązaniem zadania minimalizacji jest wektor wag kalibracyjnych `\(\mathbf{d}=\left(d_{1},d_{2},\ldots,d_{n}\right)^{T}\)`, którego składowe spełniają równanie
+`$$d_{i}=w_{i}+w_{i}\left(\textbf{X}-\hat{\textbf{X}}\right)^{T}\left(\sum_{i=1}^n{w_{i}\underline{\textbf{x}}_{i}\underline{\textbf{x}}_{i}^{T}}\right)^{-1}\underline{\textbf{x}}_{i}$$`
+przy czym:
+`$$\hat{\textbf{X}}=\left(\sum_{i=1}^n{w_{i}x_{i1}},\sum_{i=1}^n{w_{i}x_{i2}},\ldots,\sum_{i=1}^n{w_{i}x_{ik}}\right)^{T},$$`
+`$$\underline{\textbf{x}}_{i}=\left(x_{i1},x_{i2},\ldots,x_{ik}\right)^{T}.$$`
+
+---
+
+class: center, middle, inverse
+
+# Pytania?
+    </textarea>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function() {
+  var d = document, s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})();</script>
+
+<script>
+(function() {
+  var i, text, code, codes = document.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+})();
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
