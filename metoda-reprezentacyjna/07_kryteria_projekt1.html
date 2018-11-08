@@ -123,7 +123,7 @@ $(document).ready(function () {
 
 <h1 class="title toc-ignore">Projekt zaliczeniowy - wytyczne</h1>
 <h4 class="author"><em>Łukasz Wawrowski</em></h4>
-<h4 class="date"><em>Aktualizacja: 7.11.2018</em></h4>
+<h4 class="date"><em>Aktualizacja: 8.11.2018</em></h4>
 
 </div>
 
@@ -167,39 +167,50 @@ $(document).ready(function () {
 <li>liczba_osob - liczba osób w gospodarstwie domowym</li>
 <li><p>dochód - ekwiwalentny dochód gospodarstwa domowego</p></li>
 </ul>
-<p>Przykład estymacji liczby osób pełnosprawnych w przekroju województw na podstawie próby prostej.</p>
+<p>Przykład estymacji liczby osób pełnosprawnych w przekroju województw z wykorzystaniem warstwowania po województwie i klasie miejscowości zamieszkania.</p>
 <pre class="r"><code>library(tidyverse)
 library(survey)
+
+# stworzenie warstwy
+
+populacja &lt;- populacja %&gt;%
+  mutate(warstwa1=paste0(woj,&quot;_&quot;,klm))
 
 # losowanie próby 
 
 proba1 &lt;- populacja %&gt;%
-  # warstwy
+  group_by(warstwa1) %&gt;%
   sample_frac(0.001)
 
 # obliczenie wag
 
-proba1 &lt;- proba1 %&gt;%
-  mutate(fpc=nrow(populacja))
+liczebnosc_warstw &lt;- populacja %&gt;%
+  group_by(warstwa1) %&gt;%
+  count()
 
-proba1_schemat &lt;- svydesign(ids = ~id_gospodarstwa, fpc = ~fpc, data = proba1)
+proba1 &lt;- inner_join(proba1, liczebnosc_warstw, by = &quot;warstwa1&quot;)
+
+proba1_schemat &lt;- svydesign(ids = ~id_gospodarstwa, strata = ~warstwa1, fpc = ~n, data = proba1)
 
 wagi &lt;- weights(proba1_schemat)
 
 # dodanie wag do zbioru
 
 proba1 &lt;- proba1 %&gt;%
+  ungroup() %&gt;%
   mutate(waga=wagi)
 
 # dołączanie informacji o odpowiedziach
 
 proba1_badanie &lt;- merge(proba1, badanie, by = &quot;id_gospodarstwa&quot;, all.x = T)
 
+# usuwanie brakóW odpowiedzi
+
 proba1_badanie_bez_brakow &lt;- proba1_badanie %&gt;%
   filter(!is.na(wiek))
 
-proba1_bez_brakow_schemat &lt;- svydesign(ids = ~id_gospodarstwa, weights = ~waga, 
-                                       fpc = ~fpc, data = proba1_badanie_bez_brakow)
+proba1_bez_brakow_schemat &lt;- svydesign(ids = ~id_gospodarstwa, weights = ~waga, strata = ~warstwa1,
+                                       fpc = ~n, data = proba1_badanie_bez_brakow)
 
 # kalibracja w ramach województw
 
