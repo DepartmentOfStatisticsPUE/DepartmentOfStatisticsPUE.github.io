@@ -1,0 +1,912 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>R, próba losowa, kalibracja i imputacja, estymacja</title>
+    <meta charset="utf-8">
+    <meta name="author" content="Łukasz Wawrowski" />
+    <link rel="stylesheet" href="default.css" type="text/css" />
+    <link rel="stylesheet" href="default-fonts.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# R, próba losowa, kalibracja i imputacja, estymacja
+### Łukasz Wawrowski
+
+---
+
+
+# R to możliwości
+
+Środowisko do obliczeń statystycznych i wizualizacji wyników.
+
+- darmowy
+
+--
+
+- 13 397 rozszerzeń (pakietów) - stan na 17.11.2018
+
+--
+
+- wsparcie społeczności
+
+--
+
+- wszechstronny
+
+--
+
+   - obliczenia i wizualizacje
+   - raporty
+   - interaktywne dashboardy
+   - strony internetowe
+   - prezentacje
+   - mapy
+   - ...
+
+---
+
+# R to język do analizy danych
+
+IEEE Language Rankings 2018
+
+&lt;center&gt;&lt;img src = "ranking.png" height = "300px" /&gt;&lt;/center&gt;
+
+11 - Matlab, 24 - SQL, 32 - Julia, 40 - SAS
+
+[http://blog.revolutionanalytics.com/2018/08/ieee-language-rankings-2018.html](http://blog.revolutionanalytics.com/2018/08/ieee-language-rankings-2018.html)
+
+---
+
+# R to program
+
+Do pobrania ze strony: [R-project](https://www.r-project.org/)
+
+&lt;center&gt;&lt;img src = "r.png" height = "400px" /&gt;&lt;/center&gt;
+
+---
+
+# RStudio to wygoda
+
+Do pobrania ze strony: [RStudio](https://www.rstudio.com/)
+
+Wersja przeglądarkowa: [rstudio.cloud](https://rstudio.cloud/)
+
+&lt;center&gt;&lt;img src = "rstudio.png" height = "400px" /&gt;&lt;/center&gt;
+
+---
+
+# Projektowanie badania
+
+1. __Losowanie próby na podstawie operatu (populacji)__
+2. Wyznaczenie wag z próby dla wylosowanych jednostek
+3. Zebranie danych od respondentów
+4. Korekta post-hoc
+5. Szacowanie parametrów
+
+---
+
+# Próba losowa
+
+Próba jest losowa jeśli spełnione są następujące warunki:
+
+--
+
+1. Każda jednostka w populacji generalnej posiada niezerowe prawdopodobieństwo znalezienia się w próbie - `\(\pi_i\)`.
+2. Prawdopodobieństwo `\(\pi_i\)` jest znane dla każdej jednostki w próbie.
+3. Każda para jednostek w populacji generalnej posiada niezerowe prawdopodobieństwo znalezienia się w próbie - `\(\pi_{ij}\)`.
+4. Prawdopodobieństwo `\(\pi_{ij}\)` jest znane dla każdej pary jednostek w próbie.
+
+---
+
+# Losowanie proste i warstwowe
+
+Losowanie proste
+
+- każda jednostka z populacji generalnej ma jednakowe prawdopodobieństwo znalezienia się w próbie
+
+Losowanie warstwowe
+
+- podzielenie populacji na warstwy i przeprowadzenie losowania prostego w ramach warstw
+- zwiększenie reprezentatywności próby
+- w praktyce badań statystycznych tworzy się bardzo dużo warstw
+
+---
+
+# Losowanie proste i warstwowe - przykład
+
+Chcemy przeprowadzić badanie statystyczne osób z miasta Poznań i powiatu poznańskiego. Posiadamy informację na temat:
+
+- miejsca zamieszkania - miasto/wieś
+- wieku - 12 grup wieku
+- płci - kobieta/mężczyzna
+
+---
+
+# Losowanie proste i warstwowe - przykład
+
+Struktura populacji wg wieku jest następująca:
+
+
+
+![](03_mr_zaoczne_files/figure-html/unnamed-chunk-2-1.png)&lt;!-- --&gt;
+
+---
+
+# Losowanie proste i warstwowe
+
+.pull-left[
+![](03_mr_zaoczne_files/figure-html/unnamed-chunk-3-1.png)&lt;!-- --&gt;
+
+]
+
+.pull-right[
+
+![](03_mr_zaoczne_files/figure-html/unnamed-chunk-4-1.png)&lt;!-- --&gt;
+
+
+]
+
+---
+
+# Losowanie proste i warstwowe
+
+.pull-left[
+![](03_mr_zaoczne_files/figure-html/unnamed-chunk-5-1.png)&lt;!-- --&gt;
+
+]
+
+.pull-right[
+
+![](03_mr_zaoczne_files/figure-html/unnamed-chunk-6-1.png)&lt;!-- --&gt;
+
+
+]
+
+
+---
+
+# Projektowanie badania
+
+1. Losowanie próby na podstawie operatu (populacji)
+2. __Wyznaczenie wag z próby dla wylosowanych jednostek__
+3. Zebranie danych od respondentów
+4. Korekta post-hoc
+5. Szacowanie parametrów
+
+---
+
+# Waga z próby 
+
+Losujemy próbę o wielkości 38 000 osób z Polski (populacja 38 milionów). Prawdopodobieństwo wylosowania pojedyńczej jednostki wynosi:
+
+`$$\pi_i=38000/38000000=1/1000$$`
+
+Każda osoba w próbie reprezentuje 1000 mieszkańców Polski.
+
+W związku z tym waga z próby jest równa:
+
+`$$w_i=1/\pi_i=1000$$`
+
+--
+
+W losowaniu warstwowym wagi wyznacza się dla każdej warstwy
+
+---
+
+# Pakiet survey
+
+https://cran.r-project.org/web/packages/survey/index.html  
+T. Lumley (2017) "survey: analysis of complex survey samples". R package version 3.32.  
+T. Lumley (2004) Analysis of complex survey samples. Journal of Statistical Software 9(1): 1-19  
+
+- wyznaczanie wag z próby
+- deklaracja schematu losowania
+- estymacja wartości
+- nazwy zmiennych należy poprzedzić tyldą `\(\sim\)`
+
+---
+
+# Wyznaczanie wag
+
+Określenie schematu losowania w funkcji `svydesign`.
+
+Wagi wyznaczone ręcznie:
+
+
+```r
+schemat &lt;- svydesign(ids = ~id, strata = ~wiek, weights = ~waga, data=proba)
+```
+
+- ids - jednostki losowania pierwszego stopnia (id osoby, id gospodarstwa)
+- strata - zmienna warstwująca 
+- weights - waga z próby
+- data - nazwa zbioru danych
+
+---
+
+# Wyznaczanie wag
+
+Obliczenie wag w funkcji `svydesign` na podstawie liczebności populacji w warstwach:
+
+
+
+
+```r
+schemat &lt;- svydesign(ids = ~id, strata = ~wiek, fpc = ~n, data=proba)
+```
+
+- fpc - liczebność populacji w warstwach
+
+
+
+Wagi dla poszczególnych warstw
+
+
+```
+##       15-19       20-24       25-29       30-34       35-39       40-44 
+##    3277.667    3378.000    3290.150    3273.259    3375.560    3324.955 
+##       45-49       50-54       55-59       60-64       65-69 70 i więcej 
+##    3318.312    3281.600    3429.176    3333.947    3303.706    3392.593
+```
+
+---
+
+# Własności wag
+
+Wagi sumują się do liczebności populacji ogółem
+
+
+```r
+sum(weights(schemat))
+```
+
+```
+## [1] 766686
+```
+
+---
+
+# Własności wag
+
+Wagi sumują się do liczebności populacji w warstwach
+
+
+```r
+table(populacja$wiek)
+```
+
+```
+## 
+##       15-19       20-24       25-29       30-34       35-39       40-44 
+##       39332       43914       65803       88378       84389       73149 
+##       45-49       50-54       55-59       60-64       65-69 70 i więcej 
+##       53093       49224       58296       63345       56163       91600
+```
+
+
+```r
+suma &lt;- aggregate(waga ~ wiek, proba, sum)
+setNames(suma$waga, suma$wiek)
+```
+
+```
+##       15-19       20-24       25-29       30-34       35-39       40-44 
+##       39332       43914       65803       88378       84389       73149 
+##       45-49       50-54       55-59       60-64       65-69 70 i więcej 
+##       53093       49224       58296       63345       56163       91600
+```
+
+---
+
+# Własności wag
+
+Wagi nie sumują się do liczebności populacji w innych przekrojach
+
+
+```r
+table(populacja$mw)
+```
+
+```
+## 
+## miasto   wieś 
+## 576985 189701
+```
+
+
+```r
+suma &lt;- aggregate(waga ~ mw, proba, sum)
+setNames(suma$waga, suma$mw)
+```
+
+```
+##   miasto     wieś 
+## 583280.9 183405.1
+```
+
+---
+
+# Projektowanie badania
+
+1. Losowanie próby na podstawie operatu (populacji)
+2. Wyznaczenie wag z próby dla wylosowanych jednostek
+3. __Zebranie danych od respondentów__
+4. Korekta post-hoc
+5. Szacowanie parametrów
+
+---
+
+# Braki odpowiedzi
+
+![](nonresponse.png)
+
+---
+
+# Braki danych
+
+Sposoby radzenia sobie z brakami danych:
+
+- usunięcie obserwacji
+- dla _item missing data_ imputacja
+- dla _nonrespondents_ kalibracja
+
+---
+
+# Projektowanie badania
+
+1. Losowanie próby na podstawie operatu (populacji)
+2. Wyznaczenie wag z próby dla wylosowanych jednostek
+3. Zebranie danych od respondentów
+4. __Korekta post-hoc__
+5. Szacowanie parametrów
+
+---
+
+# Imputacja
+
+Bardzo wiele metod:
+
+- zastąpienie wartości zmiennej ilościowej przez średnią lub medianę
+- zastąpienie wartości zmiennej jakościowej przez najczęściej występującą
+- metoda k-najbliższych sąsiadów
+- imputacja regresyjna
+- imputacja wielokrotna
+
+---
+
+# Wprowadzenie do kalibracji
+
+- metoda wykorzystywana w estymacji różnych parametrów w badaniach statystycznych z brakami odpowiedzi
+- twórcy metody: Carl-Erik Sarndal i Jean Claude Deville
+- polski ekspert: dr Marcin Szymkowiak
+
+---
+
+# Kalibracja
+
+Metoda polegająca na skorygowaniu wyjściowych wag celem redukcji obciążenia wynikającego z istnienia braków odpowiedzi. 
+
+Obliczenie skorygowanych wag odbywa się w oparciu o wykorzystanie informacji dodatkowych.
+
+W rezultacie uzyskuje się równowagę rozumianą w ten sposób, że po zastosowaniu kalibracji próba jest _wyglądem_ zbliżona do całej populacji.
+
+---
+
+# Algorytm kalibracji
+
+1. Sprawdź czy wagi w próbie sumują się liczebności populacji, w przekrojach w których jest przeprowadzana estymacja
+2. Jeśli nie to wyznacz wartości globalne w tych przekrojach - zmienne pomocnicze w kalibracji
+3. Dokonaj korekty wag, w taki sposób, aby suma wag w przekrojach odpowiadała liczebności populacji
+
+---
+
+# Kalibracja w pakiecie survey
+
+Wyznaczanie wartości globalnych dla zmiennych pomocniczych:
+
+
+```r
+pop_wiek &lt;- colSums(model.matrix(~wiek,model.frame(~wiek,populacja)))
+pop_wiek
+```
+
+```
+##     (Intercept)       wiek20-24       wiek25-29       wiek30-34 
+##          766686           43914           65803           88378 
+##       wiek35-39       wiek40-44       wiek45-49       wiek50-54 
+##           84389           73149           53093           49224 
+##       wiek55-59       wiek60-64       wiek65-69 wiek70 i więcej 
+##           58296           63345           56163           91600
+```
+
+`(Intercept)` - liczebność populacji. Liczba kategorii `\(k-1\)`.
+
+Funkcja `calibrate`:
+
+
+```r
+kalibracja_wiek &lt;- calibrate(design = schemat, formula = ~wiek, 
+                             population = pop_plec)
+```
+
+---
+
+# Kalibracja w pakiecie survey
+
+Wyznaczanie wartości globalnych dla zmiennych pomocniczych:
+
+
+```r
+pop &lt;- colSums(model.matrix(~plec*mw,model.frame(~plec*mw,populacja)))
+pop
+```
+
+```
+##          (Intercept)        plecmężczyźni               mwwieś 
+##               766686               358306               189701 
+## plecmężczyźni:mwwieś 
+##                91907
+```
+
+Użycie w formule `*` wyznacza wartości globalne dla kilku zmiennych pomocniczych.
+
+Funkcja `calibrate`:
+
+
+```r
+kalibracja_plec_mw &lt;- calibrate(design = schemat, formula = ~plec*mw, 
+                                population = pop)
+```
+
+
+---
+
+# Zastosowanie kalibracji
+
+- kalibracja zapewnia zgodność sumy wag w przekrojach, w których została zastosowana
+- z wykorzystaniem kalibracji można ograniczyć wpływ braków danych w próbie
+- można także zapewnić zgodność struktury w przekrojach, które nie zostały uwzględnione na etapie losowania próby
+
+---
+
+# Kalibracja
+
+- Zakładamy, że populacja `\(U=\left\{1,2,\ldots,N\right\}\)`  składa się z `\(N\)` elementów.
+- Z populacji tej losujemy zgodnie z określonym schematem losowania próbę `\(s\subseteq U\)`, składającą się z `\(n\)` elementów.
+- Niech `\(\pi_{i}\)` oznacza prawdopodobieństwo inkluzji pierwszego rzędu tj. `\(\pi_{i}=P\left(i\in s\right)\)` a `\(w_{i}=1/\pi_{i}\)` wagę przypisaną `\(i\)`-tej jednostce w procesie losowania.
+- Zakładamy, że głównym celem jest oszacowanie wartości globalnej zmiennej `\(y\)`: 
+`$$Y=\sum_{i=1}^{N}y_{i},$$`
+gdzie `\(y_{i}\)` oznacza wartość zmiennej `\(y\)` dla `\(i\)`-tej jednostki, `\(i=1,\ldots,N\)`.
+
+---
+
+# Kalibracja
+
+- Niech ponadto `\(x_{1},\ldots,x_{k}\)` oznaczają zmienne pomocnicze, a `\(\mathbf{X}_{j}\)` oznacza wartość globalną zmiennej `\(x_{j}\)`, `\(j=1,\ldots,k\)`, tj.
+`$$\mathbf{X}_{j}=\sum_{i=1}^{N}x_{ij},$$`
+gdzie `\(x_{ij}\)` oznacza wartość `\(j\)` - tej zmiennej pomocniczej dla `\(i\)` - tej jednostki badania.
+- Do oszacowania wartości globalnej zmiennej `\(y\)` wykorzystujemy estymator Horvitza-Thompsona:
+
+`$$\hat{Y}_{HT}=\sum_{i=1}^{n}w_{i}y_{i}$$`
+
+---
+
+# Kalibracja
+
+- W praktyce bardzo często zdarza się, że:
+
+`$$\sum_{s}w_{i}x_{ij} \neq \mathbf{X}_{j}$$`
+co oznacza konieczność rozważenia zastosowania kalibracji.
+
+---
+
+# Kalibracja
+
+- Zatem niech `\(\mathbf{w}=\left(w_{1},\ldots,w_{n}\right)^{T}\)` będzie wektorem wag wynikających ze schematu losowania próby, a `\(\mathbf{d}=\left(d_{1},\ldots,d_{n}\right)^{T}\)` poszukiwanym wektorem wag kalibracyjnych, gdzie `\(n\)` oznacza liczebność próby.
+- Niech `\(G\)` będzie dowolną funkcją spełniającą następujące warunki:
+  - `\(G\left(\cdot\right)\)` jest dwukrotnie różniczkowalna,
+  - `\(G\left(\cdot\right)\geq 0\)`,
+  - `\(G\left(1\right)=0\)`,
+  - `\(G'\left(1\right)=0\)`,
+  - `\(G''\left(1\right)=1\)`.
+- Nowo wyznaczone wagi powinny nieznacznie się różnić od wag `\(d_{i}\)` oraz powinny spełniać warunek:
+`$$\sum_{s}d_{i}x_{ij} = \mathbf{X}_{j}$$`
+
+---
+
+# Wyznaczanie wag kalibracyjnych
+
+- Minimalizacja funkcji odległości: 
+`$$D\left(\mathbf{d},\mathbf{w}\right)=\sum_{i=1}^{n}w_{i}G\left(\frac{d_{i}}{w_{i}}\right)\longrightarrow \textrm{min}$$`
+- Równania kalibracyjne: 
+`$$\sum_{i=1}^{n}d_{i}x_{ij}=\mathbf{X}_{j},\quad j=1,\ldots,k,$$`
+- Warunki ograniczające:
+`$$L\leq \frac{d_{i}}{w_{i}}\leq U, \quad \text{gdzie: } L&lt;1\  \text{i}\  U&gt;1,\  i=1,\ldots,n.$$`
+
+---
+
+# Funkcja G
+
+W praktycznych zastosowaniach najczęściej wykorzystuje się funkcję `\(G\)` wpostaci `\(G_{1}\left(x\right)=\frac{1}{2}\left(x-1\right)^{2}\)`. w tym przypadku mamy bowiem:
+
+`$$D\left(\mathbf{w},\mathbf{d}\right)=\sum_{i=1}^{n}d_{i}G\left(\frac{w_{i}}{d_{i}}\right)=\sum_{i=1}^{n}d_{i}\frac{1}{2}\left(\frac{w_{i}}{d_{i}}-1\right)^{2}=\frac{1}{2}\sum_{i=1}^{n}\frac{\left(w_{i}-d_{i}\right)^{2}}{d_{i}}.$$`
+
+W literaturze wskazuje się wiele różnych postaci tej funkcji.
+
+---
+
+# Wagi kalibracyjne
+
+Wektor wag kalibracyjnych `\(\mathbf{d}=\left(d_{1},d_{2},\ldots,d_{n}\right)^{T}\)` jest rozwiązaniem zadania minimalizacji:
+`$$\mathbf{d}=\textrm{argmin}_{v}D\left(\textbf{v},\textbf{w}\right),$$`
+`$$\mathbf{X}=\tilde{\textbf{X}},$$`
+przy czym
+`$$D\left(\mathbf{v},\textbf{w}\right)=\frac{1}{2}\sum_{i=1}^n\frac{\left(v_{i}-w_{i}\right)^{2}}{w_{i}}$$`
+`$$\tilde{\mathbf{X}}=\left(\sum_{i=1}^n{d_{i}x_{i1}},\sum_{i=1}^n{d_{i}x_{i2}},\ldots,\sum_{i=1}^n{d_{i}x_{ik}}\right)^{T},\quad \mathbf{X}=\left(\sum_{i=1}^N{x_{i1}},\sum_{i=1}^N{x_{i2}},\ldots,\sum_{i=1}^N{x_{ik}}\right)^{T}.$$`
+
+---
+
+# Wagi kalibracyjne
+
+Rozwiązaniem zadania minimalizacji jest wektor wag kalibracyjnych `\(\mathbf{d}=\left(d_{1},d_{2},\ldots,d_{n}\right)^{T}\)`, którego składowe spełniają równanie
+`$$d_{i}=w_{i}+w_{i}\left(\textbf{X}-\hat{\textbf{X}}\right)^{T}\left(\sum_{i=1}^n{w_{i}\underline{\textbf{x}}_{i}\underline{\textbf{x}}_{i}^{T}}\right)^{-1}\underline{\textbf{x}}_{i}$$`
+przy czym:
+`$$\hat{\textbf{X}}=\left(\sum_{i=1}^n{w_{i}x_{i1}},\sum_{i=1}^n{w_{i}x_{i2}},\ldots,\sum_{i=1}^n{w_{i}x_{ik}}\right)^{T},$$`
+`$$\underline{\textbf{x}}_{i}=\left(x_{i1},x_{i2},\ldots,x_{ik}\right)^{T}.$$`
+
+---
+
+# Projektowanie badania
+
+1. Losowanie próby na podstawie operatu (populacji)
+2. Wyznaczenie wag z próby dla wylosowanych jednostek
+3. Zebranie danych od respondentów
+4. Korekta post-hoc
+5. __Szacowanie parametrów__
+
+---
+
+# Szacowanie parametrów
+
+Obliczanie wartości globalnej, średniej bądź wskaźnika w populacji na podstawie próby.
+
+Dzięki zastosowaniu odpowiednich formuł możemy zmierzyć błąd wynikający z wykorzystania próby zamiast zbadania całej populacji.
+
+---
+
+# Estymator Horvitza-Thompsona (HT)
+
+Estymator wartości globalnej 
+
+`$$\hat{y}^{HT}=\sum\limits_{i=1}^{n}{x_iw_i}$$`
+
+Estymator wartości średniej
+
+`$$\hat{\bar{y}}^{HT}=\frac{1}{n}\sum\limits_{i=1}^{n}{x_iw_i}$$`
+
+gdzie:
+
+- `\(n\)` - liczebność próby,
+- `\(x_i\)` - wartość cechy dla `\(i\)`-tej jednostki,
+- `\(w_i\)` - wartość wagi dla `\(i\)`-tej jednostki.
+
+---
+
+# Wariancja estymatora HT
+
+Estymator wartości globalnej 
+
+`$$V(\hat{y}^{HT})=\frac{N-n}{N}\cdot N^2 \cdot \frac{s_x}{n}$$`
+
+Estymator wartości średniej
+
+`$$V(\hat{\bar{y}}^{HT})=\frac{N-n}{N} \cdot \frac{s_x}{n}$$`
+
+gdzie: 
+
+- `\(N\)` - liczebność populacji,
+- `\(n\)` - liczebność próby,
+- `\(s_x\)` - wariancja cechy `\(x\)`.
+
+---
+
+# Finite Population Correction
+
+Różnica pomiędzy losowaniem ze zwracaniem, a losowaniem bez zwracania
+
+`$$\text{FPC}=\frac{N-n}{N}$$`
+
+???
+
+https://www.statisticshowto.datasciencecentral.com/finite-population-correction-factor/
+
+---
+
+# Błąd standardowy oszacowania
+
+Interpretowalną miarą błędu jest błąd standardowy:
+
+`$$\text{SE}=\sqrt{V(\hat{y^{HT}})}$$`
+
+--
+
+Względny błąd oszacowania:
+
+`$$\text{CV}=\frac{\text{SE}}{\hat{y^{HT}}}$$`
+
+Podawany w procentach i wg standardów GUS nie powinien przekraczać 10%.
+
+---
+
+# Zależności
+
+- większa próba = większe koszty
+- większa próba = mniejszy błąd oszacowania
+
+---
+
+# Estymacja wartości globalnej
+
+- wartość globalna ogółem
+
+
+```r
+svytotal(x = ~cecha, design = schemat)
+```
+
+- wartość globalna w przekrojach
+
+
+```r
+svyby(formula = ~cecha, by= ~przekroj, 
+      design = schemat, FUN = svytotal)
+```
+
+Wartości cechy muszą być zdefiniowane jako zmienne binarne.
+
+---
+
+# Estymacja wartości średniej
+
+- wartość średnia ogółem
+
+
+```r
+svymean(x = ~cecha, design = schemat)
+```
+
+- wartość średnia w przekrojach
+
+
+```r
+svyby(formula = ~cecha, by= ~przekroj, 
+      design = schemat, FUN = svymean)
+```
+
+---
+
+# Estymacja wskaźnika
+
+Ogółem:
+
+
+```r
+svyratio(numerator = ~licznik, denominator = ~mianownik, 
+         design = schemat)
+```
+
+
+- licznik i mianownik musi być zdefiniowany jako zmienna binarna.
+
+W przekrojach:
+
+
+```r
+svyby(formula = ~licznik, denominator = ~mianownik, 
+      by = ~przekroj, design = schemat, FUN = svyratio)
+```
+
+---
+
+# Estymacja wartości globalnej 
+
+Przykład liczba osób niepełnosprawnych:
+
+
+```r
+est &lt;- svytotal(x = ~niepelnosprawnosc, design = schemat)
+est
+```
+
+```
+##                    total    SE
+## niepelnosprawnosc 170441 21132
+```
+
+Względny błąd oszacowania:
+
+
+```r
+sqrt(attr(est, "var"))/est[1]*100
+```
+
+```
+##                   niepelnosprawnosc
+## niepelnosprawnosc          12.39868
+```
+
+Względny błąd oszacowania będzie mniejszy po zwiększeniu liczebności próby.
+
+---
+
+# Estymacja wartości globalnej 
+
+Liczba osób niepełnosprawnych w grupach wieku
+
+
+```r
+svyby(formula = ~niepelnosprawnosc, by = ~wiek, design = schemat, FUN = svytotal)
+```
+
+```
+##                    wiek niepelnosprawnosc       se
+## 15-19             15-19          6555.333 4418.931
+## 20-24             20-24         16890.000 6166.443
+## 25-29             25-29         13160.600 6037.580
+## 30-34             30-34         22912.815 7594.364
+## 35-39             35-39         23628.920 7733.234
+## 40-44             40-44         13299.818 6155.694
+## 45-49             45-49          9954.938 5349.812
+## 50-54             50-54          3281.600 3281.100
+## 55-59             55-59         20575.059 6963.675
+## 60-64             60-64         20003.684 6939.124
+## 65-69             65-69          6607.412 4523.101
+## 70 i więcej 70 i więcej         13570.370 6380.797
+```
+
+---
+
+# Estymacja wartości globalnej 
+
+Liczba osób niepełnosprawnych w grupach wieku
+
+
+```
+##           wiek niepelnosprawnosc       se       cv
+## 1        15-19          6555.333 4418.931 67.40970
+## 2        20-24         16890.000 6166.443 36.50943
+## 3        25-29         13160.600 6037.580 45.87617
+## 4        30-34         22912.815 7594.364 33.14461
+## 5        35-39         23628.920 7733.234 32.72783
+## 6        40-44         13299.818 6155.694 46.28404
+## 7        45-49          9954.938 5349.812 53.74029
+## 8        50-54          3281.600 3281.100 99.98476
+## 9        55-59         20575.059 6963.675 33.84522
+## 10       60-64         20003.684 6939.124 34.68923
+## 11       65-69          6607.412 4523.101 68.45496
+## 12 70 i więcej         13570.370 6380.797 47.02007
+```
+
+--
+
+Próba o liczebności 260 osób jest zdecydowanie zbyt mała, żeby publikować wyniki w przekroju wieku.
+
+---
+
+# Przedział ufności
+
+W jakim przedziale i z jakim prawdopodobieństwem znajduje się wartość prawdziwa:
+
+`$$\left(\hat{y}^{HT}- z_{1-\alpha/2}\cdot\sqrt{V(\hat{y}^{HT})} \leq \hat{y}^{HT} \leq \hat{y}^{HT}+ z_{1-\alpha/2}\cdot\sqrt{V(\hat{y}^{HT})}\right)$$`
+
+- 90% przedział ufności - `\(z_\alpha = 1,64\)`, dla `\(\alpha=0,10\)`
+- 95% przedział ufności - `\(z_\alpha = 1,96\)`, dla `\(\alpha=0,05\)`
+- 99% przedział ufności - `\(z_\alpha = 2,58\)`, dla `\(\alpha=0,01\)`
+
+Obliczanie kwantyla rozkładu w R:
+
+
+```r
+qnorm(1-0.05/2)
+```
+
+```
+## [1] 1.959964
+```
+
+---
+
+# Przedział ufności
+
+95% przedział ufności dla wartości globalnej
+
+
+```r
+niep_total &lt;- svytotal(x = ~niepelnosprawnosc, design = schemat)
+
+se &lt;- sqrt(attr(niep_total, "var"))
+y &lt;- niep_total[1]
+q &lt;- qnorm(0.975)
+
+c(y-q*se, y+q*se)
+```
+
+```
+## [1] 129021.8 211859.3
+```
+
+Z 95% prawdopodobieństwem prawdziwa wartość liczby osób niepełnosprawnych znajduje się w podanym przedziale.
+
+---
+
+# Przedział ufności
+
+95% przedział ufności dla wartości globalnej w grupach wieku
+
+![](03_mr_zaoczne_files/figure-html/unnamed-chunk-33-1.png)&lt;!-- --&gt;
+
+---
+
+# Większa próba
+
+95% przedział ufności dla wartości globalnej w grupach wieku
+
+![](03_mr_zaoczne_files/figure-html/unnamed-chunk-34-1.png)&lt;!-- --&gt;
+
+
+---
+
+class: center, middle, inverse
+
+# Pytania?
+    </textarea>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"ratio": "16:9",
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function() {
+  var d = document, s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})();</script>
+
+<script>
+(function() {
+  var i, text, code, codes = document.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+})();
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
