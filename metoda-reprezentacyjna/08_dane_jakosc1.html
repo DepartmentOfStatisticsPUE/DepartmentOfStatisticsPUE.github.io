@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Dane jakościowe - wizualizacja</title>
+    <meta charset="utf-8">
+    <meta name="author" content="Łukasz Wawrowski" />
+    <link rel="stylesheet" href="default.css" type="text/css" />
+    <link rel="stylesheet" href="default-fonts.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Dane jakościowe - wizualizacja
+### Łukasz Wawrowski
+
+---
+
+
+# RMarkdown
+
+Połączenie języka __R__ i __markdown__ umożliwia tworzenie dynamicznych raportów, które można eksportować do plików:
+
+- html,
+- pdf (potrzebny [MiKTeX](https://miktex.org/)),
+- docx.
+
+---
+
+# Markdown - tekst
+
+Większość raportu będzie stanowił zwykły tekst.
+
+.pull-left[
+__Kod__
+```
+To jest zwykły tekst.
+_Kursywa_ i __pogrubienie__.
+Enter nie wystarczy, żeby przejść  
+do nowej linii - trzeba wstawić  
+co najmniej __dwie spacje__.
+```
+]
+.pull-right[
+__Wynik__   
+  
+To jest zwykły tekst.  
+_Kursywa_ i __pogrubienie__.  
+Enter nie wystarczy, żeby przejść  
+do nowej linii - trzeba wstawić  
+co najmniej __dwie spacje__.
+]
+
+---
+
+# Nagłówki
+
+Struktura dokumentu definiowa jest przez nagłówki.
+
+__Kod__
+```
+# Nagłówek pierwszego stopnia
+## Nagłówek drugiego stopnia
+### Nagłówek trzeciego stopnia
+```
+
+__Wynik__   
+   
+# Nagłówek pierwszego stopnia
+## Nagłówek drugiego stopnia
+### Nagłówek trzeciego stopnia
+
+---
+# Listy
+
+.pull-left[
+__Kod__
+```
+1. Pozycja 1
+2. Pozycja 2
+3. Pozycja 3
+    - Pozycja 3a
+    - Pozycja 3b
+```
+]
+.pull-right[
+__Wynik__   
+   
+1. Pozycja 1
+2. Pozycja 2
+3. Pozycja 3
+    - Pozycja 3a
+    - Pozycja 3b
+
+]
+
+---
+
+# Linki
+
+Adresy stron internetowych automatycznie zamieniają się na linki. Można też stworzyć tekst, który będzie prowadził do strony.
+
+__Kod__
+```
+http://ue.poznan.pl/pl/
+
+[Uniwersytet Ekonomiczny w Poznaniu](http://ue.poznan.pl/pl/)
+```
+
+__Wynik__   
+   
+http://ue.poznan.pl/pl/
+
+[Uniwersytet Ekonomiczny w Poznaniu](http://ue.poznan.pl/pl/)
+
+---
+
+# Wizualizacja danych statystycznych
+
+&lt;center&gt;&lt;img src = "data-to-viz.png" height = "400px" /&gt;&lt;/center&gt;
+
+- https://www.data-to-viz.com/
+- https://www.r-graph-gallery.com/
+
+---
+
+# Pakiet ggplot2
+
+Pakiet do wizualizacji danych:
+
+- dokumentacja: https://ggplot2.tidyverse.org/
+- [cheatsheet](https://github.com/rstudio/cheatsheets/blob/master/data-visualization-2.1.pdf)
+- tworzenie wykresów poprzez dodawanie (`+`) kolejnnych warstw
+
+---
+
+# Pakiet ggplot2
+
+
+
+
+.pull-left[
+__Kod__
+
+```r
+ggplot(gss, aes(x=race)) # siatka
+```
+]
+.pull-right[
+__Wynik__   
+   
+![](08_dane_jakosc1_files/figure-html/unnamed-chunk-3-1.png)&lt;!-- --&gt;
+
+]
+
+
+
+---
+
+# Pakiet ggplot2
+
+.pull-left[
+__Kod__
+
+```r
+ggplot(gss, aes(x=race)) + # siatka
+  geom_bar() # sposób wizualizacji
+```
+]
+.pull-right[
+__Wynik__   
+   
+![](08_dane_jakosc1_files/figure-html/unnamed-chunk-5-1.png)&lt;!-- --&gt;
+
+]
+
+---
+
+# Pakiet ggplot2
+
+.pull-left[
+__Kod__
+
+```r
+ggplot(gss, aes(x=race)) + # siatka
+  geom_bar() + # sposób wizualizacji
+  ylim(0,2500) # zmiana skali
+```
+]
+.pull-right[
+__Wynik__   
+   
+![](08_dane_jakosc1_files/figure-html/unnamed-chunk-7-1.png)&lt;!-- --&gt;
+
+]
+
+---
+
+# Pakiet ggplot2
+
+.pull-left[
+__Kod__
+
+```r
+ggplot(gss, aes(x=race)) + # siatka
+  geom_bar() + # sposób wizualizacji
+  ylim(0,2500) + # zmiana skali
+  xlab("Pochodzenie") + 
+  ylab("Liczebność") # etykiety
+```
+]
+.pull-right[
+__Wynik__   
+   
+![](08_dane_jakosc1_files/figure-html/unnamed-chunk-9-1.png)&lt;!-- --&gt;
+
+]
+
+---
+
+# Pakiet ggplot2
+
+.pull-left[
+__Kod__
+
+```r
+ggplot(gss, aes(x=race)) + # siatka
+  geom_bar() + # sposób wizualizacji
+  ylim(0,2500) + # zmiana skali
+  xlab("Pochodzenie") + 
+  ylab("Liczebność") + # etykiety
+  coord_flip() # obrócenie
+```
+]
+.pull-right[
+__Wynik__   
+   
+![](08_dane_jakosc1_files/figure-html/unnamed-chunk-11-1.png)&lt;!-- --&gt;
+
+]
+
+---
+
+# Pakiet ggplot2
+
+.pull-left[
+__Kod__
+
+```r
+ggplot(gss, aes(x=race)) + # siatka
+  geom_bar() + # sposób wizualizacji
+  ylim(0,2500) + # zmiana skali
+  xlab("Pochodzenie") + 
+  ylab("Liczebność") + # etykiety
+  coord_flip() + # obrócenie
+  theme_light() # motyw
+```
+]
+.pull-right[
+__Wynik__   
+   
+![](08_dane_jakosc1_files/figure-html/unnamed-chunk-13-1.png)&lt;!-- --&gt;
+
+]
+
+---
+
+class: center, middle, inverse
+
+# Pytania?
+    </textarea>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"ratio": "16:9",
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function() {
+  var d = document, s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})();</script>
+
+<script>
+(function() {
+  var i, text, code, codes = document.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+})();
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
