@@ -97,6 +97,9 @@ img {
 button.code-folding-btn:focus {
   outline: none;
 }
+summary {
+  display: list-item;
+}
 </style>
 
 
@@ -104,14 +107,74 @@ button.code-folding-btn:focus {
 <div class="container-fluid main-container">
 
 <!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
 <script>
 $(document).ready(function () {
   window.buildTabsets("TOC");
 });
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
 </script>
 
 <!-- code folding -->
-
 
 
 
@@ -123,7 +186,7 @@ $(document).ready(function () {
 
 <h1 class="title toc-ignore">Projekt zaliczeniowy - wytyczne</h1>
 <h4 class="author"><em>Łukasz Wawrowski</em></h4>
-<h4 class="date"><em>Aktualizacja: 1.12.2018</em></h4>
+<h4 class="date"><em>Aktualizacja: 26.01.2019</em></h4>
 
 </div>
 
@@ -248,12 +311,49 @@ save(proba_badanie1, proba_badanie2, file=&quot;proba.RData&quot;)</code></pre>
 <ul>
 <li>zrealizowanie celu zadania - 5 punktów</li>
 <li>przeprowadzenie kalibracji - 1 punkt</li>
-<li><p>sposób prezentacji wyników - 1 punkt</p></li>
-<li>zaproponowanie warstwy wykorzystując dane spoza zbioru danych - 1 punkt</li>
-<li>dodatkowy schemat losowania - 1 punkt</li>
-<li><p>obliczenie przedziałów ufności - 1 punkt</p></li>
+<li><p>sposób prezentacji wyników - 2 punkty</p></li>
+<li>zaproponowanie warstwy wykorzystując dane spoza zbioru danych - 3 punkty</li>
+<li>obliczenie przedziałów ufności - 2 punkty</li>
+<li><p>dodatkowy schemat losowania - 1 punkt</p></li>
 <li><p>oddanie pracy po terminie - -3 punkty</p></li>
 </ul>
+</div>
+<div id="skala-ocen" class="section level1">
+<h1>Skala ocen</h1>
+<table>
+<thead>
+<tr class="header">
+<th>Liczba punktów</th>
+<th>Ocena</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>poniżej 5</td>
+<td>ndst</td>
+</tr>
+<tr class="even">
+<td>6-7</td>
+<td>dst</td>
+</tr>
+<tr class="odd">
+<td>8-9</td>
+<td>dst+</td>
+</tr>
+<tr class="even">
+<td>10-11</td>
+<td>db</td>
+</tr>
+<tr class="odd">
+<td>12-13</td>
+<td>db+</td>
+</tr>
+<tr class="even">
+<td>14</td>
+<td>bdb</td>
+</tr>
+</tbody>
+</table>
 </div>
 
 
