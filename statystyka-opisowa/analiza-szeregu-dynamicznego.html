@@ -5,11 +5,11 @@
 
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Statystyka opisowa</title>
-  <meta name="description" content="Statystyka opisowa">
-  <meta name="generator" content="bookdown 0.5 and GitBook 2.6.7">
+  <title>7 Analiza szeregu dynamicznego | Statystyka opisowa</title>
+  <meta name="description" content="7 Analiza szeregu dynamicznego | Statystyka opisowa">
+  <meta name="generator" content="bookdown  and GitBook 2.6.7">
 
-  <meta property="og:title" content="Statystyka opisowa" />
+  <meta property="og:title" content="7 Analiza szeregu dynamicznego | Statystyka opisowa" />
   <meta property="og:type" content="book" />
   
   
@@ -17,7 +17,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Statystyka opisowa" />
+  <meta name="twitter:title" content="7 Analiza szeregu dynamicznego | Statystyka opisowa" />
   
   
   
@@ -35,6 +35,7 @@
 <link rel="next" href="indeksy-indywidualne-i-zespoowe.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
@@ -88,8 +89,15 @@
 <li class="chapter" data-level="3.3.2" data-path="analiza-struktury.html"><a href="analiza-struktury.html#szereg-przedziaowy"><i class="fa fa-check"></i><b>3.3.2</b> Szereg przedziałowy</a></li>
 </ul></li>
 <li class="chapter" data-level="3.4" data-path="analiza-struktury.html"><a href="analiza-struktury.html#podsumowanie-miar"><i class="fa fa-check"></i><b>3.4</b> Podsumowanie miar</a><ul>
-<li class="chapter" data-level="3.4.1" data-path="analiza-struktury.html"><a href="analiza-struktury.html#miary-klasyczne-1"><i class="fa fa-check"></i><b>3.4.1</b> Miary klasyczne</a></li>
-<li class="chapter" data-level="3.4.2" data-path="analiza-struktury.html"><a href="analiza-struktury.html#miary-pozycyjne-1"><i class="fa fa-check"></i><b>3.4.2</b> Miary pozycyjne</a></li>
+<li class="chapter" data-level="3.4.1" data-path="analiza-struktury.html"><a href="analiza-struktury.html#schemat"><i class="fa fa-check"></i><b>3.4.1</b> Schemat</a></li>
+<li class="chapter" data-level="3.4.2" data-path="analiza-struktury.html"><a href="analiza-struktury.html#miary-klasyczne-1"><i class="fa fa-check"></i><b>3.4.2</b> Miary klasyczne</a></li>
+<li class="chapter" data-level="3.4.3" data-path="analiza-struktury.html"><a href="analiza-struktury.html#miary-pozycyjne-1"><i class="fa fa-check"></i><b>3.4.3</b> Miary pozycyjne</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="analiza-struktury.html"><a href="analiza-struktury.html#przedziay-ufnosci"><i class="fa fa-check"></i><b>3.5</b> Przedziały ufności</a><ul>
+<li class="chapter" data-level="3.5.1" data-path="analiza-struktury.html"><a href="analiza-struktury.html#srednia-w-populacji-normalnej-ze-znanym-odchyleniem-standardowym"><i class="fa fa-check"></i><b>3.5.1</b> Średnia w populacji normalnej ze znanym odchyleniem standardowym</a></li>
+<li class="chapter" data-level="3.5.2" data-path="analiza-struktury.html"><a href="analiza-struktury.html#srednia-w-populacji-normalnej-z-nieznanym-odchyleniem-standardowym---maa-proba"><i class="fa fa-check"></i><b>3.5.2</b> Średnia w populacji normalnej z nieznanym odchyleniem standardowym - mała próba</a></li>
+<li class="chapter" data-level="3.5.3" data-path="analiza-struktury.html"><a href="analiza-struktury.html#srednia-w-populacji-normalnej-z-nieznanym-odchyleniem-standardowym---duza-proba"><i class="fa fa-check"></i><b>3.5.3</b> Średnia w populacji normalnej z nieznanym odchyleniem standardowym - duża próba</a></li>
+<li class="chapter" data-level="3.5.4" data-path="analiza-struktury.html"><a href="analiza-struktury.html#proporcja"><i class="fa fa-check"></i><b>3.5.4</b> Proporcja</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="korelacje.html"><a href="korelacje.html"><i class="fa fa-check"></i><b>4</b> Korelacje</a><ul>
@@ -467,10 +475,11 @@ gitbook.start({
 "facebook": true,
 "twitter": true,
 "google": false,
+"linkedin": false,
 "weibo": false,
-"instapper": false,
+"instapaper": false,
 "vk": false,
-"all": ["facebook", "google", "twitter", "weibo", "instapaper"]
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
 "theme": "white",
@@ -481,7 +490,11 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": ["KS-Statystyka_opisowa.pdf"],
+"history": {
+"link": null,
+"text": null
+},
+"download": null,
 "toc": {
 "collapse": "subsection"
 }
@@ -494,9 +507,11 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    script.src  = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:" && /^https?:/.test(script.src))
-      script.src  = script.src.replace(/^https?:/, '');
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
     document.getElementsByTagName("head")[0].appendChild(script);
   })();
 </script>
