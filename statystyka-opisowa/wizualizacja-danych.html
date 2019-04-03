@@ -99,6 +99,12 @@
 <li class="chapter" data-level="3.5.3" data-path="analiza-struktury.html"><a href="analiza-struktury.html#srednia-w-populacji-normalnej-z-nieznanym-odchyleniem-standardowym---duza-proba"><i class="fa fa-check"></i><b>3.5.3</b> Średnia w populacji normalnej z nieznanym odchyleniem standardowym - duża próba</a></li>
 <li class="chapter" data-level="3.5.4" data-path="analiza-struktury.html"><a href="analiza-struktury.html#proporcja"><i class="fa fa-check"></i><b>3.5.4</b> Proporcja</a></li>
 </ul></li>
+<li class="chapter" data-level="3.6" data-path="analiza-struktury.html"><a href="analiza-struktury.html#testy-statystyczne"><i class="fa fa-check"></i><b>3.6</b> Testy statystyczne</a><ul>
+<li class="chapter" data-level="3.6.1" data-path="analiza-struktury.html"><a href="analiza-struktury.html#test-t-dla-jednej-sredniej"><i class="fa fa-check"></i><b>3.6.1</b> Test t dla jednej średniej</a></li>
+<li class="chapter" data-level="3.6.2" data-path="analiza-struktury.html"><a href="analiza-struktury.html#test-t-dla-dwoch-srednich-niezaleznych"><i class="fa fa-check"></i><b>3.6.2</b> Test t dla dwóch średnich niezależnych</a></li>
+<li class="chapter" data-level="3.6.3" data-path="analiza-struktury.html"><a href="analiza-struktury.html#test-istotnosci-proporcji"><i class="fa fa-check"></i><b>3.6.3</b> Test istotności proporcji</a></li>
+<li class="chapter" data-level="3.6.4" data-path="analiza-struktury.html"><a href="analiza-struktury.html#test-istotnosci-dwoch-proporcji"><i class="fa fa-check"></i><b>3.6.4</b> Test istotności dwóch proporcji</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="korelacje.html"><a href="korelacje.html"><i class="fa fa-check"></i><b>4</b> Korelacje</a><ul>
 <li class="chapter" data-level="4.1" data-path="korelacje.html"><a href="korelacje.html#cechy-jakosciowe"><i class="fa fa-check"></i><b>4.1</b> Cechy jakościowe</a></li>
@@ -191,9 +197,7 @@
 <div id="dystrybuanta" class="section level2">
 <h2><span class="header-section-number">2.3</span> Dystrybuanta</h2>
 <p>Kolejnym zagadnieniem związanym z rozkładem cechy jest <strong>dystrybuanta</strong>.</p>
-<p><strong>Dystrybuanta empiryczna</strong> to funkcja ukazująca skumulowany rozkład cechy w n-elementowej zbiorowości. Funkcję <span class="math inline">\(F(x)\)</span> definiuje się jako skumulowane prawdopodobieństwo wystąpienia - tj. sumę prawdopodobieństw od danego przedziału klasowego w rozkładzie empirycznym badanej cechy. Wyraża się wzorem:
-<span class="math display">\[F(x)=\sum\limits_{x_{i}&lt;x}{p_{i}},\]</span>
-gdzie: <span class="math inline">\(p_{i}\)</span> — prawdopodobieństwo wystąpienia wariantu.</p>
+<p><strong>Dystrybuanta empiryczna</strong> to funkcja ukazująca skumulowany rozkład cechy w n-elementowej zbiorowości. Funkcję <span class="math inline">\(F(x)\)</span> definiuje się jako skumulowane prawdopodobieństwo wystąpienia - tj. sumę prawdopodobieństw od danego przedziału klasowego w rozkładzie empirycznym badanej cechy. Wyraża się wzorem: <span class="math display">\[F(x)=\sum\limits_{x_{i}&lt;x}{p_{i}},\]</span> gdzie: <span class="math inline">\(p_{i}\)</span> — prawdopodobieństwo wystąpienia wariantu.</p>
 <p>Dystrybuanta empiryczna jest funkcją:</p>
 <ul>
 <li>niemalejącą,</li>
@@ -342,7 +346,7 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": null,
+"download": ["KS-Statystyka_opisowa.pdf"],
 "toc": {
 "collapse": "subsection"
 }
@@ -355,7 +359,7 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    var src = "true";
+    var src = "";
     if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:" && /^https?:/.test(src))
       src = src.replace(/^https?:/, '');

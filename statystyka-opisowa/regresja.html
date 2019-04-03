@@ -99,6 +99,12 @@
 <li class="chapter" data-level="3.5.3" data-path="analiza-struktury.html"><a href="analiza-struktury.html#srednia-w-populacji-normalnej-z-nieznanym-odchyleniem-standardowym---duza-proba"><i class="fa fa-check"></i><b>3.5.3</b> Średnia w populacji normalnej z nieznanym odchyleniem standardowym - duża próba</a></li>
 <li class="chapter" data-level="3.5.4" data-path="analiza-struktury.html"><a href="analiza-struktury.html#proporcja"><i class="fa fa-check"></i><b>3.5.4</b> Proporcja</a></li>
 </ul></li>
+<li class="chapter" data-level="3.6" data-path="analiza-struktury.html"><a href="analiza-struktury.html#testy-statystyczne"><i class="fa fa-check"></i><b>3.6</b> Testy statystyczne</a><ul>
+<li class="chapter" data-level="3.6.1" data-path="analiza-struktury.html"><a href="analiza-struktury.html#test-t-dla-jednej-sredniej"><i class="fa fa-check"></i><b>3.6.1</b> Test t dla jednej średniej</a></li>
+<li class="chapter" data-level="3.6.2" data-path="analiza-struktury.html"><a href="analiza-struktury.html#test-t-dla-dwoch-srednich-niezaleznych"><i class="fa fa-check"></i><b>3.6.2</b> Test t dla dwóch średnich niezależnych</a></li>
+<li class="chapter" data-level="3.6.3" data-path="analiza-struktury.html"><a href="analiza-struktury.html#test-istotnosci-proporcji"><i class="fa fa-check"></i><b>3.6.3</b> Test istotności proporcji</a></li>
+<li class="chapter" data-level="3.6.4" data-path="analiza-struktury.html"><a href="analiza-struktury.html#test-istotnosci-dwoch-proporcji"><i class="fa fa-check"></i><b>3.6.4</b> Test istotności dwóch proporcji</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="korelacje.html"><a href="korelacje.html"><i class="fa fa-check"></i><b>4</b> Korelacje</a><ul>
 <li class="chapter" data-level="4.1" data-path="korelacje.html"><a href="korelacje.html#cechy-jakosciowe"><i class="fa fa-check"></i><b>4.1</b> Cechy jakościowe</a></li>
@@ -231,7 +237,7 @@ a_{1}=\frac{\sum\limits_{i=1}^{n}{(x_{i}-\bar{x})(y_{i}-\bar{y})}}{\sum\limits_{
 </ul>
 <p>Po napisaniu funkcji i uwzględnieniu wszystkich argumentów naciskamy ENTER — powinna pojawić się jedna wartość. Następnie należy zaznaczyć obszar 2 kolumny na 5 wiersze uwzględniając w lewej górnej komórce otrzymaną wcześniej wartość. W kolejnym kroku przechodzimy do PASKU FORMUŁY programu Excel i korzystamy z tajemnej formuły CTRL+SHIFT+ENTER.</p>
 <p>W rezultacie otrzymujemy tabelę o wymiarach 2x5, która zawiera następujące elementy:</p>
-<table>
+<table style="width:100%;">
 <colgroup>
 <col width="50%" />
 <col width="49%" />
@@ -410,11 +416,7 @@ a_{1}=\frac{\sum\limits_{i=1}^{n}{(x_{i}-\bar{x})(y_{i}-\bar{y})}}{\sum\limits_{
 <p><em>Zadania</em></p>
 <p>Ile wynosi prognozowana miesięczna sprzedaż (oraz błąd prognozy) w sklepie nr 5 w kwietniu 2015 roku.</p>
 <p><strong>Zadanie egzaminacyjne</strong></p>
-<p>Postanowiono zbadać zależność pomiędzy dzienną liczbą klientów (w tys. osób) a dziennym przychodem (w tys. zł) w pewnej sieci sklepów.
-W tym celu wybrano 16 sklepów (po jednym z każdego województwa), w których badano te wielkości.
-Analiza wykazała, że średnia liczba klientów wynosiła 1,5 tys. osób, a dziennego przychodu 40 tys. zł.
-Współczynnik zmienności dla liczby klientów był równy 13%, a dla przychodu 17%.
-Suma kwadratów reszt wynosiła 70, a współczynnik korelacji liniowej Pearsona 0,89.</p>
+<p>Postanowiono zbadać zależność pomiędzy dzienną liczbą klientów (w tys. osób) a dziennym przychodem (w tys. zł) w pewnej sieci sklepów. W tym celu wybrano 16 sklepów (po jednym z każdego województwa), w których badano te wielkości. Analiza wykazała, że średnia liczba klientów wynosiła 1,5 tys. osób, a dziennego przychodu 40 tys. zł. Współczynnik zmienności dla liczby klientów był równy 13%, a dla przychodu 17%. Suma kwadratów reszt wynosiła 70, a współczynnik korelacji liniowej Pearsona 0,89.</p>
 <ol style="list-style-type: lower-alpha">
 <li>Wyznacz parametry funkcji regresji i zapisz jej postać.</li>
 <li>Oceń jakość otrzymanej funkcji.</li>
@@ -482,7 +484,7 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": null,
+"download": ["KS-Statystyka_opisowa.pdf"],
 "toc": {
 "collapse": "subsection"
 }
@@ -495,7 +497,7 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    var src = "true";
+    var src = "";
     if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:" && /^https?:/.test(src))
       src = src.replace(/^https?:/, '');

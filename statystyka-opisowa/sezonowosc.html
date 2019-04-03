@@ -99,6 +99,12 @@
 <li class="chapter" data-level="3.5.3" data-path="analiza-struktury.html"><a href="analiza-struktury.html#srednia-w-populacji-normalnej-z-nieznanym-odchyleniem-standardowym---duza-proba"><i class="fa fa-check"></i><b>3.5.3</b> Średnia w populacji normalnej z nieznanym odchyleniem standardowym - duża próba</a></li>
 <li class="chapter" data-level="3.5.4" data-path="analiza-struktury.html"><a href="analiza-struktury.html#proporcja"><i class="fa fa-check"></i><b>3.5.4</b> Proporcja</a></li>
 </ul></li>
+<li class="chapter" data-level="3.6" data-path="analiza-struktury.html"><a href="analiza-struktury.html#testy-statystyczne"><i class="fa fa-check"></i><b>3.6</b> Testy statystyczne</a><ul>
+<li class="chapter" data-level="3.6.1" data-path="analiza-struktury.html"><a href="analiza-struktury.html#test-t-dla-jednej-sredniej"><i class="fa fa-check"></i><b>3.6.1</b> Test t dla jednej średniej</a></li>
+<li class="chapter" data-level="3.6.2" data-path="analiza-struktury.html"><a href="analiza-struktury.html#test-t-dla-dwoch-srednich-niezaleznych"><i class="fa fa-check"></i><b>3.6.2</b> Test t dla dwóch średnich niezależnych</a></li>
+<li class="chapter" data-level="3.6.3" data-path="analiza-struktury.html"><a href="analiza-struktury.html#test-istotnosci-proporcji"><i class="fa fa-check"></i><b>3.6.3</b> Test istotności proporcji</a></li>
+<li class="chapter" data-level="3.6.4" data-path="analiza-struktury.html"><a href="analiza-struktury.html#test-istotnosci-dwoch-proporcji"><i class="fa fa-check"></i><b>3.6.4</b> Test istotności dwóch proporcji</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="korelacje.html"><a href="korelacje.html"><i class="fa fa-check"></i><b>4</b> Korelacje</a><ul>
 <li class="chapter" data-level="4.1" data-path="korelacje.html"><a href="korelacje.html#cechy-jakosciowe"><i class="fa fa-check"></i><b>4.1</b> Cechy jakościowe</a></li>
@@ -173,8 +179,7 @@
 <p><span class="math display">\[\hat{y}_{t}=0,38 \cdot t+25,13\]</span></p>
 <p>co oznacza, że z kwartału na kwartał przewóz ładunków wzrastał średnio o 0,38 mln ton, natomiast w IV kwartale 2002 roku modelowa wartość przewozów ładunków wynosiła 25,13 mln ton.</p>
 <p>Na podstawie wyznaczonych funkcji regresji można obliczyć wartości teoretyczne (<span class="math inline">\(\hat{y}_t\)</span>) zużycia energii oraz przewozów ładunków i pod postacią prostej przestawić na wykresie.</p>
-<p><img src="img/przyklad1_trend.png" alt="Zużycie energii - trend liniowy" />
-<img src="img/przyklad2_trend.png" alt="Przewóz ładunków - trend ilniowy" /></p>
+<p><img src="img/przyklad1_trend.png" alt="Zużycie energii - trend liniowy" /> <img src="img/przyklad2_trend.png" alt="Przewóz ładunków - trend ilniowy" /></p>
 <p>Otrzymane wartości wynikające z funkcji trendu (<span class="math inline">\(\hat{y}_t\)</span>) mają charakter liniowy i prawdę rzecz ujmując słabo dopasowują się do danych empirycznych. Współczynnik <span class="math inline">\(R^2\)</span> w przykładzie pierwszym wynosi 41%, a w przykładzie drugim tylko 37%. Ponadto, jeśli chcielibyśmy prognozować na kolejne okresy to według funkcji trendu wartości zużycia energii dla kwartałów pierwszych byłyby przeszacowane, a dla kwartałów czwartych niedoszacowane. Stąd zachodzi potrzeba uwzględnienia w modelu występowania sezonowości, którą obserwujemy w danych.</p>
 <p>Pierwszym krokiem jest identyfikacja rodzaju tej sezonowości. Może ona mieć charakter addytywny — wtedy wahania sezonowe są stałe w poszczególnych okresach (por. przykład 1) lub multiplikatywny, kiedy czynniki sezonowe są proporcjonalne do funkcji trendu (por. przykład 2). W zależności od zidentyfikowanego charakteru należy obliczyć wskaźniki sezonowości. W pierwszej kolejności rozważymy model addytywny.</p>
 </div>
@@ -197,8 +202,8 @@
 <table>
 <colgroup>
 <col width="7%" />
-<col width="6%" />
-<col width="86%" />
+<col width="7%" />
+<col width="85%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -267,8 +272,8 @@
 <table>
 <colgroup>
 <col width="7%" />
-<col width="6%" />
-<col width="86%" />
+<col width="7%" />
+<col width="85%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -336,8 +341,7 @@
 </ul>
 <p>Przy prognozie dla IV kwartału 2008 roku</p>
 <p><span class="math display">\[D(y_{24}^{P})=0,29\]</span></p>
-<p>co oznacza, że prognozowane zużycie energii w IV kwartale 2008 roku wyniesie 7,4 +/- 0,29 MWh.
-- przykład 2 — przewóz ładunków</p>
+<p>co oznacza, że prognozowane zużycie energii w IV kwartale 2008 roku wyniesie 7,4 +/- 0,29 MWh. - przykład 2 — przewóz ładunków</p>
 <p>Przy prognozie dla III kwartału 2006 roku</p>
 <p><span class="math display">\[D(y_{24}^{P})=0,93\]</span></p>
 <p>co oznacza, że prognozowane przewozy w III kwartale 2006 roku wyniosą 33,6 +/- 0,93 mln ton.</p>
@@ -388,7 +392,7 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": null,
+"download": ["KS-Statystyka_opisowa.pdf"],
 "toc": {
 "collapse": "subsection"
 }
@@ -401,7 +405,7 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    var src = "true";
+    var src = "";
     if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:" && /^https?:/.test(src))
       src = src.replace(/^https?:/, '');
