@@ -1,13 +1,12 @@
 <!DOCTYPE html>
-<html >
-
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
 <head>
 
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>6 Sezonowość | Statystyka opisowa</title>
-  <meta name="description" content="6 Sezonowość | Statystyka opisowa">
-  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+  <meta name="description" content="6 Sezonowość | Statystyka opisowa" />
+  <meta name="generator" content="bookdown 0.13 and GitBook 2.6.7" />
 
   <meta property="og:title" content="6 Sezonowość | Statystyka opisowa" />
   <meta property="og:type" content="book" />
@@ -22,17 +21,17 @@
   
   
 
-<meta name="author" content="Katedra Statystyki">
+<meta name="author" content="Katedra Statystyki" />
 
 
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="regresja.html">
-<link rel="next" href="analiza-szeregu-dynamicznego.html">
+<link rel="prev" href="regresja.html"/>
+<link rel="next" href="analiza-szeregu-dynamicznego.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -179,7 +178,8 @@
 <p><span class="math display">\[\hat{y}_{t}=0,38 \cdot t+25,13\]</span></p>
 <p>co oznacza, że z kwartału na kwartał przewóz ładunków wzrastał średnio o 0,38 mln ton, natomiast w IV kwartale 2002 roku modelowa wartość przewozów ładunków wynosiła 25,13 mln ton.</p>
 <p>Na podstawie wyznaczonych funkcji regresji można obliczyć wartości teoretyczne (<span class="math inline">\(\hat{y}_t\)</span>) zużycia energii oraz przewozów ładunków i pod postacią prostej przestawić na wykresie.</p>
-<p><img src="img/przyklad1_trend.png" alt="Zużycie energii - trend liniowy" /> <img src="img/przyklad2_trend.png" alt="Przewóz ładunków - trend ilniowy" /></p>
+<p><img src="img/przyklad1_trend.png" alt="Zużycie energii - trend liniowy" />
+<img src="img/przyklad2_trend.png" alt="Przewóz ładunków - trend ilniowy" /></p>
 <p>Otrzymane wartości wynikające z funkcji trendu (<span class="math inline">\(\hat{y}_t\)</span>) mają charakter liniowy i prawdę rzecz ujmując słabo dopasowują się do danych empirycznych. Współczynnik <span class="math inline">\(R^2\)</span> w przykładzie pierwszym wynosi 41%, a w przykładzie drugim tylko 37%. Ponadto, jeśli chcielibyśmy prognozować na kolejne okresy to według funkcji trendu wartości zużycia energii dla kwartałów pierwszych byłyby przeszacowane, a dla kwartałów czwartych niedoszacowane. Stąd zachodzi potrzeba uwzględnienia w modelu występowania sezonowości, którą obserwujemy w danych.</p>
 <p>Pierwszym krokiem jest identyfikacja rodzaju tej sezonowości. Może ona mieć charakter addytywny — wtedy wahania sezonowe są stałe w poszczególnych okresach (por. przykład 1) lub multiplikatywny, kiedy czynniki sezonowe są proporcjonalne do funkcji trendu (por. przykład 2). W zależności od zidentyfikowanego charakteru należy obliczyć wskaźniki sezonowości. W pierwszej kolejności rozważymy model addytywny.</p>
 </div>
@@ -202,8 +202,8 @@
 <table>
 <colgroup>
 <col width="7%" />
-<col width="7%" />
-<col width="85%" />
+<col width="6%" />
+<col width="86%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -272,8 +272,8 @@
 <table>
 <colgroup>
 <col width="7%" />
-<col width="7%" />
-<col width="85%" />
+<col width="6%" />
+<col width="86%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -341,7 +341,8 @@
 </ul>
 <p>Przy prognozie dla IV kwartału 2008 roku</p>
 <p><span class="math display">\[D(y_{24}^{P})=0,29\]</span></p>
-<p>co oznacza, że prognozowane zużycie energii w IV kwartale 2008 roku wyniesie 7,4 +/- 0,29 MWh. - przykład 2 — przewóz ładunków</p>
+<p>co oznacza, że prognozowane zużycie energii w IV kwartale 2008 roku wyniesie 7,4 +/- 0,29 MWh.
+- przykład 2 — przewóz ładunków</p>
 <p>Przy prognozie dla III kwartału 2006 roku</p>
 <p><span class="math display">\[D(y_{24}^{P})=0,93\]</span></p>
 <p>co oznacza, że prognozowane przewozy w III kwartale 2006 roku wyniosą 33,6 +/- 0,93 mln ton.</p>
@@ -405,10 +406,11 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    var src = "";
+    var src = "true";
     if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:" && /^https?:/.test(src))
-      src = src.replace(/^https?:/, '');
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
     script.src = src;
     document.getElementsByTagName("head")[0].appendChild(script);
   })();
