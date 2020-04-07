@@ -100,8 +100,8 @@
 </ul></li>
 <li class="chapter" data-level="3.6" data-path="analiza-struktury.html"><a href="analiza-struktury.html#testy-statystyczne"><i class="fa fa-check"></i><b>3.6</b> Testy statystyczne</a><ul>
 <li class="chapter" data-level="3.6.1" data-path="analiza-struktury.html"><a href="analiza-struktury.html#test-t-dla-jednej-sredniej"><i class="fa fa-check"></i><b>3.6.1</b> Test t dla jednej średniej</a></li>
-<li class="chapter" data-level="3.6.2" data-path="analiza-struktury.html"><a href="analiza-struktury.html#test-t-dla-dwoch-srednich-niezaleznych"><i class="fa fa-check"></i><b>3.6.2</b> Test t dla dwóch średnich niezależnych</a></li>
-<li class="chapter" data-level="3.6.3" data-path="analiza-struktury.html"><a href="analiza-struktury.html#test-istotnosci-proporcji"><i class="fa fa-check"></i><b>3.6.3</b> Test istotności proporcji</a></li>
+<li class="chapter" data-level="3.6.2" data-path="analiza-struktury.html"><a href="analiza-struktury.html#test-istotnosci-proporcji"><i class="fa fa-check"></i><b>3.6.2</b> Test istotności proporcji</a></li>
+<li class="chapter" data-level="3.6.3" data-path="analiza-struktury.html"><a href="analiza-struktury.html#test-t-dla-dwoch-srednich-niezaleznych"><i class="fa fa-check"></i><b>3.6.3</b> Test t dla dwóch średnich niezależnych</a></li>
 <li class="chapter" data-level="3.6.4" data-path="analiza-struktury.html"><a href="analiza-struktury.html#test-istotnosci-dwoch-proporcji"><i class="fa fa-check"></i><b>3.6.4</b> Test istotności dwóch proporcji</a></li>
 </ul></li>
 </ul></li>
@@ -746,7 +746,17 @@
 </div>
 <div id="przedziay-ufnosci" class="section level2">
 <h2><span class="header-section-number">3.5</span> Przedziały ufności</h2>
-<p>Dotyczas analizowane dane dotyczyły populacji, zatem obliczone wartości statystyk można uznać za precyzyjne i nieobciążone błędem. Natomiast większość prowadzonych badań ogranicza się do analizy jedynie fragmentu populacji. Wówczas, oprócz obliczenia interesującej nas miary ważne jest także podanie możliwego błędu. Popularną praktyką jest obliczanie <strong>przedziałów ufności</strong>, które prezentują zakres, w którym z określonym prawdopodobieństwem znajduje się prawdziwa wartość parametru. Zwykle bierze się pod uwagę następujące prawdopodobieństwa: 90%, 95% i 99%, niemniej można wybrać dowolną wartość z przedziału 0-100%. We wzorach operuje się pojeciem <strong>poziomu istotności</strong> oznaczanym przez <span class="math inline">\(\alpha\)</span>. W tabeli przedstawiono relację przyjętego poziomu istotności, prawdopodobieństwa oraz wartości kwantyli rozkładu normalnego.</p>
+<p>Dotyczas analizowane dane dotyczyły populacji, zatem obliczone wartości statystyk można uznać za precyzyjne i nieobciążone błędem. Natomiast większość prowadzonych badań ogranicza się do analizy jedynie fragmentu populacji. Wówczas, oprócz obliczenia interesującej nas miary ważne jest także podanie możliwego błędu. Popularną praktyką jest obliczanie <strong>przedziałów ufności</strong>, które prezentują zakres, w którym z określonym prawdopodobieństwem znajduje się prawdziwa wartość parametru. Zwykle bierze się pod uwagę następujące prawdopodobieństwa: 90%, 95% i 99%, niemniej można wybrać dowolną wartość z przedziału 0-100%. We wzorach operuje się pojeciem <strong>poziomu istotności</strong> oznaczanym przez <span class="math inline">\(\alpha\)</span>.</p>
+<p>Skupimy się na wyznaczaniu następujących przedziałów ufności:</p>
+<ul>
+<li>dla średniej w populacji normalnym ze znanym odchyleniem standardowym,</li>
+<li>dla średniej w populacji normalnym z nieznanym odchyleniem standardowym dla małej próby,</li>
+<li>dla średniej w populacji normalnym z nieznanym odchyleniem standardowym dla dużej próby,</li>
+<li>dla odsetka (proporcji, frakcji).</li>
+</ul>
+<p>W każdym przypadku będziemy musieli wyznaczyć kwantyl rozkładu, który odpowiada przyjętemu poziomowi prawdopodobieństwa i tym samym obszar, który pokryje wyznaczony przedział ufności. Dla rozkładu normalnego ta sytuacja jest przedstawiona na wykresie:</p>
+<p><img src="KS-Statystyka_opisowa_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<p>W tabeli przedstawiono relację przyjętego prawdopodobieństwa, poziomu istotności oraz wartości kwantyli rozkładu normalnego.</p>
 <table>
 <thead>
 <tr class="header">
@@ -773,13 +783,10 @@
 </tr>
 </tbody>
 </table>
-<p>Skupimy się na wyznaczaniu następujących przedziałów ufności:</p>
-<ul>
-<li>dla średniej w populacji normalnym ze znanym odchyleniem standardowym,</li>
-<li>dla średniej w populacji normalnym z nieznanym odchyleniem standardowym dla małej próby,</li>
-<li>dla średniej w populacji normalnym z nieznanym odchyleniem standardowym dla dużej próby,</li>
-<li>dla odsetka (proporcji, frakcji).</li>
-</ul>
+<p>W Excelu te wartości można wyznaczyć z wykorzystaniem funkcji: ROZKŁ.NORMALNY.S.ODWR(1-<span class="math inline">\(\alpha\)</span>/2).</p>
+<p>Te wartości dla najpopularniejszych poziomów prawdopodobieństwa zawsze będą takie same. Natomiast w przypadku małych prób (<span class="math inline">\(n &lt; 30\)</span>) należy skorzystać z rozkładu <a href="https://pl.wikipedia.org/wiki/William_Sealy_Gosset">t-Studenta</a>. Kształt tego rozkładu jest zbliżony do normalnego, natomiast wartości kwantyli zależą od dwóch parametrów - przyjętego poziomu istotności oraz liczebności próby pomniejszonej o 1 (liczba stopni swobody).</p>
+<p><img src="KS-Statystyka_opisowa_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<p>Do wyznaczenia wartości kwantyla z rozkładu t-Studenta wykorzystuje się funkcje: ROZKŁ.T.ODWR(1-<span class="math inline">\(\alpha\)</span>/2;<span class="math inline">\(n\)</span>-1) lub ROZKŁ.T.ODWR.DS(<span class="math inline">\(\alpha\)</span>;<span class="math inline">\(n\)</span>-1)</p>
 <div id="srednia-w-populacji-normalnej-ze-znanym-odchyleniem-standardowym" class="section level3">
 <h3><span class="header-section-number">3.5.1</span> Średnia w populacji normalnej ze znanym odchyleniem standardowym</h3>
 <p>W sytuacji, w której znane jest odchylenie standardowe w populacji np. z wcześniejszych badań można wykorzystać następujący wzór:</p>
@@ -863,6 +870,7 @@ gdzie:</p>
 <p><span class="math display">\[H_1: m &lt; m_0\]</span></p>
 <p>gdzie <span class="math inline">\(m_0\)</span> - hipotetyczna wartość średniej w populacji generalnej.</p>
 <p>Weryfikacja testu statystycznego polega na obliczeniu wartości statystyki testowej oraz kwantyla odpowiedniego rozkładu i sprawdzenie czy wartość statystyki testowej wpada do przedziału odrzucenia. Jeśli wartość statystyki testowej jest większa od wartości kwantyla rozkładu (np. <span class="math inline">\(|t|&gt;t_\alpha\)</span>) to są podstawy do odrzucenia hipotezy zerowej, natomiast w przypadku kiedy <span class="math inline">\(|t|&lt;t_\alpha\)</span> to nie ma podstaw do odrzucenia hipotezy zerowej.</p>
+<p><img src="KS-Statystyka_opisowa_files/figure-html/unnamed-chunk-5-1.png" width="1536" /></p>
 <p>Obecnie wszystkie programy do analiz statystycznych zwracają także wartość p czyli najmniejszy poziom istotności przy którym nie ma podstaw do odrzucenia hipotezy zerowej. Przyjmuje się, że jeśli <span class="math inline">\(p &lt; \alpha\)</span> to są podstawy do odrzucenia hipotezy zerowej, natomiast w przypadku <span class="math inline">\(p \geq \alpha\)</span> nie ma podstaw do odrzucenia <span class="math inline">\(H_0\)</span>. Jest to jednak bardzo uproszczona definicja i warto zgłębić temat np. korzystając z <a href="https://pl.wikipedia.org/wiki/Warto%C5%9B%C4%87_p">Wikipedii</a>.</p>
 <div id="test-t-dla-jednej-sredniej" class="section level3">
 <h3><span class="header-section-number">3.6.1</span> Test t dla jednej średniej</h3>
@@ -873,7 +881,7 @@ gdzie:</p>
 <li><span class="math inline">\(H_0:m=m_0;H_1:m &lt; m_0\)</span></li>
 </ul>
 <p>Statystyka testowa jest następująca:</p>
-<p><span class="math display">\[t=\frac{\bar{x}-m_0}{s}\sqrt{n}\]</span></p>
+<p><span class="math display">\[t=\frac{(\bar{x}-m_0)}{s}\sqrt{n}\]</span></p>
 <p>i ma rozkład t-Studenta o <span class="math inline">\(n-1\)</span> stopniach swobody.</p>
 <p>Jeśli wartość statystyki testowej jest większa od wartości kwantyla rozkładu (<span class="math inline">\(|t|&gt;t_\alpha\)</span>) to są podstawy do odrzucenia hipotezy zerowej, natomiast w przypadku kiedy <span class="math inline">\(|t|&lt;t_\alpha\)</span> nie ma podstaw do odrzucenia hipotezy zerowej.</p>
 <p>Hipotezę zerową w teście t dla jednej średniej można także zweryfikować na podstawie przedziału ufności. Nie będzie podstaw do odrzucenia hipotezy zerowej jeśli weryfikowana wartość <span class="math inline">\(m_0\)</span> będzie znajdować się w wyznaczonym przedziale ufności. Jeśli będzie poza nim to są podstawy do odrzucenia <span class="math inline">\(H_0\)</span>.</p>
@@ -889,9 +897,41 @@ gdzie:</p>
 <p>Natomiast wartość kwantyla rozkładu t-Studenta z 23 stopniami swobody dla poziomu istotności <span class="math inline">\(\alpha=0,05\)</span> wynosi 2,07 (<code>ROZKŁ.T.ODWR(1-0,05/2;24-1)</code>). W takim razie obszar odrzucenia hipotezy zerowej to przedział od <span class="math inline">\(-\infty\)</span> do -2,07 i od 2,07 do <span class="math inline">\(+\infty\)</span>. Wartość statystyki testowej nie znajduje się w tym przedziale, zatem nie ma podstaw do odrzucenia hipotezy zerowej - średnia w populacji nie różni się od 30 ton z hektara.</p>
 <p>Z kolei przedział ufności dla średniej z plonów żyta to 27,46 do 30,46 ton i można zauważyć, że weryfikowana wartość <span class="math inline">\(m_0\)</span> znajduje się w tym przedziale.</p>
 <p>Natomiast w sytuacji, w której <span class="math inline">\(m_0\)</span> zostałoby przyjęte na poziomie 32 ton to wówczas statystyka testowa wynosi -4,29 i wpada do obszaru odrzucenia w rozkładzie t-Studenta. Ponadto można zauważyć, że ta wartość znajduje się poza wyznaczonym przedziałem ufności.</p>
+<p><strong>Zadania</strong></p>
+<ol style="list-style-type: decimal">
+<li><p>Na grupie 25 kobiet przeprowadzono badanie dotyczące zarobków i zebrano następujące wyniki: 4330, 3063, 3012, 3486, 3415, 3097, 2451, 3418, 2970, 4050, 2828, 4076, 3011, 3575, 3939, 3089, 3733, 3347, 2719, 3238, 4372, 3272, 2909, 3368, 3598. Przyjmują↓c poziom istotności równy 0.1 zweryfikuj hipotezę, że średnie zarobki kobiet w populacji nie różnią się istotnie od 3500 zł.</p></li>
+<li><p>W 17 szkołach podstawowych przeprowadzono wśród uczniów testy kompetencji. Otrzymano następujące wyniki punktowe: 84, 82, 96, 78, 73, 83, 82, 77, 83, 80, 78, 85, 80, 71, 66, 79, 91. Zweryfikuj hipotezę, że średni wynik testu kompetencji w szkołach podstawowych wynosi 80 punktów przyjmując poziom istotności 0,01.</p></li>
+</ol>
+</div>
+<div id="test-istotnosci-proporcji" class="section level3">
+<h3><span class="header-section-number">3.6.2</span> Test istotności proporcji</h3>
+<p>Testowany jest jeden z poniższych układów hipotez:</p>
+<ul>
+<li><span class="math inline">\(H_0:p=p_0;H_1:p\neq p_0\)</span></li>
+<li><span class="math inline">\(H_0:p=p_0;H_1:p &gt; p_0\)</span></li>
+<li><span class="math inline">\(H_0:p=p_0;H_1:p &lt; p_0\)</span></li>
+</ul>
+<p>Statystyka testowa:</p>
+<p><span class="math display">\[z=\frac{(\frac{m}{n}-p_0)}{\sqrt{\frac{p_0(1-p_0)}{n}}}\]</span></p>
+<p>Statystyka testowa ma rozkład normalny standaryzowany.</p>
+<p><strong>Przykład</strong></p>
+<p>W pewnym mieście przeprowadzono badanie aktywności zawodowej. Przebadano 980 osób, spośród których 674 zadeklarowały się jako osoby pracujące. Na poziomie istotności 0,1 zweryfikuj hipotezę, że odsetek pracujących w tym mieście jest równy 72%.</p>
+<p>Układ hipotez jest następujący:</p>
+<ul>
+<li><span class="math inline">\(H_0: p = 0,72\)</span></li>
+<li><span class="math inline">\(H_1: p \neq 0,72\)</span></li>
+</ul>
+<p>W pierwszej kolejności obliczamy wartość średnią, odchylenie standardowe i na tej podstawie wartość statystyki testowej:</p>
+<p><span class="math display">\[z=\frac{(\frac{m}{n}-p_0)}{\sqrt{\frac{p_0(1-p_0)}{n}}}=\frac{(0,69-0,72)}{\sqrt{\frac{0,72(1-0,72)}{980}}}=-2,25\]</span></p>
+<p>Natomiast wartość kwantyla rozkładu normalnego dla poziomu istotności <span class="math inline">\(\alpha=0,1\)</span> wynosi 1,64 (<code>ROZKŁ.NORMALNY.S.ODWR(1-0,1/2)</code>). W takim razie obszar odrzucenia hipotezy zerowej to przedział od <span class="math inline">\(-\infty\)</span> do -1,64 i od 1,64 do <span class="math inline">\(+\infty\)</span>. Wartość statystyki testowej znajduje się w tym przedziale, zatem są podstawy do odrzucenia hipotezy zerowej - odsetek pracujących w całym mieście istotnie różni się od 72%.</p>
+<p><strong>Zadania</strong></p>
+<ol style="list-style-type: decimal">
+<li><p>Wysunięto przypuszczenie, że palacze papierosów stanowią 40% populacji. W celu sprawdzenia tej hipotezy wylosowano 500 osób. Okazało się, że wśród nich było 230 palaczy. Zweryfikować postawioną hipotezę na poziomie istotności 0,05.</p></li>
+<li><p>W pewnym powiecie na 119 przedsiębiorstw z sekcji PKD C w badaniu DG 1 wzięło udział 14 przedsiębiorstw. Na poziomie istotności 0,05 zweryfikuj hipotezę, że odsetek przedsiębiorstw biorących udział w badaniu wynosi 10%.</p></li>
+</ol>
 </div>
 <div id="test-t-dla-dwoch-srednich-niezaleznych" class="section level3">
-<h3><span class="header-section-number">3.6.2</span> Test t dla dwóch średnich niezależnych</h3>
+<h3><span class="header-section-number">3.6.3</span> Test t dla dwóch średnich niezależnych</h3>
 <p>Test ma za zadanie sprawdzić czy średnie w dwóch grupach różnią się od siebie w sposób istotny statystycznie. Możemy rozpatrywać następujące układy hipotez:</p>
 <ul>
 <li><span class="math inline">\(H_0:m_1=m_2;H_1:m_1 \neq m_2\)</span></li>
@@ -913,18 +953,6 @@ gdzie:</p>
 <li><span class="math inline">\(H_0:\)</span> średnie w grupach płci różnią się</li>
 </ul>
 <p>W Excelu najprościej przeprowadzić ten test wykorzystując funkcję <code>T.TEST</code> zakładając rozkład dwustronny oraz równość wariancji. Funkcja w rezultacie zwraca wartość p, która wynosi 0,003034 i jest mniejsza od przyjętego poziomu istotności <span class="math inline">\(alfa=0,1\)</span>, co oznacza, że są podstawy do odrzucenia hipotezy zerowej. Średnie w grupach płci różnią się między sobą.</p>
-</div>
-<div id="test-istotnosci-proporcji" class="section level3">
-<h3><span class="header-section-number">3.6.3</span> Test istotności proporcji</h3>
-<p>Testowany jest jeden z poniższych układów hipotez:</p>
-<ul>
-<li><span class="math inline">\(H_0:p=p_0;H_1:p\neq p_0\)</span></li>
-<li><span class="math inline">\(H_0:p=p_0;H_1:p &gt; p_0\)</span></li>
-<li><span class="math inline">\(H_0:p=p_0;H_1:p &lt; p_0\)</span></li>
-</ul>
-<p>Statystyka testowa:</p>
-<p><span class="math display">\[Z=\frac{\frac{m}{n}-p_0}{\sqrt{\frac{p_0(1-p_0)}{n}}}\]</span></p>
-<p>Statystyka testowa ma rozkład normalny standaryzowany.</p>
 </div>
 <div id="test-istotnosci-dwoch-proporcji" class="section level3">
 <h3><span class="header-section-number">3.6.4</span> Test istotności dwóch proporcji</h3>
