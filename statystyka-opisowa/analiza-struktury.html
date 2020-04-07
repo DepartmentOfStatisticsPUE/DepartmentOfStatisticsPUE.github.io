@@ -869,7 +869,7 @@ gdzie:</p>
 <span class="math display">\[H_1: m &gt; m_0\]</span></p>
 <p><span class="math display">\[H_1: m &lt; m_0\]</span></p>
 <p>gdzie <span class="math inline">\(m_0\)</span> - hipotetyczna wartość średniej w populacji generalnej.</p>
-<p>Weryfikacja testu statystycznego polega na obliczeniu wartości statystyki testowej oraz kwantyla odpowiedniego rozkładu i sprawdzenie czy wartość statystyki testowej wpada do przedziału odrzucenia. Jeśli wartość statystyki testowej jest większa od wartości kwantyla rozkładu (np. <span class="math inline">\(|t|&gt;t_\alpha\)</span>) to są podstawy do odrzucenia hipotezy zerowej, natomiast w przypadku kiedy <span class="math inline">\(|t|&lt;t_\alpha\)</span> to nie ma podstaw do odrzucenia hipotezy zerowej.</p>
+<p>Weryfikacja testu statystycznego polega na obliczeniu wartości statystyki testowej oraz kwantyla odpowiedniego rozkładu i sprawdzenie czy wartość statystyki testowej wpada do przedziału odrzucenia. Jeśli wartość statystyki testowej jest większa od wartości kwantyla rozkładu (np. <span class="math inline">\(|t| \geq t_\alpha\)</span>) to są podstawy do odrzucenia hipotezy zerowej, natomiast w przypadku kiedy <span class="math inline">\(|t|&lt;t_\alpha\)</span> to nie ma podstaw do odrzucenia hipotezy zerowej.</p>
 <p><img src="KS-Statystyka_opisowa_files/figure-html/unnamed-chunk-5-1.png" width="1536" /></p>
 <p>Obecnie wszystkie programy do analiz statystycznych zwracają także wartość p czyli najmniejszy poziom istotności przy którym nie ma podstaw do odrzucenia hipotezy zerowej. Przyjmuje się, że jeśli <span class="math inline">\(p &lt; \alpha\)</span> to są podstawy do odrzucenia hipotezy zerowej, natomiast w przypadku <span class="math inline">\(p \geq \alpha\)</span> nie ma podstaw do odrzucenia <span class="math inline">\(H_0\)</span>. Jest to jednak bardzo uproszczona definicja i warto zgłębić temat np. korzystając z <a href="https://pl.wikipedia.org/wiki/Warto%C5%9B%C4%87_p">Wikipedii</a>.</p>
 <div id="test-t-dla-jednej-sredniej" class="section level3">
@@ -883,7 +883,7 @@ gdzie:</p>
 <p>Statystyka testowa jest następująca:</p>
 <p><span class="math display">\[t=\frac{(\bar{x}-m_0)}{s}\sqrt{n}\]</span></p>
 <p>i ma rozkład t-Studenta o <span class="math inline">\(n-1\)</span> stopniach swobody.</p>
-<p>Jeśli wartość statystyki testowej jest większa od wartości kwantyla rozkładu (<span class="math inline">\(|t|&gt;t_\alpha\)</span>) to są podstawy do odrzucenia hipotezy zerowej, natomiast w przypadku kiedy <span class="math inline">\(|t|&lt;t_\alpha\)</span> nie ma podstaw do odrzucenia hipotezy zerowej.</p>
+<p>Jeśli wartość statystyki testowej jest większa od wartości kwantyla rozkładu (<span class="math inline">\(|t| \geq t_\alpha\)</span>) to są podstawy do odrzucenia hipotezy zerowej, natomiast w przypadku kiedy <span class="math inline">\(|t|&lt;t_\alpha\)</span> nie ma podstaw do odrzucenia hipotezy zerowej.</p>
 <p>Hipotezę zerową w teście t dla jednej średniej można także zweryfikować na podstawie przedziału ufności. Nie będzie podstaw do odrzucenia hipotezy zerowej jeśli weryfikowana wartość <span class="math inline">\(m_0\)</span> będzie znajdować się w wyznaczonym przedziale ufności. Jeśli będzie poza nim to są podstawy do odrzucenia <span class="math inline">\(H_0\)</span>.</p>
 <p><strong>Przykład</strong></p>
 <p>Z 24 gospodarstw zebrano dane na temat plonów żyta (w tonach na hektar): 30, 31, 27, 35, 31, 32, 36, 25, 31, 32, 28, 29, 24, 30, 25, 31, 25, 29, 25, 27, 22, 29, 32, 29. Czy prawdziwa jest hipoteza, że w gospodarstwach w województwie uzyskuje się średnio 30 ton z hektara żyta? Przyjmij poziom istotności 0,05.</p>
@@ -899,7 +899,7 @@ gdzie:</p>
 <p>Natomiast w sytuacji, w której <span class="math inline">\(m_0\)</span> zostałoby przyjęte na poziomie 32 ton to wówczas statystyka testowa wynosi -4,29 i wpada do obszaru odrzucenia w rozkładzie t-Studenta. Ponadto można zauważyć, że ta wartość znajduje się poza wyznaczonym przedziałem ufności.</p>
 <p><strong>Zadania</strong></p>
 <ol style="list-style-type: decimal">
-<li><p>Na grupie 25 kobiet przeprowadzono badanie dotyczące zarobków i zebrano następujące wyniki: 4330, 3063, 3012, 3486, 3415, 3097, 2451, 3418, 2970, 4050, 2828, 4076, 3011, 3575, 3939, 3089, 3733, 3347, 2719, 3238, 4372, 3272, 2909, 3368, 3598. Przyjmują↓c poziom istotności równy 0.1 zweryfikuj hipotezę, że średnie zarobki kobiet w populacji nie różnią się istotnie od 3500 zł.</p></li>
+<li><p>Na grupie 25 kobiet przeprowadzono badanie dotyczące zarobków i zebrano następujące wyniki: 4330, 3063, 3012, 3486, 3415, 3097, 2451, 3418, 2970, 4050, 2828, 4076, 3011, 3575, 3939, 3089, 3733, 3347, 2719, 3238, 4372, 3272, 2909, 3368, 3598. Przyjmując poziom istotności równy 0.1 zweryfikuj hipotezę, że średnie zarobki kobiet w populacji nie różnią się istotnie od 3500 zł.</p></li>
 <li><p>W 17 szkołach podstawowych przeprowadzono wśród uczniów testy kompetencji. Otrzymano następujące wyniki punktowe: 84, 82, 96, 78, 73, 83, 82, 77, 83, 80, 78, 85, 80, 71, 66, 79, 91. Zweryfikuj hipotezę, że średni wynik testu kompetencji w szkołach podstawowych wynosi 80 punktów przyjmując poziom istotności 0,01.</p></li>
 </ol>
 </div>
