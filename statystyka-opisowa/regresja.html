@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<html lang="" xml:lang="">
 <head>
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>5 Regresja | Statystyka opisowa</title>
   <meta name="description" content="5 Regresja | Statystyka opisowa" />
-  <meta name="generator" content="bookdown 0.13 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
 
   <meta property="og:title" content="5 Regresja | Statystyka opisowa" />
   <meta property="og:type" content="book" />
@@ -39,6 +39,9 @@
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
 
 
 
@@ -153,16 +156,96 @@
 <p>Metoda regresji wykorzystywana jest do funkcyjnego odwzorowania zależności pomiędzy badanymi zmiennymi. Jej celem jest poszukanie określonej klasy funkcji, która w możliwie najlepszy sposób charakteryzowałaby zależność pomiędzy zmiennymi. Funkcję tą określa się mianem funkcji regresji. Budując model chcemy osiągnąć określone cele poznawcze.</p>
 <div id="regresja-prosta" class="section level2">
 <h2><span class="header-section-number">5.1</span> Regresja prosta</h2>
-<p>Celem regresji jest określenie, na podstawie dostępnych informacji, nieznanej wartości analizowanej cechy. Znamy wartości sprzedaży oraz liczby klientów w danym sklepie Rossmann i chcielibyśmy wyznaczyć możliwy poziom sprzedaży przy danej liczbie klientów np. 1000 klientów.</p>
-<p>Podobnie jak w analizie korelacji punktem wyjścia w regresji prostej jest utworzenie wykresu rozrzutu. Ażeby móc zastosować model regresji musi występować związek korelacyjny pomiędzy zmiennymi oraz musi to być związek liniowy. Następnie na podstawie kryteriów merytorycznych określamy zmienną objaśnianą (<span class="math inline">\(y\)</span>) oraz zmienną objaśniającą (<span class="math inline">\(x\)</span>).</p>
-<p>W analizowanym przez nas przypadku zmienną objaśnianą będzie poziom sprzedaży (<span class="math inline">\(y\)</span>), który będziemy wyjaśniać liczbą klientów (<span class="math inline">\(x\)</span>). Naszym celem jest znalezienie wzoru prostej, która będzie przebiegać możliwie najbliżej wszystkich punktów wykresu. W tym celu stosuje się Klasyczną Metodę Najmniejszych Kwadratów (KMNK).</p>
-<p>Ogólna postać prostej regresji jest następująca:</p>
+<p>Celem regresji jest zbudowanie na podstawie dostępnych informacji modelu opisującego rzeczywistość. Taki model pełni funkcję poznawczą - dostarcza wiedzy na temat zjawiska, a także umożliwa prognozowanie (predykcję) nieznanej wartości analizowanej cechy.</p>
+<p>Weźmy pod uwagę prosty przykład dochodów i wydatków:</p>
+<table>
+<thead>
+<tr class="header">
+<th align="right">wydatki</th>
+<th align="right">dochody</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">2300</td>
+<td align="right">2600</td>
+</tr>
+<tr class="even">
+<td align="right">1800</td>
+<td align="right">2400</td>
+</tr>
+<tr class="odd">
+<td align="right">2400</td>
+<td align="right">2900</td>
+</tr>
+<tr class="even">
+<td align="right">2300</td>
+<td align="right">2800</td>
+</tr>
+<tr class="odd">
+<td align="right">2800</td>
+<td align="right">3000</td>
+</tr>
+<tr class="even">
+<td align="right">2000</td>
+<td align="right">2500</td>
+</tr>
+<tr class="odd">
+<td align="right">2100</td>
+<td align="right">2700</td>
+</tr>
+</tbody>
+</table>
+<p>Podobnie jak w analizie korelacji punktem wyjścia w regresji prostej jest utworzenie wykresu rozrzutu.</p>
+<p><img src="KS-Statystyka_opisowa_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
+<p>Ażeby móc zastosować model regresji musi występować związek korelacyjny pomiędzy zmiennymi oraz musi to być związek liniowy. Następnie na podstawie kryteriów merytorycznych określamy zmienną objaśnianą (<span class="math inline">\(y\)</span>) oraz zmienną objaśniającą (<span class="math inline">\(x\)</span>).</p>
+<p>Zależność wydatków od dochodów wydaje się oczywista - za <span class="math inline">\(y\)</span> przyjmiemy wydatki, a <span class="math inline">\(x\)</span> to będą dochody. Dobrą praktyką jest umieszczanie zmiennej objaśnianej na osi OY, a zmiennej objaśniającej na osi OX. Interesuje nas tworzenie modelu uproszającego rzeczywistość do poziomu wzoru na prostą, której ogólna postać jest następująca:</p>
+<p><span class="math display">\[y_i=a_1 \cdot x_i+a_0\]</span></p>
+<p>W przypadku tylko dwóch punktów wyznaczenie współczynników <span class="math inline">\(a_1\)</span> i <span class="math inline">\(a_0\)</span> nie stanowiłoby żadnego problemu. Natomiast dla podanego przykładu trzeba posłużyć się Klasyczną Metodą Najmniejszych Kwadratów (KMNK), w której minimalizujemy odległość punktów od dopasowywanej prostej.</p>
+<p>Spróbujmy teraz dopasować kilka prostych - mogą one przebiegać na wiele różnych sposobów.</p>
+<p><img src="KS-Statystyka_opisowa_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
+<p>W następnym kroku obliczamy różnice pomiędzy istniejącymi punktami, a odpowiadającym im wartościom na prostej:</p>
+<p><img src="KS-Statystyka_opisowa_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
+<p>Oznaczając <span class="math inline">\(y_i\)</span> jako rzeczywista wartość wydatków i <span class="math inline">\(\hat{y_i}\)</span> jako wartość leżącą na prostej zależy nam na minimalizowaniu wyrażenia <span class="math inline">\(\sum\limits_{i=1}^{n}{(y_{i}-\hat{y}_{i})^2} \rightarrow min\)</span>. Różnica <span class="math inline">\(y_{i}-\hat{y}_{i}\)</span> jest nazywana resztą (ang. residual). Wyznaczając te wartości dla analizowanych przez nas prostych otrzymamy następujące wyniki:</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">name</th>
+<th align="right">suma_kwadratow_reszt</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">czerwona</td>
+<td align="right">101430</td>
+</tr>
+<tr class="even">
+<td align="left">zielona</td>
+<td align="right">264300</td>
+</tr>
+<tr class="odd">
+<td align="left">niebieska</td>
+<td align="right">22462143</td>
+</tr>
+</tbody>
+</table>
+<p>Jak możemy zauważyć najmniejsza wartość sumy kwadratów reszt obserwowana jest dla linii w kolorze czerwonym. Interesuje nas teraz wzór tej prostej. Przyjmując wcześniejsze oznaczenia ogólna postać prostej regresji jest następująca:</p>
 <p><span class="math display">\[\hat{y}_{i}=a_{1}x_{i}+a_{0}\]</span></p>
 <p>gdzie <span class="math inline">\(y\)</span> z daszkiem (<span class="math inline">\(\hat{y}\)</span>) oznacza wartość teoretyczną, leżącą na wyznaczonej prostej.</p>
-<p>Wobec tego wartości empiryczne (y) będą opisane formułą:</p>
+<p>Wobec tego wartości empiryczne/rzeczywiste (y) będą opisane formułą:</p>
 <p><span class="math display">\[y_{i}=a_{1}x_{i}+a_{0}+u_{i}\]</span></p>
 <p>w której <span class="math inline">\(u_i\)</span> oznacza składnik resztowy wyliczany jako <span class="math inline">\(u_{i}=y_{i}-\hat{y}_{i}\)</span>.</p>
-<p>Musimy wyznaczyć współczynnik kierunkowy tej prostej (<span class="math inline">\(a_1\)</span>) oraz punkt przecięcia z osią OY (<span class="math inline">\(a_0\)</span>) określany mianem wyrazu wolnego.</p>
+<p>Model zależności wydatków od dochodu ma następującą postać:</p>
+<p><span class="math display">\[\hat{y_i}=1,357x_i-1421,429\]</span></p>
+<p>Po podstawieniu pierwszej wartości dochodu - 2400 zł do tego wzoru otrzymamy teoretyczną/modelową wartość wydatków:</p>
+<p><span class="math display">\[\hat{y_1}=1,357\cdot 2400 - 1421,429=1835,371\]</span></p>
+<p>Ta wartość leży na czerwonej prostej i różni się od rzeczywistej wartości wydatków uzyskanych przez tę osobę, która wynosi 1800 zł. Różnica pomiędzy wartością rzeczywistą a modelową nazywana jest resztą i wynosi w tym przypadku:</p>
+<p><span class="math display">\[u_1=1800-1835,371=-35,371\]</span></p>
+<p>Można zatem powiedzieć, że stworzony model nie różni się zbytnio od rzeczywistości w przypadku tej obserwacji. Na podstawie dwóch powyższych wartości możliwe jest wyznaczenie wartości rzeczywistej:</p>
+<p><span class="math display">\[y_1=1,357\cdot 2400 - 1421,429 - 35,371=1800\]</span></p>
+<p>Wiedząc już jaka intuicja przyświeca analizie regresji przejedziemy do analizy wybranego sklepu Rossmann i na tej podstawie wyznaczymy parametry modelu, a także je zinterpretujemy. Stworzony model zostanie też wykorzystany do predykcji.</p>
+<p>Na podstawie wartości sprzedaży oraz liczby klientów w danym sklepie Rossmann i chcielibyśmy wyznaczyć możliwy poziom sprzedaży przy danej liczbie klientów np. 1000 klientów.</p>
+<p>W analizowanym przez nas przypadku sklepu Rossmann zmienną objaśnianą będzie poziom sprzedaży (y), który będziemy wyjaśniać liczbą klientów (x). Naszym celem jest znalezienie wzoru prostej, która będzie przebiegać możliwie najbliżej wszystkich punktów wykresu. Musimy wyznaczyć współczynnik kierunkowy tej prostej (<span class="math inline">\(a_1\)</span>) oraz punkt przecięcia z osią OY (<span class="math inline">\(a_0\)</span>).</p>
 <p><img src="KS-Statystyka_opisowa_files/figure-html/ross-reg-1.png" width="768" /></p>
 <p>Wartości tych współczynników możemy policzyć z wykorzystaniem następujących wzorów:</p>
 <p><span class="math display">\[
@@ -174,11 +257,11 @@ a_{1}=\frac{\sum\limits_{i=1}^{n}{(x_{i}-\bar{x})(y_{i}-\bar{y})}}{\sum\limits_{
 <p><span class="math display">\[a_{0}=\bar{y}-a_{1}\bar{x}\]</span></p>
 <p>gdzie:</p>
 <ul>
-<li><span class="math inline">\(r\)</span> — współczynnik korelacji liniowej Pearsona pomiędzy cechą <span class="math inline">\(x\)</span> i <span class="math inline">\(y\)</span>,</li>
-<li><span class="math inline">\(S_y\)</span> — odchylenie standardowe dla cechy <span class="math inline">\(y\)</span>,</li>
-<li><span class="math inline">\(S_x\)</span> — odchylenie standardowe dla cechy <span class="math inline">\(x\)</span>,</li>
-<li><span class="math inline">\(\bar{y}\)</span> — średnia dla cechy <span class="math inline">\(y\)</span>,</li>
-<li><span class="math inline">\(\bar{x}\)</span> — średnia dla cechy <span class="math inline">\(x\)</span>.</li>
+<li><span class="math inline">\(r\)</span> - współczynnik korelacji liniowej Pearsona pomiędzy cechą <span class="math inline">\(x\)</span> i <span class="math inline">\(y\)</span>,</li>
+<li><span class="math inline">\(S_y\)</span> - odchylenie standardowe dla cechy <span class="math inline">\(y\)</span>,</li>
+<li><span class="math inline">\(S_x\)</span> - odchylenie standardowe dla cechy <span class="math inline">\(x\)</span>,</li>
+<li><span class="math inline">\(\bar{y}\)</span> - średnia dla cechy <span class="math inline">\(y\)</span>,</li>
+<li><span class="math inline">\(\bar{x}\)</span> - średnia dla cechy <span class="math inline">\(x\)</span>.</li>
 </ul>
 <p>Na tej podstawie ustalamy, że interesująca nas prosta ma następujący wzór:</p>
 <p><span class="math display">\[\hat{y}_i=10,45x_i-1091,22\]</span></p>
@@ -455,11 +538,13 @@ Suma kwadratów reszt wynosiła 70, a współczynnik korelacji liniowej Pearsona
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
 <script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
@@ -467,12 +552,11 @@ gitbook.start({
 "github": false,
 "facebook": true,
 "twitter": true,
-"google": false,
 "linkedin": false,
 "weibo": false,
 "instapaper": false,
 "vk": false,
-"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
 "theme": "white",
@@ -484,6 +568,10 @@ gitbook.start({
 "text": null
 },
 "history": {
+"link": null,
+"text": null
+},
+"view": {
 "link": null,
 "text": null
 },
