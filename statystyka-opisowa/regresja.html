@@ -268,11 +268,11 @@ a_{1}=\frac{\sum\limits_{i=1}^{n}{(x_{i}-\bar{x})(y_{i}-\bar{y})}}{\sum\limits_{
 <p>Współczynnik kierunkowy (<span class="math inline">\(a_1\)</span>) informuje o ile przeciętne zmieni się wartość zmiennej objaśnianej (y), gdy wartość zmiennej objaśniającej (x) wzrośnie o jednostkę. W naszym przypadku wzrost liczby klientów o 1 osobę spowoduje średni wzrost sprzedaży o 10,45 euro.</p>
 <p>Z kolei wyraz wolny (<span class="math inline">\(a_0\)</span>) to wartość zmiennej objaśnianej (y), w sytuacji w której wartość zmiennej objaśniającej (x) będzie równa 0. Należy zachować szczególną ostrożność przy interpretacji tego współczynnika, ponieważ często jest on pozbawiony sensu. W analizowanym przykładzie współczynnik <span class="math inline">\(a_0\)</span> informuje, że przy zerowej liczbie klientów sprzedaż w sklepie nr 1 wyniesie -1091,22 euro.</p>
 <p>Kolejnym elementem analizy regresji jest ocena dopasowania modelu. W tym celu posługujemy się kilkoma miarami.</p>
-<p>Pierwszą miarą, która opisuje dopasowanie funkcji regresji do danych empirycznych jest <strong>odchylenie standardowe składnika resztowego</strong>, które jest pierwiastkiem z sumy kwadratów reszt podzielonej przez liczbę obserwacji pomniejszoną o 2. To pomniejszenie mianownika wynika z faktu, że w modelu mamy dwa współczynniki <span class="math inline">\(a_1\)</span> i <span class="math inline">\(a_0\)</span>, które w ten sposób uwzględniamy. Formalnie można to zapisać w następujący sposób:</p>
+<p>Pierwszą miarą, która opisuje dopasowanie funkcji regresji do danych empirycznych jest <strong>odchylenie standardowe składnika resztowego</strong>, które jest pierwiastkiem z sumy kwadratów reszt podzielonej przez liczbę obserwacji pomniejszoną o 2. To pomniejszenie mianownika wynika z faktu, że w modelu wykorzystaliśmy 2 średnie do wyznaczenia współczynnika kierunkowego (średnia z cechy x i y). Formalnie można to zapisać w następujący sposób:</p>
 <p><span class="math display">\[S_{u}=\sqrt{\frac{\sum\limits_{i=1}^{n}{(y_{i}-\hat{y}_{i})^2}}{n-2}}\]</span></p>
 <p>lub</p>
 <p><span class="math display">\[S_{u}=\sqrt{\frac{\sum\limits_{i=1}^{n}{u_i^2}}{n-2}}\]</span></p>
-<p>Miara ta określa, o ile, przeciętnie biorąc (<span class="math inline">\(+/-\)</span>), wartości empiryczne zmiennej objaśnianej odchylają się od wartości teoretycznych tej zmiennej, obliczonej na podstawie funkcji regresji. W analizowanym przypadku możemy stwierdzić, że znane wartości sprzedaży odchylają się od wartości teoretycznych średnio o <span class="math inline">\(+/-\)</span> 351,57 euro.</p>
+<p>Miara ta określa, o ile, przeciętnie biorąc (<span class="math inline">\(+/-\)</span>), wartości empiryczne zmiennej objaśnianej odchylają się od wartości teoretycznych tej zmiennej, obliczonej na podstawie funkcji regresji. Mniejsze wartości są bardziej pożądane ponieważ wskazują, że obserwacje są bliżej wyznaczonej prostej regresji. W analizowanym przypadku możemy stwierdzić, że znane wartości sprzedaży odchylają się od wartości teoretycznych średnio o <span class="math inline">\(+/-\)</span> 351,57 euro.</p>
 <p>Odchylenie standardowe składnika resztowego jest także miarą błędu prognozy. Przykładowo, chcemy sprawdzić jak będzie kształtować się sprzedaż przy liczbie klientów równej 1000 osób. Po podstawieniu tej wartości do funkcji regresji otrzymamy:</p>
 <p><span class="math display">\[y_{1000}=10,45 \cdot 1000 - 1091,22=9358,78\]</span></p>
 <p>Na tej podstawie stwierdzamy, że przy 1000 klientów prognozowana sprzedaż wyniosłaby 9358,78 euro <span class="math inline">\(+/-\)</span> 351,57 euro.</p>
@@ -291,7 +291,7 @@ a_{1}=\frac{\sum\limits_{i=1}^{n}{(x_{i}-\bar{x})(y_{i}-\bar{y})}}{\sum\limits_{
 <p>bądź odejmując od wartości 1 wartość współczynnika <span class="math inline">\(R^2\)</span>:</p>
 <p><span class="math display">\[\varphi^2=1-R^2\]</span></p>
 <p>Współczynnik zbieżności <span class="math inline">\(\varphi^2\)</span> określa, jaka część wariancji badanej zmiennej objaśnianej nie została wyjaśniona przez funkcję regresji. Oczywiste jest więc, że korzystna sytuacja występuje wówczas, gdy <span class="math inline">\(\varphi^2\)</span> jest bliższy zera.</p>
-<p>W przyjętym przez nas modelu regresji <span class="math inline">\(\phi^2=11\%\)</span>, co oznacza, że 11% zmienności sprzedaży nie została wyjaśniona przez funkcję regresji. Można także powiedzieć, że 11% zmienności sprzedaży stanowią czynniki losowe nie wyjaśniane przez funkcję regresji.</p>
+<p>W przyjętym przez nas modelu regresji <span class="math inline">\(\varphi^2=11\%\)</span>, co oznacza, że 11% zmienności sprzedaży nie została wyjaśniona przez funkcję regresji. Można także powiedzieć, że 11% zmienności sprzedaży stanowią czynniki losowe nie wyjaśniane przez funkcję regresji.</p>
 <p>Ostatnim elementem analizy jest ocena jakości parametrów funkcji regresji <span class="math inline">\(a_1\)</span> i <span class="math inline">\(a_0\)</span>. Równanie regresji wyznaczyliśmy na podstawie dostępnych danych, ale nie znamy równania tej prostej w populacji. W związku z czym mogliśmy się trochę pomylić przy obliczaniu współczynników <span class="math inline">\(a_1\)</span> i <span class="math inline">\(a_0\)</span>. W celu oceny skali tych błędów wyznacza się <strong>błędy średnie szacunku ocen parametrów funkcji regresji</strong> według wzorów:</p>
 <p><span class="math display">\[S_{a_{1}}=\frac{S_{u}}{\sqrt{\sum\limits_{i=1}^{n}{(x_{i}-\bar{x})^2}}}\]</span></p>
 <p>oraz</p>
@@ -305,6 +305,10 @@ a_{1}=\frac{\sum\limits_{i=1}^{n}{(x_{i}-\bar{x})(y_{i}-\bar{y})}}{\sum\limits_{
 <p><strong>Regresja prosta w Excelu</strong></p>
 <ul>
 <li><strong>Sposób nr 1</strong></li>
+</ul>
+<p>Zaznaczamy punkty na wykresie rozrzutu i klikamy prawym przyciskiem myszy. Wybieramy <strong>Dodaj linię trendu</strong>, a następnie zaznaczamy opcje Wyświetl równanie na wykresie oraz Wyświetl wartości R-kwadrat na wykresie.</p>
+<ul>
+<li><strong>Sposób nr 2</strong></li>
 </ul>
 <p>Parametry funkcji regresji można także wyznaczyć korzystając z wbudowanej funkcji programu Excel — REGLINP. Składnia jest następująca:</p>
 <ul>
@@ -347,10 +351,6 @@ a_{1}=\frac{\sum\limits_{i=1}^{n}{(x_{i}-\bar{x})(y_{i}-\bar{y})}}{\sum\limits_{
 </tr>
 </tbody>
 </table>
-<ul>
-<li><strong>Sposób nr 2</strong></li>
-</ul>
-<p>Zaznaczamy punkty na wykresie rozrzutu i klikamy prawym przyciskiem myszy. Wybieramy <strong>Dodaj linię trendu</strong>, a następnie zaznaczamy opcje Wyświetl równanie na wykresie oraz Wyświetl wartości R-kwadrat na wykresie.</p>
 <ul>
 <li><strong>Sposób nr 3</strong></li>
 </ul>
@@ -473,7 +473,9 @@ a_{1}=\frac{\sum\limits_{i=1}^{n}{(x_{i}-\bar{x})(y_{i}-\bar{y})}}{\sum\limits_{
 <p>Sposób postępowania jest bardzo podobny do regresji prostej z tym, że zamiast wartości cechy <span class="math inline">\(x\)</span> mamy kolejne numery okresów <span class="math inline">\(t=1,2,3,..., n\)</span>. Wówczas równanie trendu ma następującą postać:</p>
 <p><span class="math display">\[\hat{y}_{i}=a_{1}t_{i}+a_{0}\]</span></p>
 <p>Po oszacowaniu parametrów <span class="math inline">\(a_1\)</span> i <span class="math inline">\(a_0\)</span> nieco inaczej je zinterpretujemy. Wartość parametru <span class="math inline">\(a_1\)</span> informuje o średniej zmianie cechy <span class="math inline">\(y\)</span> z okresu na okres, z kolei <span class="math inline">\(a_0\)</span> to wartość wynikająca z modelu dla okresu poprzedzającego analizę.</p>
-<p>Spróbujmy określić możliwą sprzedaż w styczniu 2015 roku dla sklepu nr 7. W tym zagregowaliśmy dane do postaci miesięcznej. Model regresji ma następującą postać:</p>
+<p>Spróbujmy określić możliwą sprzedaż w styczniu 2015 roku dla sklepu nr 7. W tym zagregowaliśmy dane do postaci miesięcznej.</p>
+<p><img src="KS-Statystyka_opisowa_files/figure-html/unnamed-chunk-15-1.png" width="672" /></p>
+<p>Model regresji ma następującą postać:</p>
 <p><span class="math display">\[\hat{y}_{i}=4850t_{i}+196592\]</span></p>
 <p>Wynika z niego, że z miesiąca na miesiąc sprzedaż rosła średnio o 4850 euro. Natomiast możliwa sprzedaż w grudniu 2013 roku wynosiła 196592 euro.</p>
 <p>Ocena jakości modelu przebiega analogicznie jak w przypadku regresji prostej. Inaczej wyznacza się błąd prognozy, co wynika z faktu, że im bardziej “oddalimy” się od okresu na podstawie którego oszacowaliśmy parametry trendu, tym błąd prognozy będzie większy.</p>
@@ -494,7 +496,9 @@ a_{1}=\frac{\sum\limits_{i=1}^{n}{(x_{i}-\bar{x})(y_{i}-\bar{y})}}{\sum\limits_{
 <p>Czyli prognozowana miesiączna sprzedaż w styczniu 2015 roku wyniesie 259 639 euro +/- 23 521 euro.</p>
 <p>Natomiast dla lutego wartość błędu prognozy będzie już większa:</p>
 <p><span class="math display">\[\hat{y}_{14}=4850\cdot14+196592=264489\]</span></p>
-<p><span class="math display">\[D(y_{14}^{P})=20031\sqrt{1+\frac{1}{12}+\frac{(14-6,5)^2}{143}}=24341\]</span></p>
+<p><span class="math display">\[D(y_{14}^{P})=20031\sqrt{1+\frac{1}{12}+\frac{(14-6,5)^2}{143}}=24341\]</span>
+Możemy zaobserwować, że błąd prognozy nie zmienia się w sposób liniowy:</p>
+<p><img src="KS-Statystyka_opisowa_files/figure-html/unnamed-chunk-16-1.png" width="672" /></p>
 <p><em>Zadania</em></p>
 <p>Ile wynosi prognozowana miesięczna sprzedaż (oraz błąd prognozy) w sklepie nr 5 w kwietniu 2015 roku.</p>
 <p><strong>Zadanie egzaminacyjne</strong></p>
